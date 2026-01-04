@@ -16,10 +16,10 @@ const dots = document.querySelectorAll('.dot');
 function showSlide(n) {
   if (n > slides.length) { slideIndex = 1; }
   if (n < 1) { slideIndex = slides.length; }
-  
+
   slides.forEach(slide => slide.classList.remove('active'));
   dots.forEach(dot => dot.classList.remove('active'));
-  
+
   if (slides[slideIndex - 1]) {
     slides[slideIndex - 1].classList.add('active');
   }
@@ -52,7 +52,7 @@ if (slides.length > 0) {
 function playVideo() {
   const video = document.getElementById('mainVideo');
   const placeholder = document.getElementById('videoPlaceholder');
-  
+
   if (video && placeholder) {
     placeholder.style.display = 'none';
     video.style.display = 'block';
@@ -78,6 +78,72 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log('Login attempted:', { email });
       alert('Login submitted (demo).');
     });
+  }
+});
+
+// =======================
+// PRICING TOGGLE
+// =======================
+document.addEventListener('DOMContentLoaded', function() {
+  const toggleSwitch = document.getElementById('billing-toggle');
+  const monthlyOpt = document.getElementById('monthly-opt');
+  const yearlyOpt = document.getElementById('yearly-opt');
+
+  // Elements to toggle
+  const yearlyPrices = document.querySelectorAll('.yearly-price');
+  const monthlyPrices = document.querySelectorAll('.monthly-price');
+
+  if (toggleSwitch) {
+    // Default state: Yearly (active)
+    let isYearly = true;
+
+    function updateView() {
+      if (isYearly) {
+        toggleSwitch.classList.remove('monthly-active');
+        toggleSwitch.classList.add('active'); // active means right side (yearly)
+        if (yearlyOpt) yearlyOpt.classList.add('active');
+        if (monthlyOpt) monthlyOpt.classList.remove('active');
+
+        yearlyPrices.forEach(el => el.style.display = 'block');
+        monthlyPrices.forEach(el => el.style.display = 'none');
+      } else {
+        toggleSwitch.classList.add('monthly-active');
+        toggleSwitch.classList.remove('active');
+        if (yearlyOpt) yearlyOpt.classList.remove('active');
+        if (monthlyOpt) monthlyOpt.classList.add('active');
+
+        yearlyPrices.forEach(el => el.style.display = 'none');
+        monthlyPrices.forEach(el => el.style.display = 'block');
+      }
+    }
+
+    // Toggle on click
+    toggleSwitch.addEventListener('click', function() {
+      isYearly = !isYearly;
+      updateView();
+    });
+
+    // Also toggle if clicking the labels
+    if (monthlyOpt) {
+      monthlyOpt.addEventListener('click', function() {
+        if (isYearly) {
+          isYearly = false;
+          updateView();
+        }
+      });
+    }
+
+    if (yearlyOpt) {
+      yearlyOpt.addEventListener('click', function() {
+        if (!isYearly) {
+          isYearly = true;
+          updateView();
+        }
+      });
+    }
+
+    // Initial call
+    updateView();
   }
 });
 
@@ -111,11 +177,11 @@ document.querySelectorAll('.btn').forEach(btn => {
 // =======================
 document.addEventListener('DOMContentLoaded', function() {
   const dropdowns = document.querySelectorAll('.dropdown');
-  
+
   dropdowns.forEach(dropdown => {
     const toggle = dropdown.querySelector('.dropdown-toggle');
     const menu = dropdown.querySelector('.dropdown-menu');
-    
+
     if (toggle && menu) {
       // Close dropdown when clicking outside
       document.addEventListener('click', function(event) {

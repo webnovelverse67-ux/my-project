@@ -612,99 +612,371 @@ nav a:hover {
 }
 
 /* =======================
-   PRICING PAGE
+   PRICING PAGE - UPDATED
 ======================= */
-.pricing { 
-  padding: 100px 2rem; 
-  background: linear-gradient(to bottom, #ffffff 0%, #f9fafb 100%);
+/* Pricing Hero */
+.pricing-hero {
+  padding: 60px 2rem 40px;
+  background: white;
+  text-align: center;
 }
 
-.pricing h1 { 
-  font-size: 3rem; 
-  text-align: center; 
-  margin-bottom: 1rem; 
-  font-weight: 800;
+.pricing-title {
+  font-size: 3.5rem;
+  font-weight: 700;
   color: #111827;
+  margin-bottom: 1rem;
   letter-spacing: -0.02em;
 }
 
-.pricing > .container > p { 
-  text-align: center; 
-  color: #6b7280; 
-  font-size: 1.2rem; 
-  margin-bottom: 4rem; 
+.highlight-text {
+  color: #0b3c6f; /* Assuming the dark blue from the logo */
+}
+
+.pricing-subtitle {
+  color: #4b5563;
+  font-size: 1.1rem;
   max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 3rem;
+  line-height: 1.5;
 }
 
-.pricing-grid { 
-  display: grid; 
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 2rem; 
-  max-width: 1100px; 
-  margin: 0 auto; 
+/* Toggle Switch */
+.pricing-toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 2rem;
 }
 
-.pricing-card { 
-  background: white; 
-  padding: 3rem 2.5rem; 
-  border-radius: 24px; 
-  box-shadow: 0 10px 40px rgba(0,0,0,.1); 
-  text-align: center; 
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 2px solid transparent;
+.toggle-option {
+  font-weight: 600;
+  color: #111827;
+  font-size: 1rem;
+  position: relative;
 }
 
-.pricing-card:hover { 
-  transform: translateY(-8px); 
-  box-shadow: 0 20px 60px rgba(0,0,0,.15); 
-  border-color: #4fc3ff;
-}
-
-.pricing-card h3 { 
-  font-size: 1.5rem; 
-  margin-bottom: 1rem; 
-  font-weight: 700;
+.toggle-option#monthly-opt {
   color: #111827;
 }
 
-.pricing-card .price { 
-  font-size: 2.5rem; 
-  font-weight: 800; 
-  color: #0b3c6f; 
-  margin-bottom: 1.5rem; 
+.toggle-option#yearly-opt {
+  color: #111827;
 }
 
-.pricing-card ul { 
-  list-style: none; 
-  text-align: left; 
-  margin: 2rem 0; 
-}
-
-.pricing-card ul li { 
-  padding: 0.75rem 0; 
-  color: #6b7280; 
-  border-bottom: 1px solid #f3f4f6; 
+.toggle-switch {
+  width: 56px;
+  height: 32px;
+  background: #0b3c6f;
+  border-radius: 999px;
   position: relative;
-  padding-left: 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.pricing-card ul li::before {
-  content: '✓';
+.toggle-switch.monthly-active {
+  background: #e5e7eb; /* Light gray when monthly is selected */
+}
+/* By default we assume yearly active as per screenshot or we handle via class */
+/* Actually screenshot shows "monthly" on left (white bg), "yearly" on right (dark bg).
+   Let's assume the switch background changes or just the knob moves.
+   Screenshot: "monthly" text, then toggle, then "yearly" text.
+   Wait, the screenshot 'image.png' has a pill shape with "monthly" and "yearly" inside it?
+   No, it looks like [monthly] [toggle] [yearly].
+   Let's look closer at 'image.png' description.
+   "Toggle: monthly / yearly (with "20% off" badge on yearly)."
+   The toggle in 'image.png' looks like a segmented control?
+   "monthly" (light bg) "yearly" (dark blue bg).
+   Actually it looks like a single pill with two sides.
+   Let's try to replicate a segmented control look if that fits better,
+   or a switch. The prompt mentioned "Toggle switch".
+   Let's stick to a switch but style the labels.
+*/
+
+.toggle-slider {
+  width: 26px;
+  height: 26px;
+  background: white;
+  border-radius: 50%;
   position: absolute;
-  left: 0;
-  color: #10b981;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s ease;
+}
+
+.toggle-switch.active .toggle-slider {
+  transform: translateX(24px);
+}
+
+.discount-badge {
+  background: #4fc3ff;
+  color: white;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 6px;
+  font-weight: 700;
+  vertical-align: middle;
+  position: absolute;
+  top: -12px;
+  right: -30px;
+}
+
+/* Pricing Grid Content */
+.pricing-content {
+  padding: 20px 2rem 100px;
+  background: white;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px; /* Slightly wider for 3 cards */
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.pricing-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  padding: 0; /* Reset padding to handle internal layout */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.pricing-card:hover {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  transform: translateY(-5px);
+  border-color: #d1d5db;
+}
+
+.pricing-card.popular {
+  border: 2px solid #0b3c6f;
+  box-shadow: 0 20px 60px rgba(11, 60, 111, 0.15);
+}
+
+.popular-badge {
+  background: #0b3c6f;
+  color: white;
+  text-align: center;
+  padding: 6px 0;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card-header {
+  padding: 2rem 2rem 1rem;
+}
+
+.pricing-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+.price-display, .main-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 0.5rem;
+  color: #111827;
+}
+
+.pricing-card.popular .main-price,
+.pricing-card.plus-card .main-price {
+    color: #0b3c6f;
+}
+
+.currency {
+  font-size: 1.5rem;
+  font-weight: 700;
+  vertical-align: top;
+}
+
+.amount {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.period {
+  font-size: 0.95rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.secondary-price {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.crossed {
+  text-decoration: line-through;
+  color: #9ca3af;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.discount-pill {
+  background: #4fc3ff;
+  color: white;
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  border-radius: 999px;
   font-weight: 700;
 }
 
-.pricing-card ul li:last-child { 
-  border-bottom: none; 
+.billing-text {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
 }
 
-.pricing-card .btn { 
-  width: 100%; 
-  margin-top: 1rem; 
+.booking-fee {
+  font-weight: 600;
+  color: #111827;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-description {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.feature-list {
+  padding: 1rem 2rem;
+  flex: 1; /* Pushes footer down */
+}
+
+.feature-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+  color: #374151;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.4;
+}
+
+.check-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #d1fae5; /* Light green bg */
+  color: #10b981; /* Green check */
+  font-size: 0.75rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.check-icon.check-blue {
+  background: #e0f2fe;
+  color: #0b3c6f;
+}
+
+.plus-separator {
+  font-size: 1.5rem;
+  color: #9ca3af;
+  text-align: center;
+  display: block;
+  margin: 1rem 0;
+  font-weight: 300;
+}
+
+.card-footer {
+  padding: 2rem;
+  margin-top: auto;
+}
+
+.card-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  border: 1px solid #d1d5db;
+  color: #111827;
+  background: white;
+}
+
+.card-btn:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.card-btn.primary-btn {
+  background: #0b3c6f;
+  color: white;
+  border: none;
+}
+
+.card-btn.primary-btn:hover {
+  background: #0a2d52;
+}
+
+.card-btn.light-green-btn {
+  background: #dcfce7; /* Light green/mint based on button usually looking friendly */
+  /* Wait, screenshot button for Plus looks light blue/greenish */
+  background: #e0f2fe;
+  color: #0b3c6f;
+  border: none;
+}
+.card-btn.light-green-btn:hover {
+  background: #bae6fd;
+}
+
+/* Footer overrides */
+.footer-logo-img {
+    filter: brightness(0) invert(1);
+    height: 40px;
+    width: auto;
+}
+
+.footer-branding {
+    margin-bottom: 2rem;
+}
+
+.footer-actions {
+    margin-bottom: 2rem;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-copyright-text {
+  text-align: center;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  margin-top: 4rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* =======================
