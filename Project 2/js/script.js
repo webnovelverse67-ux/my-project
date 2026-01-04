@@ -132,6 +132,72 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // =======================
+// DASHBOARD LOGIC
+// =======================
+document.addEventListener('DOMContentLoaded', function() {
+  const dashboardContainer = document.querySelector('.dashboard-container');
+  if (dashboardContainer) {
+    // 1. Sidebar Collapse
+    const collapseBtn = document.querySelector('.collapse-sidebar-btn');
+    const sidebar = document.querySelector('.dashboard-sidebar');
+    const main = document.querySelector('.dashboard-main');
+
+    if (collapseBtn) {
+      collapseBtn.addEventListener('click', function() {
+        // Simple toggle for now, could be more complex animation
+        if (sidebar.style.width === '0px' || sidebar.style.display === 'none') {
+          sidebar.style.display = 'flex';
+          sidebar.style.width = '260px';
+          main.style.marginLeft = '260px';
+          collapseBtn.innerHTML = '«';
+        } else {
+          sidebar.style.display = 'none'; // Or width 0
+          main.style.marginLeft = '0';
+          // Move button out? Usually persistent header needed.
+          // For simplicity in this demo, let's just assume it hides.
+        }
+      });
+    }
+
+    // 2. Accordion Logic
+    const steps = document.querySelectorAll('.setup-step');
+
+    steps.forEach(step => {
+      const header = step.querySelector('.step-header');
+      const toggleBtn = step.querySelector('.toggle-step-btn');
+
+      const toggleFn = (e) => {
+        // Close others (optional, typical accordion behavior)
+        // steps.forEach(s => {
+        //   if (s !== step) {
+        //     s.classList.remove('expanded');
+        //     s.querySelector('.step-content').classList.add('hidden');
+        //     s.querySelector('.toggle-step-btn').innerHTML = '⌄';
+        //   }
+        // });
+
+        // Toggle current
+        const content = step.querySelector('.step-content');
+        const isExpanded = step.classList.contains('expanded');
+
+        if (isExpanded) {
+          step.classList.remove('expanded');
+          content.classList.add('hidden');
+          if(toggleBtn) toggleBtn.innerHTML = '⌄';
+        } else {
+          step.classList.add('expanded');
+          content.classList.remove('hidden');
+          if(toggleBtn) toggleBtn.innerHTML = '^';
+        }
+      };
+
+      if (header) header.addEventListener('click', toggleFn);
+      // if (toggleBtn) toggleBtn.addEventListener('click', toggleFn); // Header click covers it
+    });
+  }
+});
+
+// =======================
 // LOGIN PRICING PAGE LOGIC
 // =======================
 document.addEventListener('DOMContentLoaded', function() {

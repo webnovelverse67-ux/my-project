@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookMe – Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="dashboard-body">
+
+  <div class="dashboard-container">
+    <!-- SIDEBAR -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="logo-text">
+          <img src="Images/bookme logo.png" alt="bookme.com" style="height:24px;" />
+        </a>
+        <button class="collapse-sidebar-btn">«</button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="#" class="active"><span class="icon">🏠</span> Home</a></li>
+          <li><a href="#"><span class="icon">📈</span> Earnings</a></li>
+          <li><a href="#"><span class="icon">📅</span> Bookings</a></li>
+          <li><a href="#"><span class="icon">🛎️</span> Services & Appts</a></li>
+          <li><a href="#"><span class="icon">🪪</span> Profile</a></li>
+          <li><a href="#"><span class="icon">🕒</span> Availability</a></li>
+          <li><a href="#"><span class="icon">👥</span> Contacts</a></li>
+          <li><a href="#"><span class="icon">💬</span> Messages</a></li>
+        </ul>
+
+        <div class="sidebar-divider"></div>
+
+        <ul>
+          <li><a href="#"><span class="icon">🏪</span> Marketplace</a></li>
+          <li><a href="#"><span class="icon">🔗</span> Share & Promote</a></li>
+          <li><a href="#"><span class="icon">⚙️</span> Settings</a></li>
+          <li><a href="#"><span class="icon">🎧</span> Support</a></li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="plan-info-box">
+          <div class="plan-icon-small">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div class="plan-text">
+            <strong>Free Trial</strong>
+            <span>Manage Your Plan ></span>
+          </div>
+        </div>
+        <button class="switch-booker-btn">⇄ Switch to Booker</button>
+
+        <div class="user-profile-mini">
+          <div class="user-avatar">G</div>
+          <div class="user-details">
+            <strong>Group Verse</strong>
+            <span>Service Provider</span>
+          </div>
+          <div class="user-chevron">></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="dashboard-main">
+      <div class="dashboard-content-wrapper">
+        <h1 class="welcome-title">Hey Group, your account is almost ready!</h1>
+
+        <div class="onboarding-header">
+          <span class="sub-title">Complete your setup</span>
+          <div class="onboarding-progress">
+            <a href="#" class="skip-link">Skip onboarding</a>
+            <div class="progress-bar-container">
+              <div class="progress-bar" style="width: 0%;"></div>
+            </div>
+            <span class="progress-text">0% Done</span>
+          </div>
+        </div>
+
+        <!-- ACCORDION -->
+        <div class="setup-accordion">
+
+          <!-- STEP 1 (Expanded) -->
+          <div class="setup-step expanded" id="step-1">
+            <div class="step-header">
+              <div class="step-indicator">1</div>
+              <div class="step-title-row">
+                <h3>Create your first Service or Appointment <span class="badge-time">3 MIN</span></h3>
+                <button class="toggle-step-btn">^</button>
+              </div>
+            </div>
+            <div class="step-content">
+              <p class="step-desc">Start building your first service or appointment. It's quick and easy.</p>
+
+              <div class="service-cards-row">
+                <!-- Card 1 -->
+                <div class="service-card">
+                  <div class="card-icon green">🌐</div>
+                  <h4>Online Service</h4>
+                  <p>Set your rate and availability for voice, video chat and more.</p>
+                  <button class="btn outline full-width">Select</button>
+                </div>
+                <!-- Card 2 -->
+                <div class="service-card">
+                  <div class="card-icon orange">👤</div>
+                  <h4>In-Person Service</h4>
+                  <p>Set locations, travel options, your rate, availability and more.</p>
+                  <button class="btn outline full-width">Select</button>
+                </div>
+                <!-- Card 3 -->
+                <div class="service-card">
+                  <div class="card-icon blue">📅</div>
+                  <h4>Free Appointment</h4>
+                  <p>Make it easy for people to book a meeting at times that work for you.</p>
+                  <button class="btn outline full-width">Select</button>
+                </div>
+              </div>
+
+              <button class="btn-skip-step">Skip</button>
+            </div>
+          </div>
+
+          <!-- STEP 2 (Collapsed) -->
+          <div class="setup-step" id="step-2">
+            <div class="step-header">
+              <div class="step-indicator">2</div>
+              <div class="step-title-row">
+                <h3>Complete your Profile <span class="badge-time">3 MIN</span></h3>
+                <button class="toggle-step-btn">⌄</button>
+              </div>
+            </div>
+            <div class="step-content hidden">
+              <!-- Content hidden -->
+              <p>Profile details form would go here.</p>
+            </div>
+          </div>
+
+          <!-- STEP 3 (Collapsed) -->
+          <div class="setup-step" id="step-3">
+            <div class="step-header">
+              <div class="step-indicator">3</div>
+              <div class="step-title-row">
+                <h3>Promote & start earning <span class="badge-time">3 MIN</span></h3>
+                <button class="toggle-step-btn">⌄</button>
+              </div>
+            </div>
+            <div class="step-content hidden">
+              <!-- Content hidden -->
+              <p>Promotion tools would go here.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- SUGGESTED SECTION -->
+        <div class="suggested-section">
+          <h3>Suggested for you</h3>
+          <div class="suggested-grid">
+            <div class="suggested-card">
+              <div class="sugg-icon blue-bg">📅</div>
+              <h4>Connect Your Calendars</h4>
+              <p>Connect your calendars with your Bookme calendar and never miss a booking due to scheduling conflicts.</p>
+              <button class="btn outline full-width">Connect</button>
+            </div>
+            <div class="suggested-card">
+              <div class="sugg-icon purple-bg">S</div>
+              <h4>Activate Payments with Stripe</h4>
+              <p>Connect you Stripe and start accepting payments instantly and securely with your own. Seamlessly get booked and get paid.</p>
+              <button class="btn outline full-width">Get Started</button>
+            </div>
+            <div class="suggested-card">
+              <div class="sugg-icon light-blue-bg">🏠</div>
+              <h4>List Your Services on Bookme Marketplace</h4>
+              <p>Get more bookings when you list your services on our Marketplace today. Reach new clients and grow your business.</p>
+              <button class="btn outline full-width">Get Listed</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
