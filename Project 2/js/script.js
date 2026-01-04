@@ -64,19 +64,53 @@ function playVideo() {
 // LOGIN FORM HANDLING
 // =======================
 document.addEventListener('DOMContentLoaded', function() {
-  const loginForm = document.getElementById('loginForm');
-  if (loginForm) {
-    loginForm.addEventListener('submit', function(e) {
+  // --- Dynamic View Switching ---
+  const btnEmailLogin = document.getElementById('btn-email-login');
+  const btnBack = document.getElementById('btn-back');
+  const viewInitial = document.getElementById('login-view-initial');
+  const viewEmail = document.getElementById('login-view-email');
+
+  if (btnEmailLogin && btnBack && viewInitial && viewEmail) {
+    btnEmailLogin.addEventListener('click', function() {
+      viewInitial.classList.add('hidden');
+      viewEmail.classList.remove('hidden');
+    });
+
+    btnBack.addEventListener('click', function() {
+      viewEmail.classList.add('hidden');
+      viewInitial.classList.remove('hidden');
+    });
+  }
+
+  // --- Login Submission ---
+  const emailForm = document.getElementById('email-login-form');
+  if (emailForm) {
+    emailForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value.trim();
-      if (!email || !password) {
-        alert('Please enter both email and password.');
+
+      const emailInput = document.getElementById('email-input');
+      const passwordInput = document.getElementById('password-input');
+
+      const email = emailInput.value.trim();
+      const password = passwordInput.value.trim();
+
+      // Validation
+      if (!email.includes('@')) {
+        alert('Please enter a valid email address.');
         return;
       }
-      // Placeholder: show success in console. Replace with real auth flow.
-      console.log('Login attempted:', { email });
-      alert('Login submitted (demo).');
+
+      if (password.length <= 8) {
+        alert('Password must be longer than 8 characters.');
+        return;
+      }
+
+      // Credential Check
+      if (email === 'group@gmail.com' && password === '123456789') {
+        alert('Login Successful');
+      } else {
+        alert('Invalid credentials');
+      }
     });
   }
 });
