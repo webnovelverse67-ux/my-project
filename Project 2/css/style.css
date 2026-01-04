@@ -2845,3 +2845,210 @@ img {
     justify-content: space-between;
   }
 }
+
+/* =======================
+   SERVICES & APPTS PAGE
+======================= */
+.services-header-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.white-outline-btn {
+  background: white;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.white-outline-btn:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.primary-blue-btn {
+  background: #0b3c6f;
+  border: 1px solid #0b3c6f;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.primary-blue-btn:hover {
+  background: #0a2d52;
+}
+
+.section-heading-lg {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+.services-creation-grid {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.services-list-column {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.support-column {
+  flex: 1;
+}
+
+.service-create-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+  transition: all 0.2s;
+}
+
+.service-create-card:hover {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border-color: #d1d5db;
+}
+
+.service-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.service-icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.service-icon-circle.green {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.service-icon-circle.orange {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.service-icon-circle.blue {
+  background: #e0f2fe;
+  color: #0b3c6f;
+}
+
+.service-create-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.service-create-card p {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  padding-left: 64px; /* Align with text, skipping icon width+gap */
+}
+
+/* On mobile, remove indentation */
+@media (max-width: 600px) {
+  .service-create-card p {
+    padding-left: 0;
+  }
+}
+
+.btn.full-width-outline {
+  width: 100%;
+  background: white;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  padding: 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: block;
+  text-align: center;
+}
+
+.btn.full-width-outline:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+  color: #111827;
+}
+
+.support-widget-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+}
+
+.support-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  justify-content: center; /* Center since layout is vertical card */
+  flex-direction: column;
+}
+
+.support-avatar img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.support-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.support-widget-card p {
+  font-size: 0.95rem;
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 900px) {
+  .services-creation-grid {
+    flex-direction: column;
+  }
+  .services-list-column {
+    width: 100%;
+  }
+  .support-column {
+    width: 100%;
+  }
+  .support-header {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}

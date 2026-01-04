@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BookMe – Dashboard</title>
+  <title>BookMe – Services & Appts</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -23,21 +23,20 @@
 
       <nav class="sidebar-nav">
         <ul>
+          <li><a href="dashboard.html"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span> <span class="nav-text">Home</span></a></li>
+          <li><a href="earning.html"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg></span> <span class="nav-text">Earnings</span></a></li>
           <li>
-            <a href="#" class="active">
+            <a href="bookings.html">
               <span class="nav-item-left">
                 <span class="icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                 </span>
-                <span class="nav-text">Home</span>
-              </span>
-              <span class="chevron-right">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                <span class="nav-text">Bookings</span>
               </span>
             </a>
           </li>
           <li>
-            <a href="services.html">
+            <a href="services.html" class="active">
               <span class="nav-item-left">
                 <span class="icon">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
@@ -49,7 +48,6 @@
               </span>
             </a>
           </li>
-          <li><a href="bookings.html"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></span> <span class="nav-text">Bookings</span></a></li>
           <li><a href="#"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span> <span class="nav-text">Profile</span></a></li>
           <li><a href="#"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span> <span class="nav-text">Availability</span></a></li>
           <li><a href="#"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span> <span class="nav-text">Contacts</span></a></li>
@@ -92,117 +90,86 @@
     <!-- MAIN CONTENT -->
     <main class="dashboard-main">
       <div class="dashboard-content-wrapper">
-        <h1 class="welcome-title">Hey Group, your account is almost ready!</h1>
 
-        <div class="onboarding-header">
-          <span class="sub-title">Complete your setup</span>
-          <div class="onboarding-progress">
-            <a href="#" class="skip-link">Skip onboarding</a>
-            <div class="progress-bar-container">
-              <div class="progress-bar" style="width: 0%;"></div>
-            </div>
-            <span class="progress-text">0% Done</span>
+        <div class="earnings-header-row">
+          <div class="earnings-title-group">
+            <h1 class="earnings-title">Manage Services & Appointments</h1>
+            <p class="earnings-subtitle">Create and manage your services and appointments here.</p>
+          </div>
+          <div class="services-header-actions">
+            <button class="btn white-outline-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              Manage Profile
+            </button>
+            <button class="btn primary-blue-btn">
+               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+               Share & Promote
+            </button>
           </div>
         </div>
 
-        <!-- ACCORDION -->
-        <div class="setup-accordion">
+        <h2 class="section-heading-lg">What would you like to create?</h2>
 
-          <!-- STEP 1 (Expanded) -->
-          <div class="setup-step expanded" id="step-1">
-            <div class="step-header">
-              <div class="step-indicator">1</div>
-              <div class="step-title-row">
-                <h3>Create your first Service or Appointment <span class="badge-time">3 MIN</span></h3>
-                <button class="toggle-step-btn">^</button>
-              </div>
-            </div>
-            <div class="step-content">
-              <p class="step-desc">Start building your first service or appointment. It's quick and easy.</p>
+        <div class="services-creation-grid">
 
-              <div class="service-cards-row">
-                <!-- Card 1 -->
-                <div class="service-card">
-                  <div class="card-icon green">🌐</div>
-                  <h4>Online Service</h4>
-                  <p>Set your rate and availability for voice, video chat and more.</p>
-                  <button class="btn outline full-width">Select</button>
+          <div class="services-list-column">
+
+            <!-- Online Service -->
+            <div class="service-create-card">
+              <div class="service-card-header">
+                <div class="service-icon-circle green">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                 </div>
-                <!-- Card 2 -->
-                <div class="service-card">
-                  <div class="card-icon orange">👤</div>
-                  <h4>In-Person Service</h4>
-                  <p>Set locations, travel options, your rate, availability and more.</p>
-                  <button class="btn outline full-width">Select</button>
+                <h3>Online Service</h3>
+              </div>
+              <p>Set your rate and availability for voice, video chat and more.</p>
+              <button class="btn full-width-outline">Select</button>
+            </div>
+
+            <!-- In-Person Service -->
+            <div class="service-create-card">
+              <div class="service-card-header">
+                <div class="service-icon-circle orange">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                 </div>
-                <!-- Card 3 -->
-                <div class="service-card">
-                  <div class="card-icon blue">📅</div>
-                  <h4>Free Appointment</h4>
-                  <p>Make it easy for people to book a meeting at times that work for you.</p>
-                  <button class="btn outline full-width">Select</button>
+                <h3>In-Person Service</h3>
+              </div>
+              <p>Set locations, travel options, your rate, availability and more.</p>
+              <button class="btn full-width-outline">Select</button>
+            </div>
+
+            <!-- Free Appointment -->
+            <div class="service-create-card">
+              <div class="service-card-header">
+                <div class="service-icon-circle blue">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                 </div>
+                <h3>Free Appointment</h3>
               </div>
-
-              <button class="btn-skip-step">Skip</button>
+              <p>Make it easy for people to book a free appointment or consultation.</p>
+              <!-- Assuming Select button exists for consistency, though prompt cut off -->
+              <!-- <button class="btn full-width-outline">Select</button> -->
+              <!-- Commenting out button if not explicitly requested, but visual balance suggests it. I'll leave it out to strictly follow text if needed, but I'll add a placeholder or nothing. Let's assume no button for now as it wasn't in the provided text snippets fully. -->
             </div>
+
           </div>
 
-          <!-- STEP 2 (Collapsed) -->
-          <div class="setup-step" id="step-2">
-            <div class="step-header">
-              <div class="step-indicator">2</div>
-              <div class="step-title-row">
-                <h3>Complete your Profile <span class="badge-time">3 MIN</span></h3>
-                <button class="toggle-step-btn">⌄</button>
-              </div>
-            </div>
-            <div class="step-content hidden">
-              <!-- Content hidden -->
-              <p>Profile details form would go here.</p>
-            </div>
+          <div class="support-column">
+             <div class="support-widget-card">
+                <div class="support-header">
+                  <!-- Using a generic avatar/icon for 'Need Help' -->
+                  <div class="support-avatar">
+                    <div style="width:64px; height:64px; background:#f3f4f6; border-radius:50%; display:flex; align-items:center; justify-content:center;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                  </div>
+                  <h3>Need Help?</h3>
+                </div>
+                <p>Get support from one of our experts.</p>
+                <button class="btn full-width-outline">Chat with an Expert</button>
+             </div>
           </div>
 
-          <!-- STEP 3 (Collapsed) -->
-          <div class="setup-step" id="step-3">
-            <div class="step-header">
-              <div class="step-indicator">3</div>
-              <div class="step-title-row">
-                <h3>Promote & start earning <span class="badge-time">3 MIN</span></h3>
-                <button class="toggle-step-btn">⌄</button>
-              </div>
-            </div>
-            <div class="step-content hidden">
-              <!-- Content hidden -->
-              <p>Promotion tools would go here.</p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- SUGGESTED SECTION -->
-        <div class="suggested-section">
-          <h3>Suggested for you</h3>
-          <div class="suggested-grid">
-            <div class="suggested-card">
-              <div class="sugg-icon blue-bg">📅</div>
-              <h4>Connect Your Calendars</h4>
-              <p>Connect your calendars with your Bookme calendar and never miss a booking due to scheduling conflicts.</p>
-              <button class="btn outline full-width">Connect</button>
-            </div>
-            <div class="suggested-card">
-              <div class="sugg-icon purple-bg">S</div>
-              <h4>Activate Payments with Stripe</h4>
-              <p>Connect you Stripe and start accepting payments instantly and securely with your own. Seamlessly get booked and get paid.</p>
-              <button class="btn outline full-width">Get Started</button>
-            </div>
-            <div class="suggested-card">
-              <div class="sugg-icon light-blue-bg">🏠</div>
-              <h4>List Your Services on Bookme Marketplace</h4>
-              <p>Get more bookings when you list your services on our Marketplace today. Reach new clients and grow your business.</p>
-              <button class="btn outline full-width">Get Listed</button>
-            </div>
-          </div>
         </div>
 
       </div>
