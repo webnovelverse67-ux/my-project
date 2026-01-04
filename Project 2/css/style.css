@@ -638,6 +638,22 @@ nav a:hover {
   box-shadow: 0 0 0 3px rgba(11, 60, 111, 0.1);
 }
 
+.password-toggle-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-toggle-icon:hover {
+  color: #111827;
+}
+
 .login-form button { 
   width: 100%; 
   margin-top: 0.5rem; 

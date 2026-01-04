@@ -82,6 +82,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // --- Password Toggle ---
+  const togglePassword = document.getElementById('toggle-password');
+  const passwordInput = document.getElementById('password-input');
+
+  if (togglePassword && passwordInput) {
+    togglePassword.addEventListener('click', function() {
+      // Toggle the type attribute
+      const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      passwordInput.setAttribute('type', type);
+
+      // Optional: Toggle icon style or icon itself if needed
+      // For now, the SVG is generic eye, usually you'd swap to eye-off
+    });
+  }
+
   // --- Login Submission ---
   const emailForm = document.getElementById('email-login-form');
   if (emailForm) {
