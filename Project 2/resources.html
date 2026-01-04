@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookMe – Resources Blog</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="header">
+    <div class="navbar blog-navbar">
+      <div class="logo blog-logo">
+        <a href="index.html"><img src="Images/bookme logo.png" alt="BookMe Logo" class="logo-img" /></a>
+        <span class="blog-text">Blog</span>
+      </div>
+      <nav id="navMenu">
+        <ul>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Industries <span class="dropdown-arrow">▼</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#" target="_blank">Beauty & Personal Care</a></li>
+              <li><a href="#" target="_blank">Education & Tutoring</a></li>
+              <li><a href="#" target="_blank">Fitness & Sports</a></li>
+              <li><a href="#" target="_blank">Coaching</a></li>
+            </ul>
+          </li>
+          <li><a href="#" class="search-icon">🔍</a></li>
+          <li><a href="login.html" target="_blank" class="btn primary">Get Started</a></li>
+        </ul>
+      </nav>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </div>
+  </header>
+
+  <!-- RESOURCES BLOG SECTION -->
+  <section class="resources-blog">
+    <div class="container">
+      <h1 class="blog-heading">Featured Articles</h1>
+      
+      <div class="blog-articles">
+        <!-- Article 1 -->
+        <article class="blog-card">
+          <div class="blog-card-image">
+            <img src="Images/resources pic 1.png" alt="Tutoring Article" class="blog-img" />
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-title">How Tutors Can Build a Steady Student Stream</h2>
+            <p class="blog-description">Steady student growth tips for tutors online & In-person</p>
+            <div class="blog-meta">
+              <div class="blog-author">
+                <span class="blog-logo-small">b</span>
+                <span>AVA</span>
+                <span class="blog-date">DEC 13, 2025</span>
+              </div>
+              <span class="blog-tag education">EDUCATION & TUTORING</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="blog-card">
+          <div class="blog-card-image">
+            <img src="Images/resources pic 2.png" alt="Beauty Article" class="blog-img" />
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-title">Beauty Pros Turn Followers Into Clients on Bookme</h2>
+            <p class="blog-description">Look like a Pro instantly, build trust and grow your beauty business</p>
+            <div class="blog-meta">
+              <div class="blog-author">
+                <span class="blog-logo-small">b</span>
+                <span>AVA</span>
+                <span class="blog-date">NOV 28, 2025</span>
+              </div>
+              <span class="blog-tag beauty">BEAUTY & PERSONAL CARE</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="blog-card">
+          <div class="blog-card-image">
+            <img src="Images/resources pic 3.png" alt="Fitness Article" class="blog-img" />
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-title">How Fitness Coaches Create Premium 1:1 Programs</h2>
+            <p class="blog-description">Guide to premium online and in-person fitness coaching</p>
+            <div class="blog-meta">
+              <div class="blog-author">
+                <span class="blog-logo-small">b</span>
+                <span>AVA</span>
+                <span class="blog-date">NOV 19, 2025</span>
+              </div>
+              <span class="blog-tag fitness">FITNESS & SPORTS COACHING</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <div class="footer-links">
+            <div class="footer-column">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="mission.html" target="_blank">Mission</a></li>
+                <li><a href="pricing.html" target="_blank">Pricing</a></li>
+                <li><a href="help.html" target="_blank">Bookme Support</a></li>
+                <li><a href="resources.html" target="_blank">Bookme Experts</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h4>Legal</h4>
+              <ul>
+                <li><a href="#" target="_blank">Terms & Conditions</a></li>
+                <li><a href="#" target="_blank">Privacy Policy</a></li>
+                <li><a href="#" target="_blank">Cookie Policy</a></li>
+                <li><a href="#" target="_blank">DMCA Policy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-right">
+          <div class="footer-logo-section">
+            <img src="Images/bookme logo.png" alt="BookMe Logo" class="footer-logo" />
+            <div class="footer-buttons">
+              <a href="login.html" target="_blank" class="btn primary">Login</a>
+              <a href="login.html" target="_blank" class="btn light">Start free</a>
+            </div>
+            <div class="footer-social">
+              <a href="#" target="_blank" class="social-icon"><img src="footer icons/facebook.png" alt="Facebook" /></a>
+              <a href="#" target="_blank" class="social-icon"><img src="footer icons/google.png" alt="Google" /></a>
+              <a href="#" target="_blank" class="social-icon"><img src="footer icons/linkedin.png" alt="LinkedIn" /></a>
+              <a href="#" target="_blank" class="social-icon"><img src="footer icons/whatsapp.png" alt="WhatsApp" /></a>
+              <a href="#" target="_blank" class="social-icon"><img src="footer icons/youtube.png" alt="YouTube" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-url-bar">
+        <div class="footer-url-input">
+          <span class="footer-url-icon">b</span>
+          <input type="text" placeholder="bookme.com/yourname" readonly />
+        </div>
+        <a href="login.html" target="_blank" class="btn primary">Start free</a>
+      </div>
+      <p class="footer-copyright">© 2025 Bookme.com, Inc. All rights reserved</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>

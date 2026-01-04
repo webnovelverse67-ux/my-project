@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookMe – All‑in‑One Booking Platform</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="header">
+    <div class="navbar">
+      <div class="logo">
+        <a href="index.html"><img src="Images/bookme logo.png" alt="BookMe Logo" class="logo-img" /></a>
+      </div>
+      <nav id="navMenu">
+        <ul>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="help.html">Help Center</a></li>
+          <li><a href="mission.html">Mission</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="login.html" class="btn light">Login</a></li>
+          <li><a href="login.html" class="btn primary">Start free</a></li>
+        </ul>
+      </nav>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION WITH DASHBOARD CAROUSEL -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>
+          the all‑in‑one booking<br />
+          & marketing platform for<br />
+          <span class="highlight">creators, freelancers,</span><br />
+          & <span class="underline">entrepreneurs</span>
+        </h1>
+        <p>
+          Streamline your online presence and handle all your bookings in one convenient location.
+        </p>
+      </div>
+      <div class="hero-visual">
+        <div class="dashboard-carousel">
+          <div class="dashboard-slide active">
+            <img src="Images/dashboard image 1.png" alt="Dashboard 1" class="dashboard-img" />
+          </div>
+          <div class="dashboard-slide">
+            <img src="Images/dashboard image 2.png" alt="Dashboard 2" class="dashboard-img" />
+          </div>
+          <div class="carousel-dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA URL BAR -->
+  <section class="url-bar-section">
+    <div class="container">
+      <div class="url-bar">
+        <span class="url-icon">🔗</span>
+        <span class="url-text">bookme.com/yourname</span>
+        <a href="login.html" class="btn primary">Start free</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEE HOW IT WORKS - VIDEO SECTION -->
+  <section class="how-it-works">
+    <div class="container">
+      <h2>see how it <span class="highlight">works</span></h2>
+      <div class="video-wrapper">
+        <div class="video-container">
+          <video id="mainVideo" class="main-video" controls style="display: none;">
+            <source src="Video/home page main video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-placeholder" id="videoPlaceholder">
+            <div class="play-button" onclick="playVideo()">
+              <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="40" r="40" fill="rgba(255,255,255,0.2)" />
+                <path d="M32 24L32 56L56 40L32 24Z" fill="white" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION WITH ACTUAL CARD IMAGES -->
+  <section class="features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card dark">
+          <h3>personalized profile<br />& link‑in‑bio</h3>
+          <div class="feature-visual">
+            <img src="Images/card 1 pic.png" alt="Personalized Profile" class="feature-img" />
+          </div>
+        </div>
+
+        <div class="feature-card blue">
+          <h3>appointment<br />& booking tool</h3>
+          <div class="feature-visual">
+            <img src="Images/card 2 pic.png" alt="Booking Tool" class="feature-img" />
+          </div>
+        </div>
+
+        <div class="feature-card sky">
+          <h3>integrated payment<br />solution</h3>
+          <div class="feature-visual">
+            <img src="Images/card 3 pic.png" alt="Payment Solution" class="feature-img" />
+          </div>
+        </div>
+
+        <div class="feature-card light">
+          <h3>built‑in video chat<br />& messenger</h3>
+          <div class="feature-visual">
+            <img src="Images/card 4 pic.png" alt="Video Chat" class="feature-img" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEE PRICING BUTTON SECTION -->
+  <section class="pricing-cta">
+    <div class="container">
+      <a href="pricing.html" class="btn pricing-btn">See pricing</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <div class="footer-links">
+            <div class="footer-column">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="mission.html">Mission</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="help.html">Bookme Support</a></li>
+                <li><a href="resources.html">Bookme Experts</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h4>Legal</h4>
+              <ul>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+                <li><a href="#">DMCA Policy</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-right">
+          <div class="footer-logo-section">
+            <img src="Images/bookme logo.png" alt="BookMe Logo" class="footer-logo" />
+            <div class="footer-buttons">
+              <a href="login.html" class="btn primary">Login</a>
+              <a href="login.html" class="btn light">Start free</a>
+            </div>
+            <div class="footer-social">
+              <a href="#" class="social-icon"><img src="footer icons/facebook.png" alt="Facebook" /></a>
+              <a href="#" class="social-icon"><img src="footer icons/google.png" alt="Google" /></a>
+              <a href="#" class="social-icon"><img src="footer icons/linkedin.png" alt="LinkedIn" /></a>
+              <a href="#" class="social-icon"><img src="footer icons/whatsapp.png" alt="WhatsApp" /></a>
+              <a href="#" class="social-icon"><img src="footer icons/youtube.png" alt="YouTube" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-url-bar">
+        <div class="footer-url-input">
+          <span class="footer-url-icon">b</span>
+          <input type="text" placeholder="bookme.com/yourname" readonly />
+        </div>
+        <a href="login.html" class="btn primary">Start free</a>
+      </div>
+      <p class="footer-copyright">© 2025 Bookme.com, Inc. All rights reserved</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>

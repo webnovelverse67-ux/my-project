@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookMe – Login</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="header">
+    <div class="navbar">
+      <div class="logo"><a href="index.html"><img src="Images/bookme logo.png" alt="BookMe Logo" class="logo-img" /></a></div>
+      <nav id="navMenu">
+        <ul>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="help.html">Help Center</a></li>
+          <li><a href="mission.html">Mission</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="login.html" class="btn primary">Start Free</a></li>
+        </ul>
+      </nav>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </div>
+  </header>
+
+  <!-- LOGIN SECTION -->
+  <section class="login-page">
+    <div class="container login-split">
+      <div class="signin">
+        <a href="index.html" class="brand">
+          <img src="Images/bookme logo.png" alt="bookme.com" style="height:28px;" />
+        </a>
+        <h1>Welcome Back!</h1>
+        <p class="muted">Log in to your account using one of the methods</p>
+
+        <div class="social-login vertical">
+          <button class="btn light google">Continue with Google</button>
+          <button class="btn light facebook">Continue with Facebook</button>
+          <button class="btn light email">Continue with Email</button>
+        </div>
+
+        <div class="spacer" style="height:18px"></div>
+
+        <p style="text-align:center;color:#6b7280;margin-top:18px;">Don't have an account? <a href="index.html" class="primary-link">Sign Up</a></p>
+        <p style="text-align:center;margin-top:8px;"><a href="#" class="forgot">Forgot password?</a></p>
+      </div>
+
+      <div class="gallery">
+        <div class="card"><img src="Images/card 1 pic.png" alt="card 1"/><span>Photographer &amp; Videographer</span></div>
+        <div class="card"><img src="Images/card 2 pic.png" alt="card 2"/><span>Digital Freelancer</span></div>
+        <div class="card"><img src="Images/card 3 pic.png" alt="card 3"/><span>Fitness Trainer</span></div>
+        <div class="card"><img src="Images/card 4 pic.png" alt="card 4"/><span>Nutritionist</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="mission.html">Mission</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="resources.html">Resources</a></li>
+          </ul>
+        </div>
+      </div>
+      <p>© 2025 BookMe. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>
