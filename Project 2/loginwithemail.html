@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookMe – Login with Email</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="navbar">
+      <div class="logo"><a href="index.html"><img src="Images/bookme logo.png" alt="BookMe Logo" class="logo-img" /></a></div>
+      <nav id="navMenu">
+        <ul>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="help.html">Help Center</a></li>
+          <li><a href="mission.html">Mission</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="login.html" class="btn primary">Start Free</a></li>
+        </ul>
+      </nav>
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </div>
+  </header>
+
+  <section class="login-page">
+    <div class="container login-container">
+      <h1>Login with Email</h1>
+      <form class="login-form">
+        <div>
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="you@example.com" required />
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="••••••••" required />
+        </div>
+        <button type="submit" class="btn primary large">Log In</button>
+      </form>
+      <div class="signup-text">
+        <p>Don't have an account? <a href="index.html">Sign Up</a></p>
+        <p><a href="login.html">Back to options</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p style="text-align:center;color:rgba(255,255,255,0.7)">© 2025 BookMe. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+</html>

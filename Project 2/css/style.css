@@ -170,10 +170,36 @@ nav a:hover {
 .forgot { color:#6b7280; text-decoration:underline; }
 
 .gallery { 
-  display:grid; 
-  grid-template-columns: repeat(2, 1fr); 
-  gap: 18px; 
+  display: flex;
+  gap: 24px;
+  overflow: hidden;
+  max-height: 80vh; /* Constrain height to viewport */
+  position: relative;
 }
+.gallery-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: scrollUp 40s linear infinite;
+}
+/* Offset the second column slightly */
+.gallery-column.col-right {
+  animation-name: scrollDown;
+  animation-duration: 45s;
+  margin-top: -100px; /* Start slightly offset */
+}
+
+@keyframes scrollUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
 .gallery .card { 
   background: #fff; 
   border-radius: 14px; 
@@ -181,19 +207,37 @@ nav a:hover {
   box-shadow: 0 10px 30px rgba(2,6,23,0.06); 
   position: relative; 
   min-height: 140px;
+  display: block;
+  width: 100%;
+  /* No margin-bottom needed because of flex gap */
 }
-.gallery .card img { width:100%; height:100%; object-fit:cover; display:block; }
-.gallery .card span { position:absolute; left:12px; bottom:12px; color:white; font-weight:600; text-shadow: 0 6px 14px rgba(0,0,0,0.4);} 
+.gallery .card.promo {
+  background: linear-gradient(135deg, #0b3c6f 0%, #4fc3ff 100%);
+  color: white;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 180px;
+}
+.gallery .card.promo p {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.gallery .card img { width:100%; height:auto; display:block; }
+.gallery .card span { position:absolute; left:16px; bottom:16px; color:white; font-weight:700; font-size:1.1rem; text-shadow: 0 4px 12px rgba(0,0,0,0.5);}
 
 /* small screens: stack */
 @media (max-width: 900px) {
   .login-split { grid-template-columns: 1fr; }
-  .gallery { grid-template-columns: repeat(2, 1fr); }
+  .gallery { column-count: 2; }
   .login-page .navbar nav { display: none; }
 }
 
 @media (max-width: 480px) {
-  .gallery { grid-template-columns: 1fr; }
+  .gallery { column-count: 1; }
   .signin { padding: 24px; }
 }
 
