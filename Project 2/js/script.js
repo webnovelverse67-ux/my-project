@@ -144,17 +144,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (collapseBtn) {
       collapseBtn.addEventListener('click', function() {
-        // Simple toggle for now, could be more complex animation
-        if (sidebar.style.width === '0px' || sidebar.style.display === 'none') {
-          sidebar.style.display = 'flex';
-          sidebar.style.width = '260px';
-          main.style.marginLeft = '260px';
-          collapseBtn.innerHTML = '«';
+        sidebar.classList.toggle('collapsed');
+        main.classList.toggle('sidebar-collapsed');
+
+        if (sidebar.classList.contains('collapsed')) {
+          collapseBtn.innerHTML = '»';
         } else {
-          sidebar.style.display = 'none'; // Or width 0
-          main.style.marginLeft = '0';
-          // Move button out? Usually persistent header needed.
-          // For simplicity in this demo, let's just assume it hides.
+          collapseBtn.innerHTML = '«';
         }
       });
     }

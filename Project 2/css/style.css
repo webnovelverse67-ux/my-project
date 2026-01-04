@@ -993,12 +993,23 @@ img {
   bottom: 0;
   overflow-y: auto;
   z-index: 10;
+  transition: width 0.3s ease;
+}
+
+.dashboard-sidebar.collapsed {
+  width: 80px;
+  padding: 1.5rem 0.5rem;
 }
 
 .dashboard-main {
   flex: 1;
   margin-left: 260px; /* offset for fixed sidebar */
   padding: 2rem;
+  transition: margin-left 0.3s ease;
+}
+
+.dashboard-main.sidebar-collapsed {
+  margin-left: 80px;
 }
 
 .sidebar-header {
@@ -1010,8 +1021,8 @@ img {
 }
 
 .collapse-sidebar-btn {
-  background: #f3f4f6;
-  border: none;
+  background: #fff;
+  border: 1px solid #e5e7eb;
   border-radius: 4px;
   cursor: pointer;
   width: 24px;
@@ -1020,6 +1031,57 @@ img {
   color: #6b7280;
   display: flex;
   align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.dashboard-sidebar.collapsed .collapse-sidebar-btn {
+  /* optional positioning tweaks if needed, but flex header handles it? */
+}
+
+.dashboard-sidebar.collapsed .logo-text {
+  /* Assuming the logo image itself handles width, but we can crop or hide */
+  /* For now, let's just let it shrink or we can hide it and show icon */
+  overflow: hidden;
+  width: 32px; /* show only icon part if image allows, or scale */
+}
+
+.dashboard-sidebar.collapsed .logo-text img {
+  object-fit: cover;
+  object-position: left; /* Keep left part (icon) visible */
+  width: 32px;
+}
+
+.dashboard-sidebar.collapsed .nav-text,
+.dashboard-sidebar.collapsed .chevron-right,
+.dashboard-sidebar.collapsed .plan-text,
+.dashboard-sidebar.collapsed .switch-booker-btn,
+.dashboard-sidebar.collapsed .user-details,
+.dashboard-sidebar.collapsed .user-chevron {
+  display: none;
+}
+
+.dashboard-sidebar.collapsed .sidebar-nav a {
+  justify-content: center;
+  padding: 10px;
+}
+
+.dashboard-sidebar.collapsed .nav-item-left {
+  gap: 0;
+  justify-content: center;
+}
+
+.dashboard-sidebar.collapsed .icon {
+  margin: 0;
+}
+
+.dashboard-sidebar.collapsed .plan-info-box {
+  justify-content: center;
+  padding: 12px 0;
+  border: none;
+}
+
+.dashboard-sidebar.collapsed .user-profile-mini {
   justify-content: center;
 }
 
