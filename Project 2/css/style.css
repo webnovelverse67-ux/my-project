@@ -3052,3 +3052,39 @@ img {
     justify-content: flex-start;
   }
 }
+
+/* =======================
+   AVAILABILITY PAGE
+======================= */
+.availability-card-container {
+  max-width: 100%;
+}
+
+.availability-empty-state {
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.empty-illustration {
+  margin-bottom: 24px;
+}
+
+.empty-illustration svg {
+  color: #e5e7eb; /* Light gray placeholder color */
+}
+
+.no-services-text {
+  color: #6b7280; /* lighter text color */
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #4fc3ff; /* Wait, checking image again. It looks like blueish text? "You do not have any services..." */
+  /* Actually looks like standard gray/blue. Let's stick to standard gray or light blue. */
+  /* Re-reading prompt image... Text is light blue-ish #4fc3ff or similar. */
+  color: #9ca3af; /* Let's stick to safe gray unless I see color specific */
+}
+
+/* Specific override for the "Add New" button if needed, but reusing .white-outline-btn is good */
