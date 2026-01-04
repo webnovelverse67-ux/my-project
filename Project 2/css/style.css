@@ -659,6 +659,325 @@ nav a:hover {
   margin-top: 0.5rem; 
 }
 
+/* =======================
+   LOGIN PRICING PAGE
+======================= */
+.login-pricing-page {
+  background: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.top-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-btn {
+  background: none;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #6b7280;
+  transition: all 0.2s;
+}
+
+.icon-btn:hover {
+  background: #f9fafb;
+  color: #111827;
+}
+
+.top-bar-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-bar-title {
+  font-weight: 700;
+  color: #111827;
+  font-size: 1rem;
+}
+
+.top-bar-subtitle {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.pricing-main-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.pricing-main-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #111827;
+}
+
+/* PILL TOGGLE */
+.pill-toggle-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.pill-toggle {
+  background: #f3f4f6;
+  padding: 4px;
+  border-radius: 8px;
+  display: flex;
+  gap: 4px;
+}
+
+.pill-option {
+  padding: 8px 24px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+}
+
+.pill-option.active {
+  background: white;
+  color: #111827;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.save-badge {
+  background: #dcfce7;
+  color: #166534;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+}
+
+/* PRICING GRID */
+.pricing-plan-grid {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.pricing-plan-card {
+  flex: 1;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: white;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  min-width: 300px;
+}
+
+.pricing-plan-card:hover {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.card-content-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.plan-header {
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  border-bottom: 1px solid #f3f4f6;
+  min-height: 110px;
+  align-items: flex-start;
+}
+
+.bg-blue-light { background: #e0f2fe; }
+.bg-purple-light { background: #eef2ff; }
+
+.icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.plan-desc {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.plan-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.plan-price-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.price-val {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.price-period {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.plan-subtext {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.switch-text {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
+  height: 20px; /* reserve space */
+}
+
+.btn.full-width {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.btn.outline {
+  background: white;
+  border: 1px solid #0b3c6f;
+  color: #0b3c6f;
+}
+
+.btn.outline:hover {
+  background: #f0f9ff;
+}
+
+/* FEATURE LIST */
+.feature-section {
+  flex: 1;
+}
+
+.feature-section h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+.feature-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #374151;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
+.feature-list li.check::before {
+  content: '✓';
+  color: #10b981; /* green */
+  font-weight: 800;
+}
+
+.feature-list li.cross::before {
+  content: '✕';
+  color: #ef4444; /* red */
+  font-weight: 800;
+}
+
+.feature-section.collapsed {
+  display: none;
+}
+
+/* HIDE DETAILS TOGGLE */
+.toggle-details-container {
+  margin-top: 1rem;
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #f3f4f6;
+}
+
+.hide-details-btn {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 auto;
+}
+
+.hide-details-btn .arrow {
+  transition: transform 0.3s;
+}
+
+.hide-details-btn.collapsed .arrow {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 900px) {
+  .pricing-plan-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .pricing-plan-card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
 .signup-text { 
   text-align: center; 
   color: #6b7280; 

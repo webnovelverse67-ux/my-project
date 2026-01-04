@@ -122,10 +122,94 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // Credential Check
       if (email === 'group@gmail.com' && password === '123456789') {
-        alert('Login Successful');
+        // alert('Login Successful');
+        window.location.href = 'loginpricing.html';
       } else {
         alert('Invalid credentials');
       }
+    });
+  }
+});
+
+// =======================
+// LOGIN PRICING PAGE LOGIC
+// =======================
+document.addEventListener('DOMContentLoaded', function() {
+  // Check if we are on the login pricing page
+  const pricingGrid = document.querySelector('.pricing-plan-grid');
+
+  if (pricingGrid) {
+    // 1. Back Button -> Logout
+    const backBtn = document.querySelector('.back-btn');
+    if (backBtn) {
+      backBtn.addEventListener('click', function() {
+        window.location.href = 'index.html';
+      });
+    }
+
+    // 2. Pill Toggle Logic (Monthly/Annually)
+    const pillMonthly = document.getElementById('pill-monthly');
+    const pillAnnually = document.getElementById('pill-annually');
+    const priceVals = document.querySelectorAll('.price-val');
+
+    if (pillMonthly && pillAnnually) {
+      let isAnnual = false;
+
+      function updatePrices() {
+        if (isAnnual) {
+          pillMonthly.classList.remove('active');
+          pillAnnually.classList.add('active');
+        } else {
+          pillMonthly.classList.add('active');
+          pillAnnually.classList.remove('active');
+        }
+
+        priceVals.forEach(priceEl => {
+          const monthly = priceEl.getAttribute('data-monthly');
+          const annually = priceEl.getAttribute('data-annually');
+          if (isAnnual) {
+            priceEl.textContent = '$' + annually;
+          } else {
+            priceEl.textContent = '$' + monthly;
+          }
+        });
+      }
+
+      pillMonthly.addEventListener('click', function() {
+        if(isAnnual) { isAnnual = false; updatePrices(); }
+      });
+
+      pillAnnually.addEventListener('click', function() {
+        if(!isAnnual) { isAnnual = true; updatePrices(); }
+      });
+    }
+
+    // 3. Hide Details Logic
+    const toggleBtns = document.querySelectorAll('.hide-details-btn');
+
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Find the feature-section in the same card
+        // Structure: btn -> div.toggle-details-container -> div.plan-body -> div.feature-section
+        const cardBody = btn.closest('.plan-body');
+        const featureSection = cardBody.querySelector('.feature-section');
+        const arrow = btn.querySelector('.arrow');
+
+        if (featureSection) {
+          featureSection.classList.toggle('collapsed');
+
+          if (featureSection.classList.contains('collapsed')) {
+             // Collapsed state
+             btn.innerHTML = 'Show Details <span class="arrow">^</span>';
+             // Rotate arrow logic is handled by CSS .collapsed on btn usually, let's toggle class on btn too
+             btn.classList.add('collapsed');
+          } else {
+             // Expanded state
+             btn.innerHTML = 'Hide Details <span class="arrow">^</span>';
+             btn.classList.remove('collapsed');
+          }
+        }
+      });
     });
   }
 });
