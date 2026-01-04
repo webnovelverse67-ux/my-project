@@ -735,7 +735,7 @@ nav a:hover {
   gap: 2rem;
   max-width: 1200px; /* Slightly wider for 3 cards */
   margin: 0 auto;
-  align-items: stretch;
+  align-items: start;
 }
 
 .pricing-card {
