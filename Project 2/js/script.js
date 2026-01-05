@@ -493,10 +493,23 @@ document.addEventListener('DOMContentLoaded', function() {
       previewTitle.textContent = val.length > 0 ? val : 'Service Title';
 
       // Validation style
-      if (val.length >= 10) {
-        this.style.borderColor = '#10b981'; // green
+      if (val.length < 10 && val.length > 0) {
+        this.classList.add('error');
+        this.classList.remove('success');
+      } else if (val.length >= 10) {
+        this.classList.remove('error');
+        this.classList.add('success');
       } else {
-        this.style.borderColor = '#e5e7eb';
+        // Empty
+        this.classList.remove('error');
+        this.classList.remove('success');
+      }
+    });
+
+    // Also validate on blur for "force" effect feeling
+    serviceTitleInput.addEventListener('blur', function() {
+      if (this.value.length < 10) {
+         this.classList.add('error');
       }
     });
   }
@@ -510,10 +523,21 @@ document.addEventListener('DOMContentLoaded', function() {
       previewDesc.textContent = val.length > 0 ? (val.length > 80 ? val.substring(0, 80) + '...' : val) : 'Service Description';
 
       // Validation style
-      if (val.length >= 20) {
-        this.style.borderColor = '#10b981';
+      if (val.length < 20 && val.length > 0) {
+        this.classList.add('error');
+        this.classList.remove('success');
+      } else if (val.length >= 20) {
+        this.classList.remove('error');
+        this.classList.add('success');
       } else {
-        this.style.borderColor = '#e5e7eb';
+        this.classList.remove('error');
+        this.classList.remove('success');
+      }
+    });
+
+    serviceDescInput.addEventListener('blur', function() {
+      if (this.value.length < 20) {
+         this.classList.add('error');
       }
     });
   }
@@ -649,27 +673,4 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-  // --- 4. Wizard Sidebar Collapse ---
-  const collapseWizardBtn = document.querySelector('.collapse-wizard-btn');
-  const wizardSidebar = document.querySelector('.wizard-sidebar');
-  const wizardMain = document.querySelector('.wizard-main');
-
-  if (collapseWizardBtn && wizardSidebar && wizardMain) {
-    collapseWizardBtn.addEventListener('click', function() {
-      wizardSidebar.classList.toggle('collapsed');
-      wizardMain.classList.toggle('wizard-collapsed');
-
-      if (wizardSidebar.classList.contains('collapsed')) {
-        collapseWizardBtn.innerHTML = '»'; // Point right to expand
-      } else {
-        collapseWizardBtn.innerHTML = '«'; // Point left to collapse
-      }
-    });
-
-    // Initialize correct arrow
-    if (wizardSidebar.classList.contains('collapsed')) {
-        collapseWizardBtn.innerHTML = '»';
-    } else {
-        collapseWizardBtn.innerHTML = '«';
-    }
-  }
+  // --- 4. Wizard Sidebar Collapse logic removed (Sidebar is static) ---

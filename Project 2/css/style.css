@@ -3774,3 +3774,41 @@ textarea {
 .dashboard-main.sidebar-collapsed .wizard-main.wizard-collapsed {
   margin-left: 140px; /* 80px + 60px */
 }
+
+/* Update Sidebar Logic for Create Online Service */
+
+/* Remove old wizard collapse styles if any remain or override them */
+.wizard-sidebar.collapsed {
+  width: 280px; /* Force reset to original width */
+}
+.wizard-main.wizard-collapsed {
+  margin-left: 540px; /* Force reset */
+}
+
+/* Sibling selector logic for global sidebar collapse */
+/* When .dashboard-sidebar has .collapsed... */
+
+/* 1. Move Wizard Sidebar left */
+.dashboard-sidebar.collapsed ~ .wizard-sidebar {
+  left: 80px; /* 260px -> 80px */
+  transition: left 0.3s ease;
+}
+
+/* 2. Move Main Content left */
+.dashboard-sidebar.collapsed ~ .wizard-main {
+  margin-left: 360px; /* 80px (sidebar) + 280px (wizard sidebar) */
+  transition: margin-left 0.3s ease;
+}
+
+/* Form Validation Styling */
+.text-input.error {
+  border-bottom: 2px solid #ef4444 !important; /* Red warning line */
+  border-color: #e5e7eb; /* keep other sides subtle or default */
+  /* Or if user wants ALL borders red, use border-color. "red warning line under it" implies bottom. */
+  /* Let's do a strong bottom border or full border red. */
+  border-color: #ef4444 !important;
+}
+
+.text-input.success {
+  border-color: #10b981 !important;
+}
