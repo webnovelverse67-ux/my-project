@@ -921,6 +921,98 @@ document.addEventListener('DOMContentLoaded', function() {
   // goToStep logic uses 'step-{n}-content' which matches our HTML.
   // Sidebar items are 'nav-step-{n}'.
 
+
+  // --- 6. Step 4: Method Logic ---
+  const cardBuiltin = document.getElementById('card-builtin');
+  const cardCustom = document.getElementById('card-custom');
+  const customMethodDetails = document.getElementById('custom-method-details');
+  const customMethodSelect = document.getElementById('custom-method-select');
+  const customInputContainer = document.getElementById('custom-input-container');
+  const customInputLabel = document.getElementById('custom-input-label');
+  const customInputField = document.getElementById('custom-input-field');
+
+  let selectedMethod = 'builtin'; // default
+
+  function updateMethodSelection(method) {
+    selectedMethod = method;
+    if (method === 'builtin') {
+       if(cardBuiltin) cardBuiltin.classList.add('selected');
+       if(cardCustom) cardCustom.classList.remove('selected');
+       if(customMethodDetails) customMethodDetails.classList.add('hidden');
+    } else {
+       if(cardBuiltin) cardBuiltin.classList.remove('selected');
+       if(cardCustom) cardCustom.classList.add('selected');
+       if(customMethodDetails) customMethodDetails.classList.remove('hidden');
+    }
+  }
+
+  // Initial State (Default Built-in)
+  // Or should default be none? Image shows Built-in selected.
+  updateMethodSelection('builtin');
+
+  if (cardBuiltin) {
+    cardBuiltin.addEventListener('click', function() {
+       updateMethodSelection('builtin');
+    });
+  }
+
+  if (cardCustom) {
+    cardCustom.addEventListener('click', function() {
+       updateMethodSelection('custom');
+    });
+  }
+
+  if (customMethodSelect) {
+    customMethodSelect.addEventListener('change', function() {
+      const val = this.value;
+      if (!val) return;
+
+      customInputContainer.classList.remove('hidden');
+      customInputField.value = ''; // clear previous input
+
+      if (val === 'Phone Number') {
+         customInputLabel.textContent = 'Phone Number*';
+         customInputField.placeholder = 'Enter phone number';
+         customInputField.type = 'tel';
+         // Optional: Add flag icon logic if we had assets
+      } else {
+         customInputLabel.textContent = 'Link*';
+         customInputField.placeholder = 'Enter a link';
+         customInputField.type = 'text'; // or url
+      }
+    });
+  }
+
+  // Navigation: Next to Add-ons (Step 5)
+  const btnNextToAddons = document.getElementById('btn-next-to-addons');
+  const btnBackToSchedule = document.getElementById('btn-back-to-schedule');
+
+  if (btnBackToSchedule) {
+    btnBackToSchedule.addEventListener('click', function() {
+       goToStep(3);
+    });
+  }
+
+  if (btnNextToAddons) {
+    btnNextToAddons.addEventListener('click', function() {
+       // Validation
+       if (selectedMethod === 'custom') {
+          // Check if option selected
+          if (!customMethodSelect.value) {
+             alert('Please select a custom method option.');
+             return;
+          }
+          // Check if input filled
+          if (!customInputField.value.trim()) {
+             customInputField.classList.add('error');
+             return;
+          }
+       }
+       // If Built-in, no extra validation needed (assuming it's valid to select it)
+
+       goToStep(5); // Proceed to Add-ons (Step 5)
+    });
+  }
 // Helper function for navigation (placed at end for safety)
 function goToStep(stepNum) {
   // Hide all sections

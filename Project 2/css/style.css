@@ -3917,3 +3917,113 @@ textarea:focus {
   cursor: pointer;
   flex-grow: 1;
 }
+
+/* --- METHOD STEP STYLES --- */
+.method-selection-group {
+  max-width: 600px;
+}
+
+.method-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: all 0.2s ease;
+}
+
+.method-card:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.method-card.selected {
+  border-color: #0b3c6f;
+  background: #f0f9ff;
+  box-shadow: 0 0 0 1px #0b3c6f;
+}
+
+.method-icon-container {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.method-icon-container.green {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.method-icon-container.blue {
+  background: #e0f2fe;
+  color: #0b3c6f;
+}
+
+.method-info {
+  flex: 1;
+}
+
+.method-info h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.method-info p {
+  font-size: 0.9rem;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.info-icon {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  cursor: help;
+}
+
+.radio-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #d1d5db;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.method-card.selected .radio-circle {
+  border-color: #0b3c6f;
+  border-width: 6px; /* Simplistic dot effect */
+}
+
+.custom-method-details {
+  margin-top: 16px;
+  margin-left: 20px; /* Slight indent */
+  padding: 20px;
+  background: #f9fafb;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.input-wrapper-dynamic {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-icon {
+  width: 24px;
+  height: 24px;
+  /* Just a placeholder if we wanted country flag or icon */
+}

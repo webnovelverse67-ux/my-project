@@ -448,9 +448,55 @@
             <p>Create a service with the possibility to connect via voice and video</p>
           </div>
 
-          <h2>How do people book this?</h2>
-          <div class="empty-state-box">
-             <p>Method settings coming soon...</p>
+          <h2>Choose an online method</h2>
+
+          <div class="method-selection-group">
+            <label class="block font-bold mb-3">Method*</label>
+
+            <!-- Card 1: Built-in -->
+            <div class="method-card" id="card-builtin">
+               <div class="method-icon-container green">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+               </div>
+               <div class="method-info">
+                  <h4>Built-in Video Chat</h4>
+                  <p>Our free integrated voice/video platform with broadcast, screen share, recording and more.</p>
+               </div>
+               <div class="radio-circle"></div>
+            </div>
+
+            <!-- Card 2: Custom -->
+            <div class="method-card" id="card-custom">
+               <div class="method-icon-container blue">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+               </div>
+               <div class="method-info">
+                  <h4>Custom Method <span class="info-icon" title="Third party link or phone number">ⓘ</span></h4>
+                  <p>Third party link or phone number.</p>
+               </div>
+               <div class="radio-circle"></div>
+            </div>
+
+            <!-- Hidden Details for Custom -->
+            <div id="custom-method-details" class="custom-method-details hidden">
+                <select id="custom-method-select" class="text-input mb-4">
+                  <option value="" disabled selected>Select option</option>
+                  <option value="Zoom">Zoom</option>
+                  <option value="Google Meet">Google Meet</option>
+                  <option value="Microsoft Teams">Microsoft Teams</option>
+                  <option value="Phone Number">Phone Number</option>
+                  <option value="Custom Link">Custom Link</option>
+                </select>
+
+                <div id="custom-input-container" class="hidden">
+                   <label id="custom-input-label" class="block font-bold mb-2">Link*</label>
+                   <div class="input-wrapper-dynamic">
+                     <span id="custom-input-icon" class="input-icon hidden"></span>
+                     <input type="text" id="custom-input-field" class="text-input" placeholder="Enter a link">
+                   </div>
+                </div>
+            </div>
+
           </div>
 
           <div class="wizard-footer split">
