@@ -25,53 +25,173 @@
           <li><a href="help.html">Help Center</a></li>
           <li><a href="mission.html">Mission</a></li>
           <li><a href="pricing.html">Pricing</a></li>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="login.html" class="btn primary">Start Free</a></li>
+          <li><a href="login.html" class="btn light">Login</a></li>
+          <li><a href="login.html" class="btn primary">Start free</a></li>
         </ul>
       </nav>
       <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     </div>
   </header>
 
-  <!-- PRICING SECTION -->
-  <section class="pricing">
+  <!-- PRICING HERO SECTION -->
+  <section class="pricing-hero">
     <div class="container">
-      <h1>Pricing Plans</h1>
-      <p>Choose a plan that fits your business needs. All plans come with essential booking features.</p>
+      <h1 class="pricing-title">simple plans for <span class="highlight-text">everyone</span></h1>
+      <p class="pricing-subtitle">Transparent pricing, limitless possibilities—choose the plan that empowers your growth.</p>
 
+      <div class="pricing-toggle-container">
+        <span class="toggle-option" id="monthly-opt">monthly</span>
+        <div class="toggle-switch" id="billing-toggle">
+          <div class="toggle-slider"></div>
+        </div>
+        <span class="toggle-option active" id="yearly-opt">yearly <span class="discount-badge">20% off</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING CARDS SECTION -->
+  <section class="pricing-content">
+    <div class="container">
       <div class="pricing-grid">
-        <div class="pricing-card">
-          <h3>Free</h3>
-          <p class="price">$0 / month</p>
-          <ul>
-            <li>Basic booking page</li>
-            <li>Limited appointments</li>
-            <li>Email support</li>
-          </ul>
-          <a href="login.html" class="btn primary">Start Free</a>
+
+        <!-- Free Trial Card -->
+        <div class="pricing-card free-card">
+          <div class="card-header">
+            <h3>Free Trial</h3>
+            <div class="price-display">
+              <span class="currency">$</span><span class="amount">0</span> <span class="period">/ month</span>
+            </div>
+            <div class="booking-fee">+3% booking fee</div>
+            <p class="card-description">Powerful core features combined in one platform, for free.</p>
+          </div>
+
+          <div class="feature-list">
+            <ul>
+              <li><span class="check-icon">✓</span> Personalized Profile & Booking Pages</li>
+              <li><span class="check-icon">✓</span> Link-in-bio Tool</li>
+              <li><span class="check-icon">✓</span> Manage Availability & Connect <strong>One</strong> Calendar</li>
+              <li><span class="check-icon">✓</span> Built-in Messenger</li>
+              <li><span class="check-icon">✓</span> Built-in Video Chat <strong>(unlimited)</strong></li>
+              <li><span class="check-icon">✓</span> AI Text Generator</li>
+              <li><span class="check-icon">✓</span> AI Image Generator <strong>(limit 10)</strong></li>
+              <li><span class="check-icon">✓</span> Appointment Booking Tool</li>
+              <li><span class="check-icon">✓</span> Accept Credit Card Payments</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <!-- No button shown in screenshot for free trial but presumably allows start? -->
+            <!-- The screenshot cuts off the bottom of the first card, but context suggests "Select" or "Start" -->
+             <a href="login.html" class="btn card-btn">Start Free</a>
+          </div>
         </div>
 
-        <div class="pricing-card">
-          <h3>Pro</h3>
-          <p class="price">$15 / month</p>
-          <ul>
-            <li>Unlimited appointments</li>
-            <li>Custom booking page</li>
-            <li>Priority support</li>
-          </ul>
-          <a href="login.html" class="btn primary">Get Started</a>
+        <!-- Starter Card (Most Popular) -->
+        <div class="pricing-card starter-card popular">
+          <div class="popular-badge">most popular</div>
+          <div class="card-header">
+            <h3>Starter</h3>
+            <!-- Yearly Price View -->
+            <div class="price-view yearly-price">
+              <div class="main-price">
+                <span class="currency">$</span><span class="amount">9.95</span> <span class="period">/ month</span>
+              </div>
+              <div class="secondary-price">
+                <span class="crossed">$12.45</span> <span class="discount-pill">20% off</span>
+              </div>
+              <div class="billed-text">Billed annually at 119.40</div>
+            </div>
+            <!-- Monthly Price View -->
+            <div class="price-view monthly-price" style="display:none;">
+              <div class="main-price">
+                <span class="currency">$</span><span class="amount">12.45</span> <span class="period">/ month</span>
+              </div>
+               <div class="billed-text">Billed monthly</div>
+            </div>
+
+            <div class="booking-fee">+0% booking fee</div>
+            <p class="card-description">AI images, analytics, cash payments, and more to boost your bookings.</p>
+          </div>
+
+          <div class="feature-list">
+            <ul>
+              <li><span class="check-icon">✓</span> Personalized Profile & Booking Pages</li>
+              <li><span class="check-icon">✓</span> Link-in-bio Tool</li>
+              <li><span class="check-icon">✓</span> Manage Availability & Connect <strong>Multiple</strong> Calendars</li>
+              <li><span class="check-icon">✓</span> Built-in Messenger</li>
+              <li><span class="check-icon">✓</span> Built-in Video Chat <strong>(unlimited)</strong></li>
+              <li><span class="check-icon">✓</span> AI Text Generator <strong>(unlimited)</strong></li>
+              <li><span class="check-icon">✓</span> AI Image Generator <strong>(unlimited)</strong></li>
+              <li><span class="check-icon">✓</span> Appointment Booking Tool</li>
+              <li><span class="check-icon">✓</span> Accept Credit Card Payments</li>
+              <li><span class="check-icon check-blue">✓</span> Verification Badge</li>
+              <li><span class="check-icon check-blue">✓</span> Pro Analytics Dashboard</li>
+              <li><span class="check-icon check-blue">✓</span> Featured in Marketplace</li>
+              <li><span class="check-icon check-blue">✓</span> Coaching Calls with a Bookme Expert <strong>(2x/month)</strong></li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="login.html" class="btn card-btn primary-btn">Select Starter</a>
+          </div>
         </div>
 
-        <div class="pricing-card">
-          <h3>Business</h3>
-          <p class="price">$30 / month</p>
-          <ul>
-            <li>Advanced analytics</li>
-            <li>Multiple staff accounts</li>
-            <li>Dedicated support</li>
-          </ul>
-          <a href="login.html" class="btn primary">Get Started</a>
+        <!-- Plus Card -->
+        <div class="pricing-card plus-card">
+          <div class="card-header">
+            <h3>Plus</h3>
+             <!-- Yearly Price View -->
+            <div class="price-view yearly-price">
+              <div class="main-price">
+                <span class="currency">$</span><span class="amount">29.95</span> <span class="period">/ month</span>
+              </div>
+              <div class="secondary-price">
+                <span class="crossed">$37.45</span> <span class="discount-pill">20% off</span>
+              </div>
+              <div class="billed-text">Billed annually at 359.40</div>
+            </div>
+            <!-- Monthly Price View -->
+            <div class="price-view monthly-price" style="display:none;">
+              <div class="main-price">
+                <span class="currency">$</span><span class="amount">37.45</span> <span class="period">/ month</span>
+              </div>
+              <div class="billed-text">Billed monthly</div>
+            </div>
+
+            <div class="booking-fee">+0% booking fee</div>
+            <p class="card-description">Access to all the features for professionals looking to scale.</p>
+          </div>
+
+          <div class="feature-list">
+            <ul>
+              <li><span class="check-icon">✓</span> Personalized Profile & Booking Pages</li>
+              <li><span class="check-icon">✓</span> Link-in-bio Tool</li>
+              <li><span class="check-icon">✓</span> Manage Availability & Connect <strong>Multiple</strong> Calendars</li>
+              <li><span class="check-icon">✓</span> Built-in Messenger</li>
+              <li><span class="check-icon">✓</span> Built-in Video Chat <strong>(unlimited)</strong></li>
+              <li><span class="check-icon">✓</span> AI Text Generator <strong>(unlimited)</strong></li>
+              <li><span class="check-icon">✓</span> AI Image Generator <strong>(unlimited)</strong></li>
+              <li><span class="check-icon">✓</span> Appointment Booking Tool</li>
+              <li><span class="check-icon">✓</span> Accept Credit Card Payments</li>
+              <li><span class="check-icon">✓</span> Verification Badge</li>
+              <li><span class="check-icon">✓</span> Pro Analytics Dashboard</li>
+              <li><span class="check-icon">✓</span> Featured in Marketplace</li>
+              <li><span class="check-icon">✓</span> Coaching Calls with a Bookme Expert <strong>(2x/month)</strong></li>
+              <li class="plus-separator">+</li>
+              <li><span class="check-icon check-blue">✓</span> Built-in Tipping</li>
+              <li><span class="check-icon check-blue">✓</span> Offer Add-ons per Service & Event</li>
+              <li><span class="check-icon check-blue">✓</span> Charge a Travel Time Fee</li>
+              <li><span class="check-icon check-blue">✓</span> Charge a Cancellation Fee</li>
+              <li><span class="check-icon check-blue">✓</span> Offer Promo Packages</li>
+              <li><span class="check-icon check-blue">✓</span> Custom Services per Client</li>
+            </ul>
+          </div>
+
+          <div class="card-footer">
+            <a href="login.html" class="btn card-btn light-green-btn">Select Plus</a>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -79,23 +199,45 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-links">
-        <div>
-          <h4>Company</h4>
-          <ul>
-            <li><a href="mission.html">Mission</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-          </ul>
+      <div class="footer-content">
+        <div class="footer-left">
+          <div class="footer-links">
+            <div class="footer-column">
+              <h4>Mission</h4>
+              <h4>Pricing</h4>
+              <h4>Bookme Support</h4>
+              <h4>Bookme Experts</h4>
+            </div>
+            <div class="footer-column">
+              <h4>Terms & Conditions</h4>
+              <h4>Privacy Policy</h4>
+              <h4>Cookie Policy</h4>
+              <h4>DMCA Policy</h4>
+            </div>
+          </div>
         </div>
-        <div>
-          <h4>Support</h4>
-          <ul>
-            <li><a href="help.html">Help Center</a></li>
-            <li><a href="resources.html">Resources</a></li>
-          </ul>
+        <div class="footer-right">
+          <div class="footer-logo-section">
+            <div class="footer-branding">
+              <img src="Images/bookme logo.png" alt="BookMe Logo" class="footer-logo-img" />
+            </div>
+            <div class="footer-actions">
+              <a href="login.html" class="btn primary">Login</a>
+              <a href="login.html" class="btn light">Start free</a>
+            </div>
+            <div class="footer-social-icons">
+               <!-- Placeholder icons -->
+              <a href="#" class="social-icon"><img src="footer%20icons/facebook.png" alt="Facebook" /></a>
+              <a href="#" class="social-icon"><img src="footer%20icons/linkedin.png" alt="LinkedIn" /></a>
+              <a href="#" class="social-icon"><img src="footer%20icons/youtube.png" alt="YouTube" /></a>
+              <!-- Added others for layout completeness -->
+              <a href="#" class="social-icon"><img src="footer%20icons/whatsapp.png" alt="WhatsApp" /></a>
+            </div>
+          </div>
         </div>
       </div>
-      <p>© 2025 BookMe. All rights reserved.</p>
+
+      <p class="footer-copyright-text">© 2025 Bookme.com, Inc. All rights reserved</p>
     </div>
   </footer>
 
