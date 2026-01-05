@@ -372,19 +372,90 @@
             <p>Create a service with the possibility to connect via voice and video</p>
           </div>
 
-          <h2>Schedule</h2>
-          <p class="section-desc">Set your availability for this specific service.</p>
+          <h2>When do you offer it?</h2>
 
-          <div class="form-container">
-             <!-- Placeholder for Schedule Content -->
-             <div class="empty-state-box">
-               <p>Schedule settings coming soon...</p>
-             </div>
+          <div class="schedule-container">
+            <!-- Timezone Section -->
+            <div class="timezone-section">
+              <div class="timezone-display" id="timezone-display">
+                <span class="text-gray-500">Times are in</span>
+                <span id="current-timezone-text" class="font-bold">GST - Dubai Time (UTC +4:00)</span>
+                <button class="edit-timezone-btn" id="btn-edit-timezone">
+                   <!-- Pencil Icon -->
+                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                </button>
+              </div>
+
+              <div class="timezone-editor hidden" id="timezone-editor">
+                <label class="block mb-1 font-bold">Time Zone</label>
+                <select id="timezone-select" class="text-input w-full mb-2">
+                   <!-- Populated by JS -->
+                </select>
+                <div class="timezone-actions">
+                   <button class="btn-text" id="btn-cancel-timezone">Cancel</button>
+                   <button class="btn-text font-bold text-blue-500" id="btn-save-timezone">Save</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="days-intro mb-4 mt-6">
+               <p class="font-bold">Select the days you offer this service and set the start and end times</p>
+            </div>
+
+            <!-- Days List -->
+            <div class="days-list" id="days-list">
+               <div class="day-row">
+                  <input type="checkbox" id="day-mon" class="day-checkbox">
+                  <label for="day-mon" class="day-label">Monday</label>
+               </div>
+               <div class="day-row">
+                  <input type="checkbox" id="day-tue" class="day-checkbox">
+                  <label for="day-tue" class="day-label">Tuesday</label>
+               </div>
+               <div class="day-row">
+                  <input type="checkbox" id="day-wed" class="day-checkbox">
+                  <label for="day-wed" class="day-label">Wednesday</label>
+               </div>
+               <div class="day-row">
+                  <input type="checkbox" id="day-thu" class="day-checkbox">
+                  <label for="day-thu" class="day-label">Thursday</label>
+               </div>
+               <div class="day-row">
+                  <input type="checkbox" id="day-fri" class="day-checkbox">
+                  <label for="day-fri" class="day-label">Friday</label>
+               </div>
+               <div class="day-row">
+                  <input type="checkbox" id="day-sat" class="day-checkbox">
+                  <label for="day-sat" class="day-label">Saturday</label>
+               </div>
+               <div class="day-row">
+                  <input type="checkbox" id="day-sun" class="day-checkbox">
+                  <label for="day-sun" class="day-label">Sunday</label>
+               </div>
+            </div>
           </div>
 
           <div class="wizard-footer split">
             <button class="btn text-only" id="btn-back-to-price">&lt; Back</button>
             <button class="btn primary" id="btn-next-to-method">Next to Method</button>
+          </div>
+        </section>
+
+        <!-- STEP 4: METHOD -->
+        <section id="step-4-content" class="wizard-section hidden">
+          <div class="wizard-header-text">
+            <h1>Create Online Service</h1>
+            <p>Create a service with the possibility to connect via voice and video</p>
+          </div>
+
+          <h2>How do people book this?</h2>
+          <div class="empty-state-box">
+             <p>Method settings coming soon...</p>
+          </div>
+
+          <div class="wizard-footer split">
+            <button class="btn text-only" id="btn-back-to-schedule">&lt; Back</button>
+            <button class="btn primary" id="btn-next-to-addons">Next to Add-ons</button>
           </div>
         </section>
 

@@ -835,3 +835,132 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
   // --- 4. Wizard Sidebar Collapse logic removed (Sidebar is static) ---
+
+  // --- 5. Step 3: Schedule Logic ---
+  const btnEditTimezone = document.getElementById('btn-edit-timezone');
+  const timezoneDisplay = document.getElementById('timezone-display');
+  const timezoneEditor = document.getElementById('timezone-editor');
+  const btnCancelTimezone = document.getElementById('btn-cancel-timezone');
+  const btnSaveTimezone = document.getElementById('btn-save-timezone');
+  const timezoneSelect = document.getElementById('timezone-select');
+  const currentTimezoneText = document.getElementById('current-timezone-text');
+
+  // Common Timezones List
+  const commonTimezones = [
+    "UTC - Coordinated Universal Time (UTC +0:00)",
+    "EST - Eastern Standard Time (UTC -5:00)",
+    "CST - Central Standard Time (UTC -6:00)",
+    "MST - Mountain Standard Time (UTC -7:00)",
+    "PST - Pacific Standard Time (UTC -8:00)",
+    "GMT - Greenwich Mean Time (UTC +0:00)",
+    "CET - Central European Time (UTC +1:00)",
+    "EET - Eastern European Time (UTC +2:00)",
+    "GST - Dubai Time (UTC +4:00)",
+    "IST - India Standard Time (UTC +5:30)",
+    "CST - China Standard Time (UTC +8:00)",
+    "JST - Japan Standard Time (UTC +9:00)",
+    "AEST - Australian Eastern Standard Time (UTC +10:00)"
+  ];
+
+  if (timezoneSelect) {
+    // Populate Dropdown
+    commonTimezones.forEach(tz => {
+       const opt = document.createElement('option');
+       opt.value = tz;
+       opt.textContent = tz;
+       timezoneSelect.appendChild(opt);
+    });
+    // Set default selection to current text if matches, else default
+    if (currentTimezoneText) {
+        timezoneSelect.value = currentTimezoneText.textContent;
+    }
+  }
+
+  if (btnEditTimezone) {
+    btnEditTimezone.addEventListener('click', function() {
+       timezoneEditor.classList.remove('hidden');
+       timezoneDisplay.classList.add('hidden');
+    });
+  }
+
+  if (btnCancelTimezone) {
+    btnCancelTimezone.addEventListener('click', function() {
+       timezoneEditor.classList.add('hidden');
+       timezoneDisplay.classList.remove('hidden');
+    });
+  }
+
+  if (btnSaveTimezone) {
+    btnSaveTimezone.addEventListener('click', function() {
+       const selected = timezoneSelect.value;
+       if (currentTimezoneText) currentTimezoneText.textContent = selected;
+       timezoneEditor.classList.add('hidden');
+       timezoneDisplay.classList.remove('hidden');
+    });
+  }
+
+  // Navigation: Next to Method
+  const btnNextToMethod = document.getElementById('btn-next-to-method');
+  const btnBackToPrice = document.getElementById('btn-back-to-price');
+
+  if (btnBackToPrice) {
+    btnBackToPrice.addEventListener('click', function() {
+       goToStep(2);
+    });
+  }
+
+  if (btnNextToMethod) {
+    btnNextToMethod.addEventListener('click', function() {
+       // Optional: Validation (at least one day selected?)
+       // User instructions didn't specify validation strictness, but we can just proceed.
+       goToStep(4);
+    });
+  }
+
+  // Fix: Ensure Step 3 Content ID is known to goToStep logic if strictly ID based
+  // goToStep logic uses 'step-{n}-content' which matches our HTML.
+  // Sidebar items are 'nav-step-{n}'.
+
+// Helper function for navigation (placed at end for safety)
+function goToStep(stepNum) {
+  // Hide all sections
+  document.querySelectorAll('.wizard-section').forEach(s => s.classList.add('hidden'));
+
+  // Show target section
+  const targetSection = document.getElementById('step-' + stepNum + '-content');
+  if (targetSection) {
+     targetSection.classList.remove('hidden');
+     window.scrollTo(0,0);
+  }
+
+  // Update Sidebar
+  const navItems = document.querySelectorAll('.step-item');
+  navItems.forEach((item, index) => {
+     // index is 0-based. Step 1 is index 0.
+     // Current step: index = stepNum - 1
+
+     const stepIndex = index + 1;
+     const circle = item.querySelector('.step-circle');
+
+     if (stepIndex < stepNum) {
+        // Previous steps: Success
+        item.classList.remove('active', 'disabled');
+        circle.classList.add('success');
+        circle.classList.remove('blue');
+        circle.textContent = '✓';
+     } else if (stepIndex === stepNum) {
+        // Current step: Active
+        item.classList.add('active');
+        item.classList.remove('disabled');
+        circle.classList.add('blue');
+        circle.classList.remove('success');
+        circle.textContent = stepNum;
+     } else {
+        // Future steps: Disabled
+        item.classList.remove('active');
+        item.classList.add('disabled');
+        circle.classList.remove('blue', 'success');
+        circle.textContent = stepIndex;
+     }
+  });
+}

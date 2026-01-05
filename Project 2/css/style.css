@@ -3842,3 +3842,78 @@ textarea:focus {
 .text-input.success {
   border-color: #10b981 !important;
 }
+
+/* --- SCHEDULE STEP STYLES --- */
+.schedule-container {
+  margin-top: 1rem;
+}
+
+.timezone-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.edit-timezone-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 4px;
+}
+.edit-timezone-btn:hover {
+  color: #374151;
+}
+
+.timezone-editor {
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 1.5rem;
+  max-width: 400px;
+}
+
+.timezone-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.days-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.day-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+.day-row:hover {
+  border-color: #d1d5db;
+}
+
+.day-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #0ea5e9; /* Blue match */
+  cursor: pointer;
+}
+
+.day-label {
+  font-weight: 600;
+  color: #1f2937;
+  cursor: pointer;
+  flex-grow: 1;
+}
