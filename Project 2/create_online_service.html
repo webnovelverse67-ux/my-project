@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookMe – Create Online Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="dashboard-body">
+
+  <div class="dashboard-container">
+    <!-- MAIN SIDEBAR (Global) -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="logo-text">
+          <img src="Images/bookme logo.png" alt="bookme.com" style="height:32px;" />
+        </a>
+        <button class="collapse-sidebar-btn">«</button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <ul>
+          <li>
+            <a href="dashboard.html">
+              <span class="nav-item-left">
+                <span class="icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </span>
+                <span class="nav-text">Home</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="services.html" class="active">
+              <span class="nav-item-left">
+                <span class="icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                </span>
+                <span class="nav-text">Services & Appts</span>
+              </span>
+            </a>
+          </li>
+          <li><a href="bookings.html"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></span> <span class="nav-text">Bookings</span></a></li>
+          <li><a href="#"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span> <span class="nav-text">Profile</span></a></li>
+          <li>
+            <a href="availability.html">
+              <span class="nav-item-left">
+                <span class="icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </span>
+                <span class="nav-text">Availability</span>
+              </span>
+            </a>
+          </li>
+          <li><a href="#"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span> <span class="nav-text">Contacts</span></a></li>
+          <li><a href="#"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></span> <span class="nav-text">Messages</span></a></li>
+        </ul>
+
+        <div class="sidebar-divider"></div>
+
+        <ul>
+          <li><a href="#"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg></span> <span class="nav-text">Marketplace</span></a></li>
+          <li><a href="#"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></span> <span class="nav-text">Share & Promote</span></a></li>
+          <li><a href="#"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></span> <span class="nav-text">Settings</span></a></li>
+          <li><a href="#"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg></span> <span class="nav-text">Support</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="plan-info-box">
+          <div class="plan-icon-small">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div class="plan-text">
+            <strong>Free Trial</strong>
+            <span>Manage Your Plan ></span>
+          </div>
+        </div>
+        <button class="switch-booker-btn">⇄ Switch to Booker</button>
+
+        <div class="user-profile-mini">
+          <div class="user-avatar">G</div>
+          <div class="user-details">
+            <strong>Group Verse</strong>
+            <span>Service Provider</span>
+          </div>
+          <div class="user-chevron">></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- WIZARD SIDEBAR (Second Column) -->
+    <aside class="wizard-sidebar">
+      <div class="wizard-header">
+        <button class="collapse-wizard-btn">«</button>
+      </div>
+      <ul class="wizard-steps">
+        <li class="step-item active" id="nav-step-1">
+          <div class="step-circle success">✓</div>
+          <span class="step-text">Service Details</span>
+          <span class="step-time">3 MIN</span>
+        </li>
+        <li class="step-item" id="nav-step-2">
+          <div class="step-circle blue">2</div>
+          <span class="step-text">Price</span>
+          <span class="step-time">1 MIN</span>
+        </li>
+        <li class="step-item disabled">
+          <div class="step-circle">3</div>
+          <span class="step-text">Schedule</span>
+          <span class="step-time">3 MIN</span>
+        </li>
+        <li class="step-item disabled">
+          <div class="step-circle">4</div>
+          <span class="step-text">Method</span>
+          <span class="step-time">1 MIN</span>
+        </li>
+        <li class="step-item disabled">
+          <div class="step-circle">5</div>
+          <span class="step-text">Add-ons</span>
+          <span class="step-time">3 MIN</span>
+        </li>
+        <li class="step-item disabled">
+          <div class="step-circle">6</div>
+          <span class="step-text">Duration</span>
+          <span class="step-time">1 MIN</span>
+        </li>
+        <li class="step-item disabled">
+          <div class="step-circle">7</div>
+          <span class="step-text">Notifications</span>
+          <span class="step-time">1 MIN</span>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="wizard-main">
+      <div class="wizard-content-wrapper">
+        <button class="close-wizard-btn">✕</button>
+
+        <!-- STEP 1: SERVICE DETAILS -->
+        <section id="step-1-content" class="wizard-section active">
+          <div class="wizard-header-text">
+            <h1>Create Online Service</h1>
+            <p>Create a service with the possibility to connect via voice and video</p>
+          </div>
+
+          <div class="details-grid">
+            <!-- Left: Upload Media -->
+            <div class="upload-media-container">
+              <h3>Upload Media</h3>
+              <p>Now upload images or videos that perfectly represent your services. If you uploaded a cover image, it has been set as the first image by default. For videos use MP4 up to 25MB</p>
+
+              <div class="media-grid">
+                <div class="media-slot main-slot">
+                  <button class="btn-upload">Upload Media</button>
+                  <span>or</span>
+                  <button class="btn-ai">✨ AI Generate</button>
+                </div>
+                <div class="media-slot empty"></div>
+                <div class="media-slot empty"></div>
+                <div class="media-slot empty"></div>
+                <div class="media-slot empty"></div>
+                <div class="media-slot empty"></div>
+              </div>
+            </div>
+
+            <!-- Right: Preview Card -->
+            <div class="preview-card">
+              <div class="preview-image-placeholder"></div>
+              <div class="preview-content">
+                <h4>Service Title</h4>
+                <p>Service Description</p>
+                <span class="badge-online">🌐 Online Service</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-footer right-align">
+            <button class="btn primary" id="btn-next-to-price">Next to Price</button>
+          </div>
+        </section>
+
+        <!-- STEP 2: PRICE -->
+        <section id="step-2-content" class="wizard-section hidden">
+          <div class="wizard-header-text">
+            <h1>Create Online Service</h1>
+            <p>Create a service with the possibility to connect via voice and video</p>
+          </div>
+
+          <h2>How much do you charge?</h2>
+
+          <div class="price-type-toggle">
+            <button class="toggle-option active" id="btn-hourly">Hourly Rate</button>
+            <button class="toggle-option" id="btn-flat">Flat Rate</button>
+          </div>
+
+          <div class="form-group">
+            <label>Rate</label>
+            <div class="rate-input-group">
+              <span class="currency-symbol">$</span>
+              <input type="number" placeholder="0.00" class="rate-input">
+              <select class="currency-select">
+                <option>USD</option>
+              </select>
+              <span class="rate-suffix">/hr</span>
+            </div>
+            <span class="help-text">Free if left blank</span>
+          </div>
+
+          <div class="form-group checkbox-row">
+            <input type="checkbox" id="cancellation-fee">
+            <label for="cancellation-fee">Charge a cancellation/no-show fee ⓘ</label>
+          </div>
+
+          <div class="duration-section">
+            <h3>Service Duration</h3>
+            <p>With hourly rates, a Booker can set the service duration at the time of booking, within the minimum and maximum range you set.</p>
+
+            <div class="duration-inputs">
+              <div class="form-group">
+                <label>Minimum Duration *</label>
+                <div class="time-select-row">
+                  <select><option>0 hours</option></select>
+                  <select><option>0 mins</option></select>
+                </div>
+              </div>
+              <!-- Max duration implied from context if needed, but not strictly in first screenshot -->
+            </div>
+          </div>
+
+          <div class="additional-section">
+            <h3>Additional</h3>
+            <div class="toggle-row">
+              <label class="switch" for="toggle-cash-payments">
+                <input type="checkbox" id="toggle-cash-payments">
+                <span class="slider round"></span>
+              </label>
+              <span class="toggle-label">Accept Cash Payments ⓘ</span>
+            </div>
+
+            <!-- HIDDEN CASH OPTIONS -->
+            <div id="cash-options-container" class="hidden">
+              <h4>Cash Payments Options</h4>
+              <div class="cash-pills-row">
+                <div class="cash-pill" onclick="this.classList.toggle('selected')">
+                  <span class="pill-icon green">$</span> Cash App <input type="checkbox">
+                </div>
+                <div class="cash-pill" onclick="this.classList.toggle('selected')">
+                  <span class="pill-icon blue">V</span> Venmo <input type="checkbox">
+                </div>
+                <div class="cash-pill" onclick="this.classList.toggle('selected')">
+                  <span class="pill-icon purple">Z</span> Zelle <input type="checkbox">
+                </div>
+                <div class="cash-pill" onclick="this.classList.toggle('selected')">
+                  <span class="pill-icon gray">💵</span> Cash <input type="checkbox">
+                </div>
+              </div>
+
+              <h4>Cash Payments Instructions (optional)</h4>
+              <textarea placeholder="Explain your cash policy and/or instructions" maxlength="250"></textarea>
+              <div class="char-count">0/250</div>
+            </div>
+          </div>
+
+          <div class="wizard-footer split">
+            <button class="btn text-only" id="btn-back-to-details">&lt; Back</button>
+            <button class="btn primary" id="btn-next-to-schedule">Next to Schedule</button>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
