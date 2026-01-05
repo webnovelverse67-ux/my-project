@@ -1013,6 +1013,144 @@ document.addEventListener('DOMContentLoaded', function() {
        goToStep(5); // Proceed to Add-ons (Step 5)
     });
   }
+
+  // --- 7. Step 5: Add-ons Logic ---
+  const btnCreateAddonTrigger = document.getElementById('btn-create-addon-trigger');
+  const btnCreatePackageTrigger = document.getElementById('btn-create-package-trigger');
+  const createAddonModal = document.getElementById('create-addon-modal');
+  const btnCloseAddonModal = document.getElementById('btn-close-addon-modal');
+  const btnCancelAddon = document.getElementById('btn-cancel-addon');
+  const btnSaveAddon = document.getElementById('btn-save-addon');
+  const btnAddAnotherAddon = document.getElementById('btn-add-another-addon');
+
+  const addonsListContainer = document.getElementById('addons-list-container');
+  const addonsInitialView = document.getElementById('addons-initial-view');
+  const addonsList = document.getElementById('addons-list');
+
+  // Fields
+  const addonTitle = document.getElementById('addon-title');
+  const addonDesc = document.getElementById('addon-desc');
+  const addonPrice = document.getElementById('addon-price');
+  const addonQty = document.getElementById('addon-qty');
+  const addonTitleCount = document.getElementById('addon-title-count');
+  const addonDescCount = document.getElementById('addon-desc-count');
+
+  if (addonTitle) {
+      addonTitle.addEventListener('input', function() {
+          addonTitleCount.textContent = `${this.value.length}/100`;
+          if(this.value.length > 0) this.classList.remove('error');
+      });
+  }
+  if (addonDesc) {
+      addonDesc.addEventListener('input', function() {
+          addonDescCount.textContent = `${this.value.length}/1000`;
+      });
+  }
+  if (addonQty) {
+      addonQty.addEventListener('input', function() {
+          if(this.value.length > 0) this.classList.remove('error');
+      });
+  }
+
+  function openAddonModal() {
+     if(createAddonModal) createAddonModal.classList.remove('hidden');
+     // Reset fields
+     if(addonTitle) { addonTitle.value = ''; addonTitle.classList.remove('error'); }
+     if(addonDesc) addonDesc.value = '';
+     if(addonPrice) addonPrice.value = '';
+     if(addonQty) { addonQty.value = ''; addonQty.classList.remove('error'); }
+     if(addonTitleCount) addonTitleCount.textContent = '0/100';
+     if(addonDescCount) addonDescCount.textContent = '0/1000';
+  }
+
+  function closeAddonModal() {
+     if(createAddonModal) createAddonModal.classList.add('hidden');
+  }
+
+  if (btnCreateAddonTrigger) {
+     btnCreateAddonTrigger.addEventListener('click', openAddonModal);
+  }
+
+  if (btnAddAnotherAddon) {
+     btnAddAnotherAddon.addEventListener('click', openAddonModal);
+  }
+
+  if (btnCloseAddonModal) {
+     btnCloseAddonModal.addEventListener('click', closeAddonModal);
+  }
+
+  if (btnCancelAddon) {
+     btnCancelAddon.addEventListener('click', closeAddonModal);
+  }
+
+  if (btnSaveAddon) {
+     btnSaveAddon.addEventListener('click', function() {
+        // Validation
+        let isValid = true;
+        if (!addonTitle.value.trim()) {
+            addonTitle.classList.add('error');
+            isValid = false;
+        }
+        if (!addonQty.value.trim()) {
+            addonQty.classList.add('error');
+            isValid = false;
+        }
+
+        if (!isValid) return;
+
+        // "Save" -> Update UI
+        // Switch view from Initial Cards to List View if first item
+        if (addonsInitialView && !addonsInitialView.classList.contains('hidden')) {
+            addonsInitialView.classList.add('hidden');
+            addonsListContainer.classList.remove('hidden');
+        }
+
+        // Add item to list
+        const title = addonTitle.value;
+        const price = addonPrice.value ? `$${addonPrice.value}` : 'Free';
+        const desc = addonDesc.value;
+
+        // Mock ID
+        const id = Date.now();
+
+        const itemHtml = `
+            <div class="addon-list-item" id="addon-${id}">
+                <div class="addon-item-left">
+                    <div class="addon-item-img"></div>
+                    <div class="addon-item-details">
+                        <h4>${title}</h4>
+                        <p>${desc.substring(0, 50)}${desc.length>50?'...':''}</p>
+                    </div>
+                </div>
+                <div class="addon-item-right">
+                    <span class="addon-item-price">${price}</span>
+                </div>
+            </div>
+        `;
+
+        addonsList.insertAdjacentHTML('beforeend', itemHtml);
+
+        closeAddonModal();
+     });
+  }
+
+  // Navigation: Next to Duration (Step 6)
+  const btnNextToDuration = document.getElementById('btn-next-to-duration');
+  const btnBackToMethod = document.getElementById('btn-back-to-method');
+
+  if (btnBackToMethod) {
+     btnBackToMethod.addEventListener('click', function() {
+         goToStep(4);
+     });
+  }
+
+  if (btnNextToDuration) {
+     btnNextToDuration.addEventListener('click', function() {
+         // No mandatory add-ons, so just proceed
+         goToStep(6);
+     });
+  }
+
 // Helper function for navigation (placed at end for safety)
 function goToStep(stepNum) {
   // Hide all sections
