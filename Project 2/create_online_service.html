@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BookMe – Dashboard</title>
+  <title>BookMe – Create Online Service</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 <body class="dashboard-body">
 
   <div class="dashboard-container">
-    <!-- SIDEBAR -->
+    <!-- MAIN SIDEBAR (Global) -->
     <aside class="dashboard-sidebar">
       <div class="sidebar-header">
         <a href="index.html" class="logo-text">
@@ -24,28 +24,22 @@
       <nav class="sidebar-nav">
         <ul>
           <li>
-            <a href="#" class="active">
+            <a href="dashboard.html">
               <span class="nav-item-left">
                 <span class="icon">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                 </span>
                 <span class="nav-text">Home</span>
               </span>
-              <span class="chevron-right">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-              </span>
             </a>
           </li>
           <li>
-            <a href="services.html">
+            <a href="services.html" class="active">
               <span class="nav-item-left">
                 <span class="icon">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
                 </span>
                 <span class="nav-text">Services & Appts</span>
-              </span>
-              <span class="chevron-right">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
               </span>
             </a>
           </li>
@@ -58,9 +52,6 @@
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                 </span>
                 <span class="nav-text">Availability</span>
-              </span>
-              <span class="chevron-right">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
               </span>
             </a>
           </li>
@@ -101,121 +92,185 @@
       </div>
     </aside>
 
-    <!-- MAIN CONTENT -->
-    <main class="dashboard-main">
-      <div class="dashboard-content-wrapper">
-        <h1 class="welcome-title">Hey Group, your account is almost ready!</h1>
+    <!-- WIZARD SIDEBAR (Second Column) -->
+    <aside class="wizard-sidebar">
+      <div class="wizard-header">
+        <button class="collapse-wizard-btn">«</button>
+      </div>
+      <ul class="wizard-steps">
+        <li class="step-item active" id="nav-step-1">
+          <div class="step-circle success">✓</div>
+          <span class="step-text">Service Details</span>
+          <span class="step-time">3 MIN</span>
+        </li>
+        <li class="step-item" id="nav-step-2">
+          <div class="step-circle blue">2</div>
+          <span class="step-text">Price</span>
+          <span class="step-time">1 MIN</span>
+        </li>
+        <li class="step-item disabled">
+          <div class="step-circle">3</div>
+          <span class="step-text">Schedule</span>
+          <span class="step-time">3 MIN</span>
+        </li>
+        <li class="step-item disabled">
+          <div class="step-circle">4</div>
+          <span class="step-text">Method</span>
+          <span class="step-time">1 MIN</span>
+        </li>
+        <li class="step-item disabled">
+          <div class="step-circle">5</div>
+          <span class="step-text">Add-ons</span>
+          <span class="step-time">3 MIN</span>
+        </li>
+        <li class="step-item disabled">
+          <div class="step-circle">6</div>
+          <span class="step-text">Duration</span>
+          <span class="step-time">1 MIN</span>
+        </li>
+        <li class="step-item disabled">
+          <div class="step-circle">7</div>
+          <span class="step-text">Notifications</span>
+          <span class="step-time">1 MIN</span>
+        </li>
+      </ul>
+    </aside>
 
-        <div class="onboarding-header">
-          <span class="sub-title">Complete your setup</span>
-          <div class="onboarding-progress">
-            <a href="#" class="skip-link">Skip onboarding</a>
-            <div class="progress-bar-container">
-              <div class="progress-bar" style="width: 0%;"></div>
-            </div>
-            <span class="progress-text">0% Done</span>
+    <!-- MAIN CONTENT AREA -->
+    <main class="wizard-main">
+      <div class="wizard-content-wrapper">
+        <button class="close-wizard-btn">✕</button>
+
+        <!-- STEP 1: SERVICE DETAILS -->
+        <section id="step-1-content" class="wizard-section active">
+          <div class="wizard-header-text">
+            <h1>Create Online Service</h1>
+            <p>Create a service with the possibility to connect via voice and video</p>
           </div>
-        </div>
 
-        <!-- ACCORDION -->
-        <div class="setup-accordion">
+          <div class="details-grid">
+            <!-- Left: Upload Media -->
+            <div class="upload-media-container">
+              <h3>Upload Media</h3>
+              <p>Now upload images or videos that perfectly represent your services. If you uploaded a cover image, it has been set as the first image by default. For videos use MP4 up to 25MB</p>
 
-          <!-- STEP 1 (Expanded) -->
-          <div class="setup-step expanded" id="step-1">
-            <div class="step-header">
-              <div class="step-indicator">1</div>
-              <div class="step-title-row">
-                <h3>Create your first Service or Appointment <span class="badge-time">3 MIN</span></h3>
-                <button class="toggle-step-btn">^</button>
-              </div>
-            </div>
-            <div class="step-content">
-              <p class="step-desc">Start building your first service or appointment. It's quick and easy.</p>
-
-              <div class="service-cards-row">
-                <!-- Card 1 -->
-                <div class="service-card">
-                  <div class="card-icon green">🌐</div>
-                  <h4>Online Service</h4>
-                  <p>Set your rate and availability for voice, video chat and more.</p>
-                  <button class="btn outline full-width" onclick="location.href='create_online_service.html'">Select</button>
+              <div class="media-grid">
+                <div class="media-slot main-slot">
+                  <button class="btn-upload">Upload Media</button>
+                  <span>or</span>
+                  <button class="btn-ai">✨ AI Generate</button>
                 </div>
-                <!-- Card 2 -->
-                <div class="service-card">
-                  <div class="card-icon orange">👤</div>
-                  <h4>In-Person Service</h4>
-                  <p>Set locations, travel options, your rate, availability and more.</p>
-                  <button class="btn outline full-width">Select</button>
+                <div class="media-slot empty"></div>
+                <div class="media-slot empty"></div>
+                <div class="media-slot empty"></div>
+                <div class="media-slot empty"></div>
+                <div class="media-slot empty"></div>
+              </div>
+            </div>
+
+            <!-- Right: Preview Card -->
+            <div class="preview-card">
+              <div class="preview-image-placeholder"></div>
+              <div class="preview-content">
+                <h4>Service Title</h4>
+                <p>Service Description</p>
+                <span class="badge-online">🌐 Online Service</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-footer right-align">
+            <button class="btn primary" id="btn-next-to-price">Next to Price</button>
+          </div>
+        </section>
+
+        <!-- STEP 2: PRICE -->
+        <section id="step-2-content" class="wizard-section hidden">
+          <div class="wizard-header-text">
+            <h1>Create Online Service</h1>
+            <p>Create a service with the possibility to connect via voice and video</p>
+          </div>
+
+          <h2>How much do you charge?</h2>
+
+          <div class="price-type-toggle">
+            <button class="toggle-option active" id="btn-hourly">Hourly Rate</button>
+            <button class="toggle-option" id="btn-flat">Flat Rate</button>
+          </div>
+
+          <div class="form-group">
+            <label>Rate</label>
+            <div class="rate-input-group">
+              <span class="currency-symbol">$</span>
+              <input type="number" placeholder="0.00" class="rate-input">
+              <select class="currency-select">
+                <option>USD</option>
+              </select>
+              <span class="rate-suffix">/hr</span>
+            </div>
+            <span class="help-text">Free if left blank</span>
+          </div>
+
+          <div class="form-group checkbox-row">
+            <input type="checkbox" id="cancellation-fee">
+            <label for="cancellation-fee">Charge a cancellation/no-show fee ⓘ</label>
+          </div>
+
+          <div class="duration-section">
+            <h3>Service Duration</h3>
+            <p>With hourly rates, a Booker can set the service duration at the time of booking, within the minimum and maximum range you set.</p>
+
+            <div class="duration-inputs">
+              <div class="form-group">
+                <label>Minimum Duration *</label>
+                <div class="time-select-row">
+                  <select><option>0 hours</option></select>
+                  <select><option>0 mins</option></select>
                 </div>
-                <!-- Card 3 -->
-                <div class="service-card">
-                  <div class="card-icon blue">📅</div>
-                  <h4>Free Appointment</h4>
-                  <p>Make it easy for people to book a meeting at times that work for you.</p>
-                  <button class="btn outline full-width">Select</button>
+              </div>
+              <!-- Max duration implied from context if needed, but not strictly in first screenshot -->
+            </div>
+          </div>
+
+          <div class="additional-section">
+            <h3>Additional</h3>
+            <div class="toggle-row">
+              <label class="switch" for="toggle-cash-payments">
+                <input type="checkbox" id="toggle-cash-payments">
+                <span class="slider round"></span>
+              </label>
+              <span class="toggle-label">Accept Cash Payments ⓘ</span>
+            </div>
+
+            <!-- HIDDEN CASH OPTIONS -->
+            <div id="cash-options-container" class="hidden">
+              <h4>Cash Payments Options</h4>
+              <div class="cash-pills-row">
+                <div class="cash-pill" onclick="this.classList.toggle('selected')">
+                  <span class="pill-icon green">$</span> Cash App <input type="checkbox">
+                </div>
+                <div class="cash-pill" onclick="this.classList.toggle('selected')">
+                  <span class="pill-icon blue">V</span> Venmo <input type="checkbox">
+                </div>
+                <div class="cash-pill" onclick="this.classList.toggle('selected')">
+                  <span class="pill-icon purple">Z</span> Zelle <input type="checkbox">
+                </div>
+                <div class="cash-pill" onclick="this.classList.toggle('selected')">
+                  <span class="pill-icon gray">💵</span> Cash <input type="checkbox">
                 </div>
               </div>
 
-              <button class="btn-skip-step">Skip</button>
+              <h4>Cash Payments Instructions (optional)</h4>
+              <textarea placeholder="Explain your cash policy and/or instructions" maxlength="250"></textarea>
+              <div class="char-count">0/250</div>
             </div>
           </div>
 
-          <!-- STEP 2 (Collapsed) -->
-          <div class="setup-step" id="step-2">
-            <div class="step-header">
-              <div class="step-indicator">2</div>
-              <div class="step-title-row">
-                <h3>Complete your Profile <span class="badge-time">3 MIN</span></h3>
-                <button class="toggle-step-btn">⌄</button>
-              </div>
-            </div>
-            <div class="step-content hidden">
-              <!-- Content hidden -->
-              <p>Profile details form would go here.</p>
-            </div>
+          <div class="wizard-footer split">
+            <button class="btn text-only" id="btn-back-to-details">&lt; Back</button>
+            <button class="btn primary" id="btn-next-to-schedule">Next to Schedule</button>
           </div>
-
-          <!-- STEP 3 (Collapsed) -->
-          <div class="setup-step" id="step-3">
-            <div class="step-header">
-              <div class="step-indicator">3</div>
-              <div class="step-title-row">
-                <h3>Promote & start earning <span class="badge-time">3 MIN</span></h3>
-                <button class="toggle-step-btn">⌄</button>
-              </div>
-            </div>
-            <div class="step-content hidden">
-              <!-- Content hidden -->
-              <p>Promotion tools would go here.</p>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- SUGGESTED SECTION -->
-        <div class="suggested-section">
-          <h3>Suggested for you</h3>
-          <div class="suggested-grid">
-            <div class="suggested-card">
-              <div class="sugg-icon blue-bg">📅</div>
-              <h4>Connect Your Calendars</h4>
-              <p>Connect your calendars with your Bookme calendar and never miss a booking due to scheduling conflicts.</p>
-              <button class="btn outline full-width">Connect</button>
-            </div>
-            <div class="suggested-card">
-              <div class="sugg-icon purple-bg">S</div>
-              <h4>Activate Payments with Stripe</h4>
-              <p>Connect you Stripe and start accepting payments instantly and securely with your own. Seamlessly get booked and get paid.</p>
-              <button class="btn outline full-width">Get Started</button>
-            </div>
-            <div class="suggested-card">
-              <div class="sugg-icon light-blue-bg">🏠</div>
-              <h4>List Your Services on Bookme Marketplace</h4>
-              <p>Get more bookings when you list your services on our Marketplace today. Reach new clients and grow your business.</p>
-              <button class="btn outline full-width">Get Listed</button>
-            </div>
-          </div>
-        </div>
+        </section>
 
       </div>
     </main>

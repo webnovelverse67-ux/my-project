@@ -128,6 +128,482 @@ img {
 }
 
 /* =======================
+   WIZARD LAYOUT
+======================= */
+.wizard-sidebar {
+  width: 280px;
+  background: white;
+  border-right: 1px solid #e5e7eb;
+  padding: 20px;
+  position: fixed;
+  left: 260px; /* Offset by main sidebar width */
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+  z-index: 9;
+}
+
+.wizard-main {
+  flex: 1;
+  margin-left: 540px; /* 260 + 280 */
+  padding: 40px;
+  background: #fff;
+  min-height: 100vh;
+}
+
+.wizard-header {
+  margin-bottom: 24px;
+}
+
+.collapse-wizard-btn {
+  background: none;
+  border: 1px solid #e5e7eb;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.wizard-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border-radius: 8px;
+  color: #6b7280;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.step-item.active {
+  background: #f3f4f6;
+  color: #111827;
+  font-weight: 600;
+}
+
+.step-item.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.step-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+.step-circle.success {
+  background: #10b981;
+  border-color: #10b981;
+  color: white;
+}
+
+.step-circle.blue {
+  background: #0b3c6f;
+  border-color: #0b3c6f;
+  color: white;
+}
+
+.step-time {
+  margin-left: auto;
+  font-size: 0.75rem;
+  background: #e0f2fe;
+  color: #0b3c6f;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.close-wizard-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.close-wizard-btn:hover {
+  background: #f9fafb;
+  color: #111827;
+}
+
+.wizard-header-text {
+  margin-bottom: 32px;
+}
+
+.wizard-header-text h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.wizard-header-text p {
+  color: #6b7280;
+}
+
+/* WIZARD STEP 1: Service Details */
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.upload-media-container h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.upload-media-container p {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.media-slot {
+  aspect-ratio: 1;
+  border: 2px dashed #e5e7eb;
+  border-radius: 12px;
+  background: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media-slot.main-slot {
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  background: white;
+  border-style: solid;
+}
+
+.media-slot.empty::before {
+  content: '🖼';
+  font-size: 1.5rem;
+  opacity: 0.3;
+}
+
+.btn-upload {
+  width: 100%;
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-ai {
+  width: 100%;
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  font-weight: 600;
+  color: #0b3c6f;
+  cursor: pointer;
+}
+
+.preview-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.preview-image-placeholder {
+  height: 140px;
+  background: #4fc3ff;
+}
+
+.preview-content {
+  padding: 16px;
+}
+
+.preview-content h4 {
+  margin-bottom: 4px;
+}
+
+.preview-content p {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.badge-online {
+  font-size: 0.8rem;
+  background: #dcfce7;
+  color: #166534;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.wizard-footer {
+  padding-top: 24px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+}
+
+.wizard-footer.right-align {
+  justify-content: flex-end;
+}
+
+.wizard-footer.split {
+  justify-content: space-between;
+}
+
+.btn.text-only {
+  background: none;
+  color: #0b3c6f;
+  padding-left: 0;
+}
+
+/* WIZARD STEP 2: Price */
+.price-type-toggle {
+  display: flex;
+  background: #f3f4f6;
+  padding: 4px;
+  border-radius: 8px;
+  width: fit-content;
+  margin-bottom: 24px;
+}
+
+.price-type-toggle .toggle-option {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.price-type-toggle .toggle-option.active {
+  background: white;
+  color: #111827;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.rate-input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rate-input {
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  width: 120px;
+}
+
+.currency-select {
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+}
+
+.help-text {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 4px;
+  display: block;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.duration-section {
+  background: #f9fafb;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.time-select-row {
+  display: flex;
+  gap: 12px;
+}
+
+.time-select-row select {
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #0b3c6f;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.toggle-label {
+  font-weight: 600;
+}
+
+/* CASH OPTIONS */
+.cash-pills-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.cash-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+  background: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.cash-pill:hover {
+  border-color: #0b3c6f;
+}
+
+.cash-pill.selected {
+  border-color: #0b3c6f;
+  background: #f0f9ff;
+}
+
+.pill-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.pill-icon.green { background: #00d632; } /* Cash App green */
+.pill-icon.blue { background: #008cff; } /* Venmo blue */
+.pill-icon.purple { background: #6d1ed4; } /* Zelle purple */
+.pill-icon.gray { background: #6b7280; }
+
+.cash-pill input[type="checkbox"] {
+  pointer-events: none; /* Let the pill handle click */
+}
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  min-height: 100px;
+  font-family: 'Inter', sans-serif;
+  margin-top: 8px;
+}
+
+.char-count {
+  text-align: right;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+/* =======================
    LOGIN PAGE
 ======================= */
 .login-page { 
@@ -583,16 +1059,9 @@ img {
 }
 
 /* =======================
-   LOGIN PAGE
+   LOGIN PAGE (Shared styles from above)
 ======================= */
-.login-page { 
-  min-height: calc(100vh - 200px); 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  padding: 4rem 2rem; 
-  background: linear-gradient(to bottom, #f9fafb 0%, #ffffff 100%);
-}
+/* Already defined .login-page block above */
 
 .login-container { 
   max-width: 450px; 
@@ -1589,21 +2058,6 @@ img {
 .toggle-switch.monthly-active {
   background: #e5e7eb; /* Light gray when monthly is selected */
 }
-/* By default we assume yearly active as per screenshot or we handle via class */
-/* Actually screenshot shows "monthly" on left (white bg), "yearly" on right (dark bg).
-   Let's assume the switch background changes or just the knob moves.
-   Screenshot: "monthly" text, then toggle, then "yearly" text.
-   Wait, the screenshot 'image.png' has a pill shape with "monthly" and "yearly" inside it?
-   No, it looks like [monthly] [toggle] [yearly].
-   Let's look closer at 'image.png' description.
-   "Toggle: monthly / yearly (with "20% off" badge on yearly)."
-   The toggle in 'image.png' looks like a segmented control?
-   "monthly" (light bg) "yearly" (dark blue bg).
-   Actually it looks like a single pill with two sides.
-   Let's try to replicate a segmented control look if that fits better,
-   or a switch. The prompt mentioned "Toggle switch".
-   Let's stick to a switch but style the labels.
-*/
 
 .toggle-slider {
   width: 26px;
@@ -3078,13 +3532,7 @@ img {
 }
 
 .no-services-text {
-  color: #6b7280; /* lighter text color */
+  color: #9ca3af;
   font-size: 1rem;
   margin-bottom: 8px;
-  color: #4fc3ff; /* Wait, checking image again. It looks like blueish text? "You do not have any services..." */
-  /* Actually looks like standard gray/blue. Let's stick to standard gray or light blue. */
-  /* Re-reading prompt image... Text is light blue-ish #4fc3ff or similar. */
-  color: #9ca3af; /* Let's stick to safe gray unless I see color specific */
 }
-
-/* Specific override for the "Add New" button if needed, but reusing .white-outline-btn is good */

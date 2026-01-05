@@ -194,6 +194,86 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // =======================
+// WIZARD LOGIC (Create Online Service)
+// =======================
+document.addEventListener('DOMContentLoaded', function() {
+  const wizardMain = document.querySelector('.wizard-main');
+  if (wizardMain) {
+    const btnNextToPrice = document.getElementById('btn-next-to-price');
+    const btnBackToDetails = document.getElementById('btn-back-to-details');
+
+    const step1Content = document.getElementById('step-1-content');
+    const step2Content = document.getElementById('step-2-content');
+
+    const navStep1 = document.getElementById('nav-step-1');
+    const navStep2 = document.getElementById('nav-step-2');
+
+    // Navigation: Step 1 -> Step 2
+    if (btnNextToPrice) {
+      btnNextToPrice.addEventListener('click', function() {
+        step1Content.classList.remove('active');
+        step1Content.classList.add('hidden');
+
+        step2Content.classList.remove('hidden');
+        step2Content.classList.add('active');
+
+        navStep1.classList.remove('active');
+        navStep1.querySelector('.step-circle').innerHTML = '✓'; // Mark as complete
+        navStep1.querySelector('.step-circle').classList.add('success');
+
+        navStep2.classList.add('active');
+      });
+    }
+
+    // Navigation: Step 2 -> Step 1
+    if (btnBackToDetails) {
+      btnBackToDetails.addEventListener('click', function() {
+        step2Content.classList.remove('active');
+        step2Content.classList.add('hidden');
+
+        step1Content.classList.remove('hidden');
+        step1Content.classList.add('active');
+
+        navStep2.classList.remove('active');
+        navStep1.classList.add('active');
+      });
+    }
+
+    // Price Type Toggle (Hourly / Flat)
+    const btnHourly = document.getElementById('btn-hourly');
+    const btnFlat = document.getElementById('btn-flat');
+
+    if (btnHourly && btnFlat) {
+      btnHourly.addEventListener('click', function() {
+        btnHourly.classList.add('active');
+        btnFlat.classList.remove('active');
+        // Logic to show/hide hourly specific fields could go here
+      });
+
+      btnFlat.addEventListener('click', function() {
+        btnFlat.classList.add('active');
+        btnHourly.classList.remove('active');
+        // Logic to show/hide flat specific fields could go here
+      });
+    }
+
+    // Cash Payments Toggle
+    const toggleCash = document.getElementById('toggle-cash-payments');
+    const cashOptionsContainer = document.getElementById('cash-options-container');
+
+    if (toggleCash && cashOptionsContainer) {
+      toggleCash.addEventListener('change', function() {
+        if (this.checked) {
+          cashOptionsContainer.classList.remove('hidden');
+        } else {
+          cashOptionsContainer.classList.add('hidden');
+        }
+      });
+    }
+  }
+});
+
+// =======================
 // LOGIN PRICING PAGE LOGIC
 // =======================
 document.addEventListener('DOMContentLoaded', function() {
