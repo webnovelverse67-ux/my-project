@@ -40,26 +40,115 @@
         <a href="index.html" class="brand">
           <img src="Images/bookme logo.png" alt="bookme.com" style="height:28px;" />
         </a>
-        <h1>Welcome Back!</h1>
-        <p class="muted">Log in to your account using one of the methods</p>
 
-        <div class="social-login vertical">
-          <button class="btn light google">Continue with Google</button>
-          <button class="btn light facebook">Continue with Facebook</button>
-          <button class="btn light email">Continue with Email</button>
+        <div id="login-view-initial">
+          <h1>Welcome Back!</h1>
+          <p class="muted">Log in to your account using one of the methods</p>
+
+          <div class="social-login vertical">
+            <button class="btn light google">Continue with Google</button>
+            <button class="btn light facebook">Continue with Facebook</button>
+            <button id="btn-email-login" class="btn light email">Continue with Email</button>
+          </div>
+
+          <div class="spacer" style="height:18px"></div>
+
+          <p style="text-align:center;color:#6b7280;margin-top:18px;">Don't have an account? <a href="index.html" class="primary-link">Sign Up</a></p>
+          <p style="text-align:center;margin-top:8px;"><a href="#" class="forgot">Forgot password?</a></p>
         </div>
 
-        <div class="spacer" style="height:18px"></div>
+        <!-- Hidden Email Form View -->
+        <div id="login-view-email" class="hidden">
+          <h1>Continue with your Email</h1>
+          <form id="email-login-form" class="login-form">
+            <div style="margin-bottom: 16px;">
+              <label for="email-input" style="display:block; margin-bottom:8px; font-weight:600; font-size:0.9rem;">Email Address</label>
+              <input type="email" id="email-input" value="group@gmail.com" placeholder="enter email" style="width:100%; padding:10px; border:1px solid #e5e7eb; border-radius:8px;" />
+            </div>
+            <div style="margin-bottom: 16px;">
+              <label for="password-input" style="display:block; margin-bottom:8px; font-weight:600; font-size:0.9rem;">Password</label>
+              <div class="password-wrapper" style="position:relative;">
+                <input type="password" id="password-input" value="123456789" placeholder="enter password" style="width:100%; padding:10px; border:1px solid #e5e7eb; border-radius:8px; padding-right: 40px;" />
+                <span id="toggle-password" class="password-toggle-icon">
+                  <!-- Eye Icon SVG -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                </span>
+              </div>
+            </div>
 
-        <p style="text-align:center;color:#6b7280;margin-top:18px;">Don't have an account? <a href="index.html" class="primary-link">Sign Up</a></p>
-        <p style="text-align:center;margin-top:8px;"><a href="#" class="forgot">Forgot password?</a></p>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px;">
+              <label style="display:flex; align-items:center; gap:8px; font-size:0.9rem; color:#6b7280; cursor:pointer;">
+                <input type="checkbox" id="keep-logged-in" /> Keep me logged in
+              </label>
+              <a href="#" class="forgot" style="font-size:0.9rem;">Forgot password?</a>
+            </div>
+
+            <button type="submit" id="btn-login-submit" class="btn primary large" style="width:100%; margin-bottom:12px;">Log In</button>
+            <button type="button" id="btn-back" class="btn light" style="width:100%; text-align:center; justify-content:center;">Back</button>
+          </form>
+        </div>
       </div>
 
       <div class="gallery">
-        <div class="card"><img src="Images/card 1 pic.png" alt="card 1"/><span>Photographer &amp; Videographer</span></div>
-        <div class="card"><img src="Images/card 2 pic.png" alt="card 2"/><span>Digital Freelancer</span></div>
-        <div class="card"><img src="Images/card 3 pic.png" alt="card 3"/><span>Fitness Trainer</span></div>
-        <div class="card"><img src="Images/card 4 pic.png" alt="card 4"/><span>Nutritionist</span></div>
+        <div class="gallery-column col-left">
+          <!-- Original Set Col 1 -->
+          <div class="card">
+            <img src="Images/login pg img 1.png" alt="Photographer" />
+            <span>Photographer</span>
+          </div>
+          <div class="card promo">
+            <p>Get powerful features for free with bookme.com</p>
+          </div>
+          <div class="card">
+            <img src="Images/login pg img 4.png" alt="Workspace" />
+          </div>
+
+          <!-- Duplicate Set Col 1 -->
+          <div class="card">
+            <img src="Images/login pg img 1.png" alt="Photographer" />
+            <span>Photographer</span>
+          </div>
+          <div class="card promo">
+            <p>Get powerful features for free with bookme.com</p>
+          </div>
+          <div class="card">
+            <img src="Images/login pg img 4.png" alt="Workspace" />
+          </div>
+        </div>
+
+        <div class="gallery-column col-right">
+          <!-- Original Set Col 2 -->
+          <div class="card">
+            <img src="Images/login pg img 2.png" alt="Lifestyle" />
+          </div>
+          <div class="card">
+            <img src="Images/login pg img 3.png" alt="Freelancer" />
+            <span>Freelancer</span>
+          </div>
+          <div class="card">
+            <img src="Images/login pg img 5.png" alt="Fitness" />
+            <span>Fitness Trainer</span>
+          </div>
+          <div class="card">
+            <img src="Images/login pg img 6.png" alt="Nutrition" />
+          </div>
+
+          <!-- Duplicate Set Col 2 -->
+          <div class="card">
+            <img src="Images/login pg img 2.png" alt="Lifestyle" />
+          </div>
+          <div class="card">
+            <img src="Images/login pg img 3.png" alt="Freelancer" />
+            <span>Freelancer</span>
+          </div>
+          <div class="card">
+            <img src="Images/login pg img 5.png" alt="Fitness" />
+            <span>Fitness Trainer</span>
+          </div>
+          <div class="card">
+            <img src="Images/login pg img 6.png" alt="Nutrition" />
+          </div>
+        </div>
       </div>
     </div>
   </section>
