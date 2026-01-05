@@ -140,9 +140,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // 1. Sidebar Collapse
     const collapseBtn = document.querySelector('.collapse-sidebar-btn');
     const sidebar = document.querySelector('.dashboard-sidebar');
-    const main = document.querySelector('.dashboard-main');
+    const main = document.querySelector('.dashboard-main') || document.querySelector('.wizard-main');
 
-    if (collapseBtn) {
+    if (collapseBtn && sidebar && main) {
       collapseBtn.addEventListener('click', function() {
         sidebar.classList.toggle('collapsed');
         main.classList.toggle('sidebar-collapsed');
@@ -208,9 +208,57 @@ document.addEventListener('DOMContentLoaded', function() {
     const navStep1 = document.getElementById('nav-step-1');
     const navStep2 = document.getElementById('nav-step-2');
 
+    // Populate Time Selects
+    const timeSelects = document.querySelectorAll('.time-select');
+    timeSelects.forEach(select => {
+        // Detect if hours or mins based on first option text
+        if (select.options.length > 0) {
+            const firstOpt = select.options[0].text;
+            if (firstOpt.includes('hours')) {
+                for(let i=1; i<=12; i++) {
+                    const opt = document.createElement('option');
+                    opt.value = i;
+                    opt.text = i + ' hour' + (i>1?'s':'');
+                    select.appendChild(opt);
+                }
+            } else if (firstOpt.includes('mins')) {
+                 [15, 30, 45].forEach(m => {
+                    const opt = document.createElement('option');
+                    opt.value = m;
+                    opt.text = m + ' mins';
+                    select.appendChild(opt);
+                 });
+            }
+        }
+    });
+
     // Navigation: Step 1 -> Step 2
     if (btnNextToPrice) {
       btnNextToPrice.addEventListener('click', function() {
+        // Validate Step 1
+        const serviceTitleInput = document.getElementById('service-title');
+        const serviceDescInput = document.getElementById('service-description');
+
+        let isValid = true;
+
+        // Title Validation
+        if (serviceTitleInput.value.length < 10) {
+           serviceTitleInput.classList.add('error');
+           isValid = false;
+        }
+
+        // Description Validation
+        if (serviceDescInput.value.length < 20) {
+           serviceDescInput.classList.add('error');
+           isValid = false;
+        }
+
+        if (!isValid) {
+          // Optional: Scroll to first error or shake button
+          return;
+        }
+
+        // Proceed if valid
         step1Content.classList.remove('active');
         step1Content.classList.add('hidden');
 
@@ -239,21 +287,125 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
+    // Navigation: Step 2 -> Step 3
+    const btnNextToSchedule = document.getElementById('btn-next-to-schedule');
+    const step3Content = document.getElementById('step-3-content');
+    const navStep3 = document.querySelector('.step-item:nth-child(3)'); // Schedule step (index 3 in 1-based list? Actually .step-item list)
+    // Wait, navStep3 ID logic: Step 1 is #nav-step-1, Step 2 is #nav-step-2.
+    // HTML for Step 3 is just <li class="step-item disabled">...</li>. I should probably add an ID or select by child index.
+    // Let's select by child index for robust targeting or add ID in HTML?
+    // Current HTML:
+    // <li class="step-item disabled"><div class="step-circle">3</div>...</li>
+
+    // Let's use querySelector with nth-child to be safe with current HTML
+    const navItems = document.querySelectorAll('.step-item');
+    const navStep3Item = navItems[2]; // Index 2 is 3rd item
+
+    if (btnNextToSchedule) {
+      btnNextToSchedule.addEventListener('click', function() {
+        let isValid = true;
+        const isHourly = document.getElementById('btn-hourly').classList.contains('active');
+
+        // Helper to check duration
+        const checkDuration = (sectionId) => {
+            const section = document.getElementById(sectionId);
+            const selects = section.querySelectorAll('select.time-select');
+            // Assuming pairs of Hour, Min.
+            // Hourly has 2 pairs (Min, Max). Flat has 1 pair.
+
+            // Logic: Just check if all visible selects are not "0 hours" AND "0 mins" at same time?
+            // Better: Sum the time.
+            let valid = true;
+
+            // Group by pairs (parent div .time-select-row)
+            const rows = section.querySelectorAll('.time-select-row');
+            rows.forEach(row => {
+               const hourVal = parseInt(row.children[0].value);
+               const minVal = parseInt(row.children[1].value);
+               // Note: value is "0 hours" text. parseInt("0 hours") -> 0.
+
+               if (parseInt(row.children[0].value) === 0 && parseInt(row.children[1].value) === 0) {
+                   valid = false;
+                   // Visual feedback could be added here
+                   row.style.border = "1px solid red";
+               } else {
+                   row.style.border = "none";
+               }
+            });
+            return valid;
+        };
+
+        if (isHourly) {
+           if (!checkDuration('hourly-duration-section')) isValid = false;
+        } else {
+           if (!checkDuration('flat-duration-section')) isValid = false;
+        }
+
+        if (!isValid) {
+            alert("Please set a duration greater than 0.");
+            return;
+        }
+
+        // Proceed
+        step2Content.classList.remove('active');
+        step2Content.classList.add('hidden');
+
+        step3Content.classList.remove('hidden');
+        step3Content.classList.add('active');
+
+        navStep2.classList.remove('active');
+        navStep2.querySelector('.step-circle').innerHTML = '✓';
+        navStep2.querySelector('.step-circle').classList.add('success');
+        navStep2.querySelector('.step-circle').classList.remove('blue'); // Remove number style
+
+        navStep3Item.classList.remove('disabled');
+        navStep3Item.classList.add('active');
+        const circle3 = navStep3Item.querySelector('.step-circle');
+        circle3.classList.add('blue'); // Add active color
+      });
+    }
+
+    // Navigation: Step 3 -> Step 2
+    const btnBackToPrice = document.getElementById('btn-back-to-price');
+    if (btnBackToPrice) {
+        btnBackToPrice.addEventListener('click', function() {
+            step3Content.classList.remove('active');
+            step3Content.classList.add('hidden');
+
+            step2Content.classList.remove('hidden');
+            step2Content.classList.add('active');
+
+            navStep3Item.classList.remove('active');
+            navStep3Item.querySelector('.step-circle').classList.remove('blue');
+
+            navStep2.classList.add('active');
+            // Revert checkmark if needed? Usually we keep it if valid, but active state overrides check style often.
+            // Let's just make it active.
+        });
+    }
+
     // Price Type Toggle (Hourly / Flat)
     const btnHourly = document.getElementById('btn-hourly');
     const btnFlat = document.getElementById('btn-flat');
+    const hourlyDurationSection = document.getElementById('hourly-duration-section');
+    const flatDurationSection = document.getElementById('flat-duration-section');
+    const rateSuffix = document.querySelector('.rate-suffix'); // If we kept it, but I removed it in HTML.
 
     if (btnHourly && btnFlat) {
       btnHourly.addEventListener('click', function() {
         btnHourly.classList.add('active');
         btnFlat.classList.remove('active');
-        // Logic to show/hide hourly specific fields could go here
+
+        if(hourlyDurationSection) hourlyDurationSection.classList.remove('hidden');
+        if(flatDurationSection) flatDurationSection.classList.add('hidden');
       });
 
       btnFlat.addEventListener('click', function() {
         btnFlat.classList.add('active');
         btnHourly.classList.remove('active');
-        // Logic to show/hide flat specific fields could go here
+
+        if(hourlyDurationSection) hourlyDurationSection.classList.add('hidden');
+        if(flatDurationSection) flatDurationSection.classList.remove('hidden');
       });
     }
 
@@ -268,6 +420,15 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
           cashOptionsContainer.classList.add('hidden');
         }
+      });
+    }
+
+    // Char Count for Cash Instructions
+    const cashInstructions = document.getElementById('cash-instructions');
+    const cashCharCount = document.getElementById('cash-char-count');
+    if (cashInstructions && cashCharCount) {
+      cashInstructions.addEventListener('input', function() {
+        cashCharCount.textContent = `${this.value.length}/250`;
       });
     }
   }

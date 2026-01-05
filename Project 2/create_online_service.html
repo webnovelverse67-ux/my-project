@@ -256,8 +256,11 @@
               <input type="number" placeholder="0.00" class="rate-input">
               <select class="currency-select">
                 <option>USD</option>
+                <option>EUR</option>
+                <option>GBP</option>
+                <option>CAD</option>
+                <option>AUD</option>
               </select>
-              <span class="rate-suffix">/hr</span>
             </div>
             <span class="help-text">Free if left blank</span>
           </div>
@@ -267,7 +270,8 @@
             <label for="cancellation-fee">Charge a cancellation/no-show fee ⓘ</label>
           </div>
 
-          <div class="duration-section">
+          <!-- HOURLY RATE DURATION -->
+          <div class="duration-section" id="hourly-duration-section">
             <h3>Service Duration</h3>
             <p>With hourly rates, a Booker can set the service duration at the time of booking, within the minimum and maximum range you set.</p>
 
@@ -275,11 +279,30 @@
               <div class="form-group">
                 <label>Minimum Duration *</label>
                 <div class="time-select-row">
-                  <select><option>0 hours</option></select>
-                  <select><option>0 mins</option></select>
+                  <select class="time-select"><option>0 hours</option></select>
+                  <select class="time-select"><option>0 mins</option></select>
                 </div>
               </div>
-              <!-- Max duration implied from context if needed, but not strictly in first screenshot -->
+              <div class="form-group">
+                <label>Maximum Duration *</label>
+                <div class="time-select-row">
+                  <select class="time-select"><option>0 hours</option></select>
+                  <select class="time-select"><option>0 mins</option></select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FLAT RATE DURATION -->
+          <div class="duration-section hidden" id="flat-duration-section">
+            <div class="duration-inputs">
+              <div class="form-group">
+                <label>Duration *</label>
+                <div class="time-select-row">
+                  <select class="time-select"><option>0 hours</option></select>
+                  <select class="time-select"><option>0 mins</option></select>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -295,31 +318,73 @@
 
             <!-- HIDDEN CASH OPTIONS -->
             <div id="cash-options-container" class="hidden">
-              <h4>Cash Payments Options</h4>
+              <h4 class="cash-options-title">Cash Payments Options</h4>
               <div class="cash-pills-row">
-                <div class="cash-pill" onclick="this.classList.toggle('selected')">
-                  <span class="pill-icon green">$</span> Cash App <input type="checkbox">
+                <div class="cash-card">
+                  <div class="card-left">
+                     <!-- Icon placeholder -->
+                     <div class="app-icon green">C</div>
+                     <span class="app-name">Cash App</span>
+                  </div>
+                  <input type="checkbox" class="card-check">
                 </div>
-                <div class="cash-pill" onclick="this.classList.toggle('selected')">
-                  <span class="pill-icon blue">V</span> Venmo <input type="checkbox">
+                <div class="cash-card">
+                   <div class="card-left">
+                     <div class="app-icon blue">V</div>
+                     <span class="app-name">Venmo</span>
+                  </div>
+                  <input type="checkbox" class="card-check">
                 </div>
-                <div class="cash-pill" onclick="this.classList.toggle('selected')">
-                  <span class="pill-icon purple">Z</span> Zelle <input type="checkbox">
+                <div class="cash-card">
+                   <div class="card-left">
+                     <div class="app-icon purple">Z</div>
+                     <span class="app-name">Zelle</span>
+                  </div>
+                  <input type="checkbox" class="card-check">
                 </div>
-                <div class="cash-pill" onclick="this.classList.toggle('selected')">
-                  <span class="pill-icon gray">💵</span> Cash <input type="checkbox">
+                <div class="cash-card">
+                   <div class="card-left">
+                     <div class="app-icon gray">💵</div>
+                     <span class="app-name">Cash</span>
+                  </div>
+                  <input type="checkbox" class="card-check">
                 </div>
               </div>
 
-              <h4>Cash Payments Instructions (optional)</h4>
-              <textarea placeholder="Explain your cash policy and/or instructions" maxlength="250"></textarea>
-              <div class="char-count">0/250</div>
+              <h4 class="cash-options-title">Cash Payments Instructions (optional)</h4>
+              <div class="textarea-wrapper">
+                <textarea id="cash-instructions" class="text-input" placeholder="Explain your cash policy and/or instructions" maxlength="250"></textarea>
+                <div class="char-count" id="cash-char-count">0/250</div>
+              </div>
             </div>
           </div>
 
           <div class="wizard-footer split">
             <button class="btn text-only" id="btn-back-to-details">&lt; Back</button>
             <button class="btn primary" id="btn-next-to-schedule">Next to Schedule</button>
+          </div>
+        </section>
+
+        <!-- STEP 3: SCHEDULE -->
+        <section id="step-3-content" class="wizard-section hidden">
+          <div class="wizard-header-text">
+            <h1>Create Online Service</h1>
+            <p>Create a service with the possibility to connect via voice and video</p>
+          </div>
+
+          <h2>Schedule</h2>
+          <p class="section-desc">Set your availability for this specific service.</p>
+
+          <div class="form-container">
+             <!-- Placeholder for Schedule Content -->
+             <div class="empty-state-box">
+               <p>Schedule settings coming soon...</p>
+             </div>
+          </div>
+
+          <div class="wizard-footer split">
+            <button class="btn text-only" id="btn-back-to-price">&lt; Back</button>
+            <button class="btn primary" id="btn-next-to-method">Next to Method</button>
           </div>
         </section>
 
