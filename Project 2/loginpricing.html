@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookMe – Plans & Pricing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="login-pricing-page">
+
+  <!-- TOP BAR -->
+  <div class="pricing-top-bar">
+    <div class="top-bar-left">
+      <button id="back-to-home" class="icon-btn back-btn" aria-label="Back">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <div class="top-bar-text">
+        <span class="top-bar-title">Plans & Pricing</span>
+        <span class="top-bar-subtitle">Compare features and pricing to find the perfect solution for your goals</span>
+      </div>
+    </div>
+    <div class="top-bar-right">
+      <button class="icon-btn close-btn" aria-label="Close">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="pricing-main-container">
+    <h1 class="pricing-main-title">Choose the best plan for your business</h1>
+
+    <!-- PILL TOGGLE -->
+    <div class="pill-toggle-container">
+      <div class="pill-toggle">
+        <button class="pill-option active" id="pill-monthly">Monthly</button>
+        <button class="pill-option" id="pill-annually">Annually <span class="save-badge">SAVE 20%</span></button>
+      </div>
+    </div>
+
+    <!-- CARDS GRID -->
+    <div class="pricing-plan-grid">
+
+      <!-- CARD 1: FREE -->
+      <div class="pricing-plan-card free-card" id="card-free">
+        <div class="card-content-wrapper">
+          <div class="plan-header">
+            <div class="icon-circle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <div>
+              <h3>14-Day Trial</h3>
+              <p class="plan-desc">Try all features free for 14 days. No credit card required.</p>
+            </div>
+          </div>
+
+          <div class="plan-body">
+            <h2 class="plan-price-text">Limited Free Trial</h2>
+            <p class="plan-subtext">Start your free trial today</p>
+            <button class="btn outline full-width" id="btn-free-trial">Continue</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2: STARTER -->
+      <div class="pricing-plan-card starter-card">
+        <div class="card-content-wrapper">
+          <div class="plan-header bg-blue-light">
+            <div class="icon-circle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0b3c6f" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </div>
+            <div>
+              <h3>Starter</h3>
+              <p class="plan-desc">Ideal for those just starting out or looking to organize their business.</p>
+            </div>
+          </div>
+
+          <div class="plan-body">
+            <div class="price-row">
+              <span class="price-val" data-monthly="12.45" data-annually="9.96">$12.45</span><span class="price-period">/month</span>
+            </div>
+            <p class="plan-subtext switch-text">Switch to the annual plan - save 20%</p>
+            <button class="btn primary full-width">Upgrade to Starter</button>
+
+            <div class="feature-section">
+              <h4>What's included:</h4>
+              <ul class="feature-list">
+                <li class="check">Personalized Profile & Booking Pages</li>
+                <li class="check">Link-in-bio Tool</li>
+                <li class="check">Manage Availability & Connect <strong>Multiple</strong> Calendars</li>
+                <li class="check">Built-in Messenger</li>
+                <li class="check">Built-in Video Chat (unlimited)</li>
+                <li class="check">AI Text Generator (unlimited)</li>
+                <li class="check">AI Image Generator (unlimited)</li>
+                <li class="check">Appointment Booking Tool</li>
+                <li class="check">Accept Credit Card Payments</li>
+                <li class="check">Accept Cash Payments</li>
+                <li class="check">Personal QR Code</li>
+                <li class="check">Verification Badge</li>
+                <li class="check">Pro Analytics Dashboard</li>
+                <li class="check">Featured in Marketplace</li>
+                <li class="check">Coaching Calls with a Bookme Expert (2x/month)</li>
+                <li class="cross">Built-in Tipping</li>
+                <li class="cross">Offer Add-ons per Service & Event</li>
+                <li class="cross">Charge a Travel Time Fee</li>
+                <li class="cross">Charge a Cancellation Fee</li>
+                <li class="cross">Offer Promo Packages</li>
+                <li class="cross">Custom Services per Client</li>
+              </ul>
+            </div>
+
+            <div class="toggle-details-container">
+              <button class="hide-details-btn">Hide Details <span class="arrow">^</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3: PLUS -->
+      <div class="pricing-plan-card plus-card">
+        <div class="card-content-wrapper">
+          <div class="plan-header bg-purple-light">
+            <div class="icon-circle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2"><path d="M2 20h.01"/><path d="M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20V8"/><path d="M22 4v16"/></svg>
+            </div>
+            <div>
+              <h3>Plus</h3>
+              <p class="plan-desc">Access to all features for businesses ready to scale.</p>
+            </div>
+          </div>
+
+          <div class="plan-body">
+            <div class="price-row">
+              <span class="price-val" data-monthly="37.45" data-annually="29.96">$37.45</span><span class="price-period">/month</span>
+            </div>
+            <p class="plan-subtext switch-text">Switch to the annual plan - save 20%</p>
+            <button class="btn primary full-width">Upgrade to Plus</button>
+
+            <div class="feature-section">
+              <h4>What's included:</h4>
+              <ul class="feature-list">
+                <li class="check">Personalized Profile & Booking Pages</li>
+                <li class="check">Link-in-bio Tool</li>
+                <li class="check">Manage Availability & Connect <strong>Multiple</strong> Calendars</li>
+                <li class="check">Built-in Messenger</li>
+                <li class="check">Built-in Video Chat (unlimited)</li>
+                <li class="check">AI Text Generator (unlimited)</li>
+                <li class="check">AI Image Generator (unlimited)</li>
+                <li class="check">Appointment Booking Tool</li>
+                <li class="check">Accept Credit Card Payments</li>
+                <li class="check">Accept Cash Payments</li>
+                <li class="check">Personal QR Code</li>
+                <li class="check">Verification Badge</li>
+                <li class="check">Pro Analytics Dashboard</li>
+                <li class="check">Featured in Marketplace</li>
+                <li class="check">Coaching Calls with a Bookme Expert (2x/month)</li>
+                <li class="check">Built-in Tipping</li>
+                <li class="check">Offer Add-ons per Service & Event</li>
+                <li class="check">Charge a Travel Time Fee</li>
+                <li class="check">Charge a Cancellation Fee</li>
+                <li class="check">Offer Promo Packages</li>
+                <li class="check">Custom Services per Client</li>
+              </ul>
+            </div>
+
+            <div class="toggle-details-container">
+              <button class="hide-details-btn">Hide Details <span class="arrow">^</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookMe – Create Online Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="dashboard-body">
+
+  <div class="dashboard-container">
+    <!-- MAIN SIDEBAR (Global) -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="logo-text">
+          <img src="Images/bookme logo.png" alt="bookme.com" style="height:32px;" />
+        </a>
+        <button class="collapse-sidebar-btn">«</button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <ul>
+          <li>
+            <a href="dashboard.html">
+              <span class="nav-item-left">
+                <span class="icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                </span>
+                <span class="nav-text">Home</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="services.html" class="active">
+              <span class="nav-item-left">
+                <span class="icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                </span>
+                <span class="nav-text">Services & Appts</span>
+              </span>
+            </a>
+          </li>
+          <li><a href="bookings.html"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></span> <span class="nav-text">Bookings</span></a></li>
+          <li><a href="#"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span> <span class="nav-text">Profile</span></a></li>
+          <li>
+            <a href="availability.html">
+              <span class="nav-item-left">
+                <span class="icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </span>
+                <span class="nav-text">Availability</span>
+              </span>
+            </a>
+          </li>
+          <li><a href="#"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span> <span class="nav-text">Contacts</span></a></li>
+          <li><a href="#"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></span> <span class="nav-text">Messages</span></a></li>
+        </ul>
+
+        <div class="sidebar-divider"></div>
+
+        <ul>
+          <li><a href="#"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg></span> <span class="nav-text">Marketplace</span></a></li>
+          <li><a href="#"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></span> <span class="nav-text">Share & Promote</span></a></li>
+          <li><a href="#"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></span> <span class="nav-text">Settings</span></a></li>
+          <li><a href="#"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg></span> <span class="nav-text">Support</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="plan-info-box">
+          <div class="plan-icon-small">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div class="plan-text">
+            <strong>Free Trial</strong>
+            <span>Manage Your Plan ></span>
+          </div>
+        </div>
+        <button class="switch-booker-btn">⇄ Switch to Booker</button>
+
+        <div class="user-profile-mini">
+          <div class="user-avatar">G</div>
+          <div class="user-details">
+            <strong>Group Verse</strong>
+            <span>Service Provider</span>
+          </div>
+          <div class="user-chevron">></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- WIZARD SIDEBAR (Second Column) -->
+    <aside class="wizard-sidebar">
+      <!-- No collapse button for wizard sidebar as requested -->
+      <div class="wizard-header">
+        <!-- Spacer or just empty if no header text needed -->
+      </div>
+      <ul class="wizard-steps">
+        <li class="step-item active" id="nav-step-1">
+          <div class="step-circle success">✓</div>
+          <span class="step-text">Service Details</span>
+          <span class="step-time">3 MIN</span>
+        </li>
+        <li class="step-item" id="nav-step-2">
+          <div class="step-circle blue">2</div>
+          <span class="step-text">Price</span>
+          <span class="step-time">1 MIN</span>
+        </li>
+        <li class="step-item disabled">
+          <div class="step-circle">3</div>
+          <span class="step-text">Schedule</span>
+          <span class="step-time">3 MIN</span>
+        </li>
+        <li class="step-item disabled">
+          <div class="step-circle">4</div>
+          <span class="step-text">Method</span>
+          <span class="step-time">1 MIN</span>
+        </li>
+        <li class="step-item disabled">
+          <div class="step-circle">5</div>
+          <span class="step-text">Add-ons</span>
+          <span class="step-time">3 MIN</span>
+        </li>
+        <li class="step-item disabled">
+          <div class="step-circle">6</div>
+          <span class="step-text">Duration</span>
+          <span class="step-time">1 MIN</span>
+        </li>
+        <li class="step-item disabled">
+          <div class="step-circle">7</div>
+          <span class="step-text">Notifications</span>
+          <span class="step-time">1 MIN</span>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="wizard-main">
+      <div class="wizard-content-wrapper">
+        <button class="close-wizard-btn">✕</button>
+
+        <!-- STEP 1: SERVICE DETAILS -->
+        <section id="step-1-content" class="wizard-section active">
+          <div class="wizard-header-text">
+            <h1>Create Online Service</h1>
+            <p>Create a service with the possibility to connect via voice and video</p>
+          </div>
+
+          <div class="details-grid">
+
+            <div class="form-container">
+              <h2>What type of online service do you offer?</h2>
+
+              <div class="form-group">
+                <label for="service-title">Service Title*</label>
+                <input type="text" id="service-title" class="text-input" placeholder="Enter online service title" required minlength="10">
+                <div class="char-count" id="title-char-count">0/200</div>
+              </div>
+
+              <div class="form-group">
+                <label for="service-description">Description*</label>
+                <textarea id="service-description" class="text-input" placeholder="Let people know the details about your online service." required minlength="20"></textarea>
+                <div class="char-count" id="desc-char-count">0/1000</div>
+              </div>
+
+              <!-- Left: Upload Media -->
+              <div class="upload-media-container">
+                <h3>Upload Media</h3>
+                <p>Now upload images or videos that perfectly represent your services. If you uploaded a cover image, it has been set as the first image by default. For videos use MP4 up to 25MB</p>
+
+                <div class="media-grid" id="media-grid">
+                  <div class="media-slot main-slot">
+                    <button class="btn-upload" id="btn-upload-trigger">Upload Media</button>
+                    <!-- AI Generate removed as requested -->
+                  </div>
+                  <div class="media-slot empty"></div>
+                  <div class="media-slot empty"></div>
+                  <div class="media-slot empty"></div>
+                  <div class="media-slot empty"></div>
+                  <div class="media-slot empty"></div>
+                </div>
+                <input type="file" id="file-input" accept="image/*" class="hidden">
+              </div>
+
+               <div class="custom-service-section">
+                <div class="form-group checkbox-row">
+                  <input type="checkbox" id="custom-service-check">
+                  <label for="custom-service-check">Make this a Custom Service? ⓘ</label>
+                </div>
+                <p class="help-text">A custom service won't appear on your public profile or search engines. It's intended for sharing privately with specific clients.</p>
+
+                <div class="form-group checkbox-row hidden" id="multi-book-container">
+                  <input type="checkbox" id="multi-book-check">
+                  <label for="multi-book-check">Allow this to be booked more than once? ⓘ</label>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right: Preview Card -->
+            <div class="preview-card-container">
+               <label>Service Card on Profile (Preview)</label>
+              <div class="preview-card">
+                <div class="preview-image-placeholder" id="preview-image-div">
+                  <span class="price-badge">Price</span>
+                </div>
+                <div class="preview-content">
+                  <h4 id="preview-title">Service Title</h4>
+                  <p id="preview-desc">Service Description</p>
+                  <span class="badge-online">🌐 Online Service</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-footer right-align">
+            <button class="btn primary" id="btn-next-to-price">Next to Price</button>
+          </div>
+        </section>
+
+        <!-- PREVIEW MODAL -->
+        <div id="upload-modal" class="modal hidden">
+          <div class="modal-content">
+            <h3>Preview Image</h3>
+            <div class="modal-image-preview">
+              <img id="modal-img-preview" src="" alt="Preview">
+            </div>
+            <div class="modal-actions">
+              <button class="btn light" id="btn-cancel-upload">Cancel</button>
+              <button class="btn primary" id="btn-confirm-upload">Upload</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: PRICE -->
+        <section id="step-2-content" class="wizard-section hidden">
+          <div class="wizard-header-text">
+            <h1>Create Online Service</h1>
+            <p>Create a service with the possibility to connect via voice and video</p>
+          </div>
+
+          <h2>How much do you charge?</h2>
+
+          <div class="price-type-toggle">
+            <button class="toggle-option active" id="btn-hourly">Hourly Rate</button>
+            <button class="toggle-option" id="btn-flat">Flat Rate</button>
+          </div>
+
+          <div class="form-group">
+            <label>Rate</label>
+            <div class="rate-input-group">
+              <span class="currency-symbol">$</span>
+              <input type="number" placeholder="0.00" class="rate-input">
+              <select class="currency-select">
+                <option>USD</option>
+                <option>EUR</option>
+                <option>GBP</option>
+                <option>CAD</option>
+                <option>AUD</option>
+              </select>
+            </div>
+            <span class="help-text">Free if left blank</span>
+          </div>
+
+          <div class="form-group checkbox-row">
+            <input type="checkbox" id="cancellation-fee">
+            <label for="cancellation-fee">Charge a cancellation/no-show fee ⓘ</label>
+          </div>
+
+          <!-- HOURLY RATE DURATION -->
+          <div class="duration-section" id="hourly-duration-section">
+            <h3>Service Duration</h3>
+            <p>With hourly rates, a Booker can set the service duration at the time of booking, within the minimum and maximum range you set.</p>
+
+            <div class="duration-inputs">
+              <div class="form-group">
+                <label>Minimum Duration *</label>
+                <div class="time-select-row">
+                  <select class="time-select"><option>0 hours</option></select>
+                  <select class="time-select"><option>0 mins</option></select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Maximum Duration *</label>
+                <div class="time-select-row">
+                  <select class="time-select"><option>0 hours</option></select>
+                  <select class="time-select"><option>0 mins</option></select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FLAT RATE DURATION -->
+          <div class="duration-section hidden" id="flat-duration-section">
+            <div class="duration-inputs">
+              <div class="form-group">
+                <label>Duration *</label>
+                <div class="time-select-row">
+                  <select class="time-select"><option>0 hours</option></select>
+                  <select class="time-select"><option>0 mins</option></select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="additional-section">
+            <h3>Additional</h3>
+            <div class="toggle-row">
+              <label class="switch" for="toggle-cash-payments">
+                <input type="checkbox" id="toggle-cash-payments">
+                <span class="slider round"></span>
+              </label>
+              <span class="toggle-label">Accept Cash Payments ⓘ</span>
+            </div>
+
+            <!-- HIDDEN CASH OPTIONS -->
+            <div id="cash-options-container" class="hidden">
+              <h4 class="cash-options-title">Cash Payments Options</h4>
+              <div class="cash-pills-row">
+                <div class="cash-card">
+                  <div class="card-left">
+                     <!-- Icon placeholder -->
+                     <div class="app-icon green">C</div>
+                     <span class="app-name">Cash App</span>
+                  </div>
+                  <input type="checkbox" class="card-check">
+                </div>
+                <div class="cash-card">
+                   <div class="card-left">
+                     <div class="app-icon blue">V</div>
+                     <span class="app-name">Venmo</span>
+                  </div>
+                  <input type="checkbox" class="card-check">
+                </div>
+                <div class="cash-card">
+                   <div class="card-left">
+                     <div class="app-icon purple">Z</div>
+                     <span class="app-name">Zelle</span>
+                  </div>
+                  <input type="checkbox" class="card-check">
+                </div>
+                <div class="cash-card">
+                   <div class="card-left">
+                     <div class="app-icon gray">💵</div>
+                     <span class="app-name">Cash</span>
+                  </div>
+                  <input type="checkbox" class="card-check">
+                </div>
+              </div>
+
+              <h4 class="cash-options-title">Cash Payments Instructions (optional)</h4>
+              <div class="textarea-wrapper">
+                <textarea id="cash-instructions" class="text-input" placeholder="Explain your cash policy and/or instructions" maxlength="250"></textarea>
+                <div class="char-count" id="cash-char-count">0/250</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-footer split">
+            <button class="btn text-only" id="btn-back-to-details">&lt; Back</button>
+            <button class="btn primary" id="btn-next-to-schedule">Next to Schedule</button>
+          </div>
+        </section>
+
+        <!-- STEP 3: SCHEDULE -->
+        <section id="step-3-content" class="wizard-section hidden">
+          <div class="wizard-header-text">
+            <h1>Create Online Service</h1>
+            <p>Create a service with the possibility to connect via voice and video</p>
+          </div>
+
+          <h2>When do you offer it?</h2>
+
+          <div class="schedule-container">
+            <!-- Timezone Section -->
+            <div class="timezone-section">
+              <div class="timezone-display" id="timezone-display">
+                <span class="text-gray-500">Times are in</span>
+                <span id="current-timezone-text" class="font-bold">GST - Dubai Time (UTC +4:00)</span>
+                <button class="edit-timezone-btn" id="btn-edit-timezone">
+                   <!-- Pencil Icon -->
+                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+                </button>
+              </div>
+
+              <div class="timezone-editor hidden" id="timezone-editor">
+                <label class="block mb-1 font-bold">Time Zone</label>
+                <select id="timezone-select" class="text-input w-full mb-2">
+                   <!-- Populated by JS -->
+                </select>
+                <div class="timezone-actions">
+                   <button class="btn-text" id="btn-cancel-timezone">Cancel</button>
+                   <button class="btn-text font-bold text-blue-500" id="btn-save-timezone">Save</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="days-intro mb-4 mt-6">
+               <p class="font-bold">Select the days you offer this service and set the start and end times</p>
+            </div>
+
+            <!-- Days List -->
+            <div class="days-list" id="days-list">
+               <div class="day-row">
+                  <input type="checkbox" id="day-mon" class="day-checkbox">
+                  <label for="day-mon" class="day-label">Monday</label>
+               </div>
+               <div class="day-row">
+                  <input type="checkbox" id="day-tue" class="day-checkbox">
+                  <label for="day-tue" class="day-label">Tuesday</label>
+               </div>
+               <div class="day-row">
+                  <input type="checkbox" id="day-wed" class="day-checkbox">
+                  <label for="day-wed" class="day-label">Wednesday</label>
+               </div>
+               <div class="day-row">
+                  <input type="checkbox" id="day-thu" class="day-checkbox">
+                  <label for="day-thu" class="day-label">Thursday</label>
+               </div>
+               <div class="day-row">
+                  <input type="checkbox" id="day-fri" class="day-checkbox">
+                  <label for="day-fri" class="day-label">Friday</label>
+               </div>
+               <div class="day-row">
+                  <input type="checkbox" id="day-sat" class="day-checkbox">
+                  <label for="day-sat" class="day-label">Saturday</label>
+               </div>
+               <div class="day-row">
+                  <input type="checkbox" id="day-sun" class="day-checkbox">
+                  <label for="day-sun" class="day-label">Sunday</label>
+               </div>
+            </div>
+          </div>
+
+          <div class="wizard-footer split">
+            <button class="btn text-only" id="btn-back-to-price">&lt; Back</button>
+            <button class="btn primary" id="btn-next-to-method">Next to Method</button>
+          </div>
+        </section>
+
+        <!-- STEP 4: METHOD -->
+        <section id="step-4-content" class="wizard-section hidden">
+          <div class="wizard-header-text">
+            <h1>Create Online Service</h1>
+            <p>Create a service with the possibility to connect via voice and video</p>
+          </div>
+
+          <h2>Choose an online method</h2>
+
+          <div class="method-selection-group">
+            <label class="block font-bold mb-3">Method*</label>
+
+            <!-- Card 1: Built-in -->
+            <div class="method-card" id="card-builtin">
+               <div class="method-icon-container green">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+               </div>
+               <div class="method-info">
+                  <h4>Built-in Video Chat</h4>
+                  <p>Our free integrated voice/video platform with broadcast, screen share, recording and more.</p>
+               </div>
+               <div class="radio-circle"></div>
+            </div>
+
+            <!-- Card 2: Custom -->
+            <div class="method-card" id="card-custom">
+               <div class="method-icon-container blue">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+               </div>
+               <div class="method-info">
+                  <h4>Custom Method <span class="info-icon" title="Third party link or phone number">ⓘ</span></h4>
+                  <p>Third party link or phone number.</p>
+               </div>
+               <div class="radio-circle"></div>
+            </div>
+
+            <!-- Hidden Details for Custom -->
+            <div id="custom-method-details" class="custom-method-details hidden">
+                <select id="custom-method-select" class="text-input mb-4">
+                  <option value="" disabled selected>Select option</option>
+                  <option value="Zoom">Zoom</option>
+                  <option value="Google Meet">Google Meet</option>
+                  <option value="Microsoft Teams">Microsoft Teams</option>
+                  <option value="Phone Number">Phone Number</option>
+                  <option value="Custom Link">Custom Link</option>
+                </select>
+
+                <div id="custom-input-container" class="hidden">
+                   <label id="custom-input-label" class="block font-bold mb-2">Link*</label>
+                   <div class="input-wrapper-dynamic">
+                     <span id="custom-input-icon" class="input-icon hidden"></span>
+                     <input type="text" id="custom-input-field" class="text-input" placeholder="Enter a link">
+                   </div>
+                </div>
+            </div>
+
+          </div>
+
+          <div class="wizard-footer split">
+            <button class="btn text-only" id="btn-back-to-schedule">&lt; Back</button>
+            <button class="btn primary" id="btn-next-to-addons">Next to Add-ons</button>
+          </div>
+        </section>
+
+        <!-- STEP 5: ADD-ONS -->
+        <section id="step-5-content" class="wizard-section hidden">
+          <div class="wizard-header-text">
+            <h1>Create Online Service</h1>
+            <p>Create a service with the possibility to connect via voice and video</p>
+          </div>
+
+          <h2>Create Add-ons or Packages for this service? <span class="info-icon" title="Info">ⓘ</span></h2>
+
+          <div class="addons-grid" id="addons-initial-view">
+             <!-- Card 1: Add-ons -->
+             <div class="addon-selection-card">
+                <div class="addon-card-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                </div>
+                <div class="addon-card-text">
+                    <h3>Would you like to create Add-ons? <span class="info-icon" title="Info">ⓘ</span></h3>
+                    <p>You do not have Add-ons for this service.</p>
+                </div>
+                <button class="btn white-btn" id="btn-create-addon-trigger">Create Add-on</button>
+             </div>
+
+             <!-- Card 2: Packages -->
+             <div class="addon-selection-card">
+                <div class="addon-card-icon">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#e5e7eb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16.5 9.4 7.5 4.21"></polyline><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                </div>
+                 <div class="addon-card-text">
+                    <h3>Would you like to create packages? <span class="info-icon" title="Info">ⓘ</span></h3>
+                    <p>You do not have packages for this service.</p>
+                </div>
+                <button class="btn white-btn" id="btn-create-package-trigger">Create Package</button>
+             </div>
+          </div>
+
+          <!-- List Container (Hidden by default) -->
+          <div id="addons-list-container" class="hidden">
+             <h3>Your Add-ons</h3>
+             <div class="addons-list" id="addons-list">
+                 <!-- Dynamic items -->
+             </div>
+             <button class="btn white-btn mt-4" id="btn-add-another-addon">+ Add another Add-on</button>
+          </div>
+
+          <div class="wizard-footer split">
+            <button class="btn text-only" id="btn-back-to-method">&lt; Back</button>
+            <button class="btn primary" id="btn-next-to-duration">Next to Duration</button>
+          </div>
+        </section>
+
+        <!-- STEP 6: DURATION -->
+        <section id="step-6-content" class="wizard-section hidden">
+          <div class="wizard-header-text">
+            <h1>Create Online Service</h1>
+            <p>Create a service with the possibility to connect via voice and video</p>
+          </div>
+
+          <h2 class="mb-4">How long will you be offering this service?</h2>
+          <label class="block font-bold mb-3">Duration*</label>
+
+          <!-- Option 1: Ongoing -->
+          <div class="duration-card" id="duration-ongoing">
+             <div class="duration-header">
+                <div class="duration-icon-container green">
+                   <!-- Refresh Icon -->
+                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"></path><path d="M1 20v-6h6"></path><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                </div>
+                <div class="duration-info">
+                   <h4>Ongoing</h4>
+                   <p>A 180-day moving date range into the future.</p>
+                </div>
+                <div class="radio-circle"></div>
+             </div>
+
+             <!-- Expanded Content for Ongoing -->
+             <div class="duration-expanded hidden" id="ongoing-expanded">
+                 <p class="mb-2 text-sm text-gray-600">An ongoing service has no end date and you can set how far into the future a Booker can book this service.</p>
+                 <p class="mb-4 text-sm text-gray-600">Currently, a Booker can book this service up to <strong>180 days</strong> into the future, from the day they are booking the service.</p>
+
+                 <label class="block font-bold mb-2">Set Limit to</label>
+                 <div class="input-wrapper-inline">
+                     <input type="number" id="ongoing-days-input" class="text-input w-24" placeholder="0">
+                     <span class="ml-2 font-bold">days</span>
+                 </div>
+             </div>
+          </div>
+
+          <!-- Option 2: Set Date Range -->
+          <div class="duration-card" id="duration-daterange">
+             <div class="duration-header">
+                <div class="duration-icon-container blue">
+                   <!-- Calendar Icon -->
+                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                </div>
+                <div class="duration-info">
+                   <h4>Set Date Range</h4>
+                   <p>Define a start and end date for this service offering.</p>
+                </div>
+                <div class="radio-circle"></div>
+             </div>
+
+             <!-- Expanded Content for Date Range -->
+             <div class="duration-expanded hidden" id="daterange-expanded">
+                 <div class="date-inputs-row">
+                     <div class="form-group flex-1">
+                         <label>Start Date</label>
+                         <div class="date-input-wrapper" id="start-date-trigger">
+                             <span class="calendar-icon">📅</span>
+                             <span id="start-date-text" class="placeholder-text">Select Start Date</span>
+                             <span class="chevron-down">⌄</span>
+                         </div>
+                     </div>
+                     <div class="form-group flex-1">
+                         <label>End Date</label>
+                         <div class="date-input-wrapper" id="end-date-trigger">
+                             <span class="calendar-icon">📅</span>
+                             <span id="end-date-text" class="placeholder-text">Select End Date</span>
+                             <span class="chevron-down">⌄</span>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+          </div>
+
+          <div class="wizard-footer split">
+            <button class="btn text-only" id="btn-back-to-addons">&lt; Back</button>
+            <button class="btn primary" id="btn-next-to-notifications">Next to Notifications</button>
+          </div>
+        </section>
+
+        <!-- STEP 7: NOTIFICATIONS -->
+        <section id="step-7-content" class="wizard-section hidden">
+          <div class="wizard-header-text">
+            <h1>Create Online Service</h1>
+            <p>Create a service with the possibility to connect via voice and video</p>
+          </div>
+
+          <div class="form-container">
+             <h2 class="mb-4">Create a Custom Welcome Message</h2>
+             <div class="form-group">
+                <textarea id="welcome-message" class="text-input" placeholder="Add your custom welcome message here" maxlength="1000"></textarea>
+                <div class="char-count" id="welcome-char-count">0/1000</div>
+             </div>
+
+             <h2 class="mb-4 mt-6">Booking Notification Preferences</h2>
+             <p class="text-gray-600 mb-4">Set your booking notification preferences for new bookings and status updates.</p>
+
+             <!-- Email Checkbox -->
+             <div class="notification-option mb-6">
+                <div class="form-group checkbox-row align-start">
+                  <input type="checkbox" id="email-notif-check" checked>
+                  <div class="checkbox-text">
+                      <label for="email-notif-check" class="block font-bold">Email booking notifications</label>
+                      <p class="help-text mt-1">Notifications will be sent to webnovelverse67@gmail.com</p>
+                  </div>
+                </div>
+             </div>
+
+             <!-- SMS Checkbox -->
+             <div class="notification-option">
+                <div class="form-group checkbox-row align-start">
+                  <input type="checkbox" id="sms-notif-check">
+                  <div class="checkbox-text">
+                      <label for="sms-notif-check" class="block font-bold">SMS booking notifications</label>
+                      <p class="help-text mt-1">Add your mobile number to receive instant booking confirmations and updates by text. This number will be used for all SMS notifications.</p>
+                  </div>
+                </div>
+
+                <!-- Phone Input (Hidden by default) -->
+                <div id="sms-input-container" class="hidden mt-4 ml-8">
+                    <div class="phone-input-group">
+                       <select class="country-select">
+                          <option value="+92">🇵🇰 +92</option>
+                          <option value="+1">🇺🇸 +1</option>
+                          <option value="+44">🇬🇧 +44</option>
+                          <!-- Add more as needed -->
+                       </select>
+                       <input type="tel" id="sms-phone-number" class="text-input" placeholder="Enter phone number">
+                    </div>
+                    <p class="disclaimer-text mt-2">By providing your phone number you agree to receive informational text messages from Bookme.com, Inc. Consent is not a condition of purchase. Message frequency will vary. Msg & data rates may apply. Reply HELP for help or STOP to cancel.</p>
+                </div>
+             </div>
+          </div>
+
+          <div class="wizard-footer split">
+            <button class="btn text-only" id="btn-back-to-duration">&lt; Back</button>
+            <button class="btn primary" id="btn-create-service">Create & Preview</button>
+          </div>
+        </section>
+
+        <!-- CREATE ADD-ON MODAL -->
+        <div id="create-addon-modal" class="modal hidden">
+          <div class="modal-content large">
+            <div class="modal-header">
+               <h3>Create Add-On</h3>
+               <button class="close-modal-btn" id="btn-close-addon-modal">✕</button>
+            </div>
+
+            <div class="modal-tabs">
+               <button class="tab-btn active">New</button>
+               <button class="tab-btn disabled">Existing</button>
+            </div>
+
+            <div class="modal-body-scroll">
+               <div class="form-group">
+                  <label>Add-on Title*</label>
+                  <input type="text" id="addon-title" class="text-input" placeholder="Enter Add-on title" maxlength="100">
+                  <div class="char-count" id="addon-title-count">0/100</div>
+               </div>
+
+               <div class="form-group">
+                  <label>Description</label>
+                  <textarea id="addon-desc" class="text-input" placeholder="Let people know the details about this add-on" maxlength="1000"></textarea>
+                  <div class="char-count" id="addon-desc-count">0/1000</div>
+               </div>
+
+               <div class="form-group">
+                  <label>Add-on Price</label>
+                  <div class="rate-input-group">
+                      <span class="currency-symbol">$</span>
+                      <input type="number" id="addon-price" class="rate-input w-full" placeholder="0.00">
+                  </div>
+                  <span class="help-text">Free if left blank</span>
+               </div>
+
+               <div class="form-group">
+                  <label>Max Quantity Available per Booking*</label>
+                  <input type="number" id="addon-qty" class="text-input" placeholder="Enter quantity">
+               </div>
+
+               <div class="form-group">
+                  <label>Upload Add-on Cover</label>
+                  <div class="addon-upload-area">
+                      <div class="upload-placeholder">
+                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                      </div>
+                      <div class="upload-info">
+                         <span>Suggested 624x984px, PNG or JPEG</span>
+                         <div class="upload-btns-row">
+                             <button class="btn white-sm" id="btn-addon-upload">Upload</button>
+                         </div>
+                      </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="modal-footer">
+               <button class="btn light" id="btn-cancel-addon">Cancel</button>
+               <button class="btn primary" id="btn-save-addon">Create Add-on</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- DATE PICKER MODAL -->
+        <div id="date-picker-modal" class="modal hidden">
+           <div class="modal-content date-picker-content">
+               <div class="date-picker-header">
+                   <h3 id="date-picker-title">Select Start Date</h3>
+                   <button class="close-modal-btn" id="btn-close-datepicker">✕</button>
+               </div>
+               <div class="calendar-nav">
+                   <button class="cal-nav-btn" id="cal-prev-btn">&lt;</button>
+                   <span id="cal-month-year">January 2026</span>
+                   <button class="cal-nav-btn" id="cal-next-btn">&gt;</button>
+               </div>
+               <div class="calendar-grid-header">
+                   <span>SU</span><span>MO</span><span>TU</span><span>WE</span><span>TH</span><span>FR</span><span>SA</span>
+               </div>
+               <div class="calendar-grid" id="calendar-grid">
+                   <!-- Days generated by JS -->
+               </div>
+               <div class="modal-footer centered">
+                    <button class="btn white-btn" id="btn-close-datepicker-footer">Close</button>
+               </div>
+           </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
