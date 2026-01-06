@@ -4964,3 +4964,368 @@ textarea:focus {
   font-weight: 700;
   color: #111827;
 }
+
+/* =======================
+   SERVICES & APPTS PAGE (UPDATED LAYOUT)
+======================= */
+
+.services-layout-grid {
+  display: flex;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.full-width-header {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+/* Left Column: Services List */
+.services-main-column {
+  flex: 1; /* Takes remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+.services-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.services-header-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header-icon-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-icon-title h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.bell-icon {
+  font-size: 1.2rem;
+}
+
+.toggle-pill-container {
+  background: #f3f4f6;
+  padding: 4px;
+  border-radius: 8px;
+  display: flex;
+  gap: 4px;
+}
+
+.toggle-pill-btn {
+  padding: 6px 16px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.toggle-pill-btn.active {
+  background: white;
+  color: #111827;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.services-header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.view-toggles {
+  display: flex;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.view-btn {
+  background: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  color: #6b7280;
+  border-right: 1px solid #e5e7eb;
+  font-size: 1.1rem;
+}
+
+.view-btn:last-child {
+  border-right: none;
+}
+
+.view-btn.active {
+  background: #f9fafb;
+  color: #111827;
+}
+
+.my-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.empty-state-box {
+  grid-column: 1 / -1;
+  background: white;
+  border: 1px dashed #e5e7eb;
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+  color: #9ca3af;
+}
+
+/* Service Card Item */
+.service-card-item {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.service-card-item:hover {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border-color: #d1d5db;
+  transform: translateY(-2px);
+}
+
+.card-image-area {
+  height: 160px;
+  position: relative;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.card-price-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #111827;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.card-menu-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  background: white;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: 700;
+  color: #374151;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding-bottom: 8px; /* Alignment hack for "..." */
+}
+
+.card-menu-btn:hover {
+  background: #f9fafb;
+}
+
+.card-menu-dropdown {
+  position: absolute;
+  top: 44px;
+  right: 12px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border: 1px solid #e5e7eb;
+  z-index: 10;
+  width: 180px;
+  overflow: hidden;
+}
+
+.card-menu-dropdown ul {
+  list-style: none;
+  padding: 4px 0;
+}
+
+.card-menu-dropdown li {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  color: #374151;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-menu-dropdown li:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.card-menu-dropdown li.delete-opt {
+  color: #ef4444;
+  border-top: 1px solid #f3f4f6;
+}
+
+.card-menu-dropdown li.delete-opt:hover {
+  background: #fef2f2;
+}
+
+.card-info-area {
+  padding: 16px;
+}
+
+.card-info-area h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 4px;
+}
+
+.card-info-area p {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* Right Column: Sidebar Options */
+.services-sidebar-column {
+  width: 300px; /* Fixed width */
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.create-sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-heading-sm {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.service-create-card.small {
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.service-icon-circle.small-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.service-create-card.small h3 {
+  font-size: 0.95rem;
+}
+
+.service-create-card.small p {
+  padding-left: 0;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+  margin-top: 8px;
+}
+
+.small-btn {
+  padding: 6px;
+  font-size: 0.85rem;
+}
+
+.small-widget {
+  padding: 16px;
+}
+
+.small-avatar {
+  width: 48px;
+  height: 48px;
+  background: #f3f4f6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Add New Modal */
+.create-modal-content {
+  width: 500px;
+  max-width: 90%;
+  padding: 0;
+  overflow: hidden;
+}
+
+.modal-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #f3f4f6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.btn-close-modal {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #9ca3af;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.create-options-list {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.service-create-card.modal-card {
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .services-layout-grid {
+    flex-direction: column;
+  }
+  .services-sidebar-column {
+    width: 100%;
+  }
+  .services-list-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
