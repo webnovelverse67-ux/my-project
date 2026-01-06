@@ -1110,6 +1110,239 @@ textarea:focus {
   color: #111827;
 }
 
+/* --- DURATION STEP STYLES --- */
+.duration-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: white;
+  margin-bottom: 12px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.duration-card:hover {
+  border-color: #d1d5db;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.duration-card.selected {
+  border-color: #0b3c6f;
+  /* background: #f0f9ff;  Wait, screenshot shows white bg for selected card, but border/circle blue */
+  box-shadow: 0 0 0 1px #0b3c6f;
+}
+
+.duration-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.duration-icon-container {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%; /* Circle in screenshot */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.duration-icon-container.green {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.duration-icon-container.blue {
+  background: #e0f2fe;
+  color: #0b3c6f;
+}
+
+.duration-info {
+  flex: 1;
+}
+
+.duration-info h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #111827;
+}
+
+.duration-info p {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.duration-card.selected .radio-circle {
+  border-color: #0b3c6f;
+  border-width: 6px;
+}
+
+.duration-expanded {
+  padding: 0 20px 20px 84px; /* Indent to align with text */
+  animation: fadeIn 0.3s ease;
+}
+
+.input-wrapper-inline {
+  display: flex;
+  align-items: center;
+}
+
+.date-inputs-row {
+  display: flex;
+  gap: 20px;
+}
+
+.date-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.date-input-wrapper:hover {
+  border-color: #0b3c6f;
+}
+
+.date-input-wrapper .calendar-icon {
+  color: #9ca3af;
+  font-size: 1.1rem;
+}
+
+.date-input-wrapper .placeholder-text {
+  flex: 1;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.date-input-wrapper .placeholder-text.has-value {
+  color: #111827;
+}
+
+.date-input-wrapper .chevron-down {
+  color: #9ca3af;
+  font-size: 0.8rem;
+}
+
+/* Date Picker Modal Styles */
+.date-picker-content {
+  max-width: 400px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.date-picker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.date-picker-header h3 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: #f9fafb;
+}
+
+.cal-nav-btn {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.cal-nav-btn:hover {
+  background: #f3f4f6;
+  color: #111827;
+}
+
+#cal-month-year {
+  font-weight: 600;
+  color: #374151;
+}
+
+.calendar-grid-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 12px 20px 0;
+  text-align: center;
+}
+
+.calendar-grid-header span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #9ca3af;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  padding: 8px 20px 20px;
+  row-gap: 8px;
+}
+
+.cal-day {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #374151;
+  transition: all 0.2s;
+}
+
+.cal-day:hover {
+  background: #f3f4f6;
+}
+
+.cal-day.selected {
+  background: #0b3c6f;
+  color: white;
+}
+
+.cal-day.disabled {
+  color: #e5e7eb;
+  pointer-events: none;
+}
+
+.cal-day.empty {
+  cursor: default;
+}
+
+.cal-day.today {
+  border: 1px solid #0b3c6f;
+  font-weight: 700;
+}
+
+.modal-footer.centered {
+  justify-content: center;
+  border-top: 1px solid #e5e7eb;
+  padding: 16px;
+}
+
 .login-form { 
   display: flex; 
   flex-direction: column; 

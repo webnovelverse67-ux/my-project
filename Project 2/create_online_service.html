@@ -555,6 +555,86 @@
           </div>
         </section>
 
+        <!-- STEP 6: DURATION -->
+        <section id="step-6-content" class="wizard-section hidden">
+          <div class="wizard-header-text">
+            <h1>Create Online Service</h1>
+            <p>Create a service with the possibility to connect via voice and video</p>
+          </div>
+
+          <h2 class="mb-4">How long will you be offering this service?</h2>
+          <label class="block font-bold mb-3">Duration*</label>
+
+          <!-- Option 1: Ongoing -->
+          <div class="duration-card" id="duration-ongoing">
+             <div class="duration-header">
+                <div class="duration-icon-container green">
+                   <!-- Refresh Icon -->
+                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"></path><path d="M1 20v-6h6"></path><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                </div>
+                <div class="duration-info">
+                   <h4>Ongoing</h4>
+                   <p>A 180-day moving date range into the future.</p>
+                </div>
+                <div class="radio-circle"></div>
+             </div>
+
+             <!-- Expanded Content for Ongoing -->
+             <div class="duration-expanded hidden" id="ongoing-expanded">
+                 <p class="mb-2 text-sm text-gray-600">An ongoing service has no end date and you can set how far into the future a Booker can book this service.</p>
+                 <p class="mb-4 text-sm text-gray-600">Currently, a Booker can book this service up to <strong>180 days</strong> into the future, from the day they are booking the service.</p>
+
+                 <label class="block font-bold mb-2">Set Limit to</label>
+                 <div class="input-wrapper-inline">
+                     <input type="number" id="ongoing-days-input" class="text-input w-24" placeholder="0">
+                     <span class="ml-2 font-bold">days</span>
+                 </div>
+             </div>
+          </div>
+
+          <!-- Option 2: Set Date Range -->
+          <div class="duration-card" id="duration-daterange">
+             <div class="duration-header">
+                <div class="duration-icon-container blue">
+                   <!-- Calendar Icon -->
+                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                </div>
+                <div class="duration-info">
+                   <h4>Set Date Range</h4>
+                   <p>Define a start and end date for this service offering.</p>
+                </div>
+                <div class="radio-circle"></div>
+             </div>
+
+             <!-- Expanded Content for Date Range -->
+             <div class="duration-expanded hidden" id="daterange-expanded">
+                 <div class="date-inputs-row">
+                     <div class="form-group flex-1">
+                         <label>Start Date</label>
+                         <div class="date-input-wrapper" id="start-date-trigger">
+                             <span class="calendar-icon">📅</span>
+                             <span id="start-date-text" class="placeholder-text">Select Start Date</span>
+                             <span class="chevron-down">⌄</span>
+                         </div>
+                     </div>
+                     <div class="form-group flex-1">
+                         <label>End Date</label>
+                         <div class="date-input-wrapper" id="end-date-trigger">
+                             <span class="calendar-icon">📅</span>
+                             <span id="end-date-text" class="placeholder-text">Select End Date</span>
+                             <span class="chevron-down">⌄</span>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+          </div>
+
+          <div class="wizard-footer split">
+            <button class="btn text-only" id="btn-back-to-addons">&lt; Back</button>
+            <button class="btn primary" id="btn-next-to-notifications">Next to Notifications</button>
+          </div>
+        </section>
+
         <!-- CREATE ADD-ON MODAL -->
         <div id="create-addon-modal" class="modal hidden">
           <div class="modal-content large">
@@ -616,6 +696,30 @@
                <button class="btn primary" id="btn-save-addon">Create Add-on</button>
             </div>
           </div>
+        </div>
+
+        <!-- DATE PICKER MODAL -->
+        <div id="date-picker-modal" class="modal hidden">
+           <div class="modal-content date-picker-content">
+               <div class="date-picker-header">
+                   <h3 id="date-picker-title">Select Start Date</h3>
+                   <button class="close-modal-btn" id="btn-close-datepicker">✕</button>
+               </div>
+               <div class="calendar-nav">
+                   <button class="cal-nav-btn" id="cal-prev-btn">&lt;</button>
+                   <span id="cal-month-year">January 2026</span>
+                   <button class="cal-nav-btn" id="cal-next-btn">&gt;</button>
+               </div>
+               <div class="calendar-grid-header">
+                   <span>SU</span><span>MO</span><span>TU</span><span>WE</span><span>TH</span><span>FR</span><span>SA</span>
+               </div>
+               <div class="calendar-grid" id="calendar-grid">
+                   <!-- Days generated by JS -->
+               </div>
+               <div class="modal-footer centered">
+                    <button class="btn white-btn" id="btn-close-datepicker-footer">Close</button>
+               </div>
+           </div>
         </div>
 
       </div>

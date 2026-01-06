@@ -1151,6 +1151,229 @@ document.addEventListener('DOMContentLoaded', function() {
      });
   }
 
+  // --- 8. Step 6: Duration Logic ---
+  const durationOngoing = document.getElementById('duration-ongoing');
+  const durationDaterange = document.getElementById('duration-daterange');
+  const ongoingExpanded = document.getElementById('ongoing-expanded');
+  const daterangeExpanded = document.getElementById('daterange-expanded');
+  const startDateTrigger = document.getElementById('start-date-trigger');
+  const endDateTrigger = document.getElementById('end-date-trigger');
+  const startDateText = document.getElementById('start-date-text');
+  const endDateText = document.getElementById('end-date-text');
+
+  // Date Picker Elements
+  const datePickerModal = document.getElementById('date-picker-modal');
+  const btnCloseDatepicker = document.getElementById('btn-close-datepicker');
+  const btnCloseDatepickerFooter = document.getElementById('btn-close-datepicker-footer');
+  const calendarGrid = document.getElementById('calendar-grid');
+  const calMonthYear = document.getElementById('cal-month-year');
+  const calPrevBtn = document.getElementById('cal-prev-btn');
+  const calNextBtn = document.getElementById('cal-next-btn');
+
+  let selectedDurationMode = 'daterange'; // Default per screenshot
+  // Per screenshot 'Set Date Range' is selected, but usually defaults vary.
+  // Let's assume based on screenshot 2.jpg it is selected.
+
+  function updateDurationMode(mode) {
+      selectedDurationMode = mode;
+      if (mode === 'ongoing') {
+          if(durationOngoing) {
+              durationOngoing.classList.add('selected');
+              if(ongoingExpanded) ongoingExpanded.classList.remove('hidden');
+          }
+          if(durationDaterange) {
+              durationDaterange.classList.remove('selected');
+              if(daterangeExpanded) daterangeExpanded.classList.add('hidden');
+          }
+      } else {
+          if(durationOngoing) {
+              durationOngoing.classList.remove('selected');
+              if(ongoingExpanded) ongoingExpanded.classList.add('hidden');
+          }
+          if(durationDaterange) {
+              durationDaterange.classList.add('selected');
+              if(daterangeExpanded) daterangeExpanded.classList.remove('hidden');
+          }
+      }
+  }
+
+  // Initial state
+  updateDurationMode('daterange');
+
+  if (durationOngoing) {
+      // Use event delegation to ignore clicks inside input
+      durationOngoing.addEventListener('click', function(e) {
+          if (e.target.tagName === 'INPUT') return;
+          updateDurationMode('ongoing');
+      });
+  }
+
+  if (durationDaterange) {
+      durationDaterange.addEventListener('click', function(e) {
+          // Ignore if clicking triggers (handled separately) or inputs?
+          // Actually triggers are div inside.
+          if (e.target.closest('.date-input-wrapper')) return; // let wrapper handle it
+          updateDurationMode('daterange');
+      });
+  }
+
+  // Date Picker Logic
+  let currentPickerTarget = null; // 'start' or 'end'
+  let currentMonth = new Date().getMonth();
+  let currentYear = new Date().getFullYear();
+  const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+  function openDatePicker(target) {
+      currentPickerTarget = target;
+      if(datePickerModal) datePickerModal.classList.remove('hidden');
+      renderCalendar(currentMonth, currentYear);
+  }
+
+  function closeDatePicker() {
+      if(datePickerModal) datePickerModal.classList.add('hidden');
+      currentPickerTarget = null;
+  }
+
+  function renderCalendar(month, year) {
+      if (!calendarGrid || !calMonthYear) return;
+
+      calMonthYear.textContent = `${monthNames[month]} ${year}`;
+      calendarGrid.innerHTML = '';
+
+      const firstDay = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      // Empty slots for previous month
+      for (let i = 0; i < firstDay; i++) {
+          const empty = document.createElement('div');
+          empty.className = 'cal-day empty';
+          calendarGrid.appendChild(empty);
+      }
+
+      // Days
+      const today = new Date();
+      for (let i = 1; i <= daysInMonth; i++) {
+          const dayEl = document.createElement('div');
+          dayEl.className = 'cal-day';
+          dayEl.textContent = i;
+
+          // Check if selected
+          // (Mock selection visual logic - typically we'd parse the existing text value)
+
+          // Highlight today
+          if (i === today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
+             dayEl.classList.add('today');
+          }
+
+          dayEl.addEventListener('click', function() {
+              selectDate(i, month, year);
+          });
+
+          calendarGrid.appendChild(dayEl);
+      }
+  }
+
+  function selectDate(day, month, year) {
+      const formattedDate = `${monthNames[month]} ${day}, ${year}`;
+
+      if (currentPickerTarget === 'start') {
+          if(startDateText) {
+             startDateText.textContent = formattedDate;
+             startDateText.classList.add('has-value');
+          }
+          if(startDateTrigger) startDateTrigger.classList.remove('error');
+      } else if (currentPickerTarget === 'end') {
+          if(endDateText) {
+             endDateText.textContent = formattedDate;
+             endDateText.classList.add('has-value');
+          }
+          if(endDateTrigger) endDateTrigger.classList.remove('error');
+      }
+
+      closeDatePicker();
+  }
+
+  if (startDateTrigger) {
+      startDateTrigger.addEventListener('click', function() {
+         // ensure mode is active
+         updateDurationMode('daterange');
+         openDatePicker('start');
+      });
+  }
+
+  if (endDateTrigger) {
+      endDateTrigger.addEventListener('click', function() {
+         updateDurationMode('daterange');
+         openDatePicker('end');
+      });
+  }
+
+  if (btnCloseDatepicker) btnCloseDatepicker.addEventListener('click', closeDatePicker);
+  if (btnCloseDatepickerFooter) btnCloseDatepickerFooter.addEventListener('click', closeDatePicker);
+
+  if (calPrevBtn) {
+      calPrevBtn.addEventListener('click', function() {
+          currentMonth--;
+          if (currentMonth < 0) {
+              currentMonth = 11;
+              currentYear--;
+          }
+          renderCalendar(currentMonth, currentYear);
+      });
+  }
+
+  if (calNextBtn) {
+      calNextBtn.addEventListener('click', function() {
+          currentMonth++;
+          if (currentMonth > 11) {
+              currentMonth = 0;
+              currentYear++;
+          }
+          renderCalendar(currentMonth, currentYear);
+      });
+  }
+
+  // Navigation: Next to Notifications (Step 7)
+  const btnNextToNotifications = document.getElementById('btn-next-to-notifications');
+  const btnBackToAddons = document.getElementById('btn-back-to-addons');
+
+  if (btnBackToAddons) {
+      btnBackToAddons.addEventListener('click', function() {
+          goToStep(5);
+      });
+  }
+
+  if (btnNextToNotifications) {
+      btnNextToNotifications.addEventListener('click', function() {
+          // Validation
+          if (selectedDurationMode === 'daterange') {
+             let valid = true;
+             // Check if dates selected (placeholder check)
+             if (startDateText && startDateText.textContent.includes('Select Start Date')) {
+                 if(startDateTrigger) startDateTrigger.classList.add('error'); // Need css for this? Wrapper border color
+                 // I added .date-input-wrapper:hover border color, but error class needs defining or reuse .text-input.error logic
+                 // Let's add inline style or rely on generic error class if it works on div
+                 startDateTrigger.style.borderColor = '#ef4444';
+                 valid = false;
+             } else {
+                 if(startDateTrigger) startDateTrigger.style.borderColor = '#e5e7eb';
+             }
+
+             if (endDateText && endDateText.textContent.includes('Select End Date')) {
+                 if(endDateTrigger) endDateTrigger.style.borderColor = '#ef4444';
+                 valid = false;
+             } else {
+                 if(endDateTrigger) endDateTrigger.style.borderColor = '#e5e7eb';
+             }
+
+             if (!valid) return;
+          }
+
+          // Proceed
+          goToStep(7);
+      });
+  }
+
 // Helper function for navigation (placed at end for safety)
 function goToStep(stepNum) {
   // Hide all sections
