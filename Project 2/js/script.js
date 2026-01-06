@@ -1374,6 +1374,54 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
 
+  // --- 9. Step 7: Notifications Logic ---
+  const welcomeMessage = document.getElementById('welcome-message');
+  const welcomeCharCount = document.getElementById('welcome-char-count');
+  const smsNotifCheck = document.getElementById('sms-notif-check');
+  const smsInputContainer = document.getElementById('sms-input-container');
+  const btnCreateService = document.getElementById('btn-create-service');
+  const btnBackToDuration = document.getElementById('btn-back-to-duration');
+
+  if (welcomeMessage) {
+      welcomeMessage.addEventListener('input', function() {
+          welcomeCharCount.textContent = `${this.value.length}/1000`;
+      });
+  }
+
+  if (smsNotifCheck && smsInputContainer) {
+      smsNotifCheck.addEventListener('change', function() {
+          if (this.checked) {
+              smsInputContainer.classList.remove('hidden');
+          } else {
+              smsInputContainer.classList.add('hidden');
+          }
+      });
+  }
+
+  if (btnBackToDuration) {
+      btnBackToDuration.addEventListener('click', function() {
+          goToStep(6);
+      });
+  }
+
+  if (btnCreateService) {
+      btnCreateService.addEventListener('click', function() {
+          // Final Validation
+          // If SMS checked, phone required
+          if (smsNotifCheck && smsNotifCheck.checked) {
+              const phoneInput = document.getElementById('sms-phone-number');
+              if (phoneInput && !phoneInput.value.trim()) {
+                  phoneInput.classList.add('error');
+                  return;
+              }
+          }
+
+          // Simulation of Service Creation
+          alert("Service Created Successfully! Redirecting to list...");
+          window.location.href = "services.html";
+      });
+  }
+
 // Helper function for navigation (placed at end for safety)
 function goToStep(stepNum) {
   // Hide all sections

@@ -635,6 +635,66 @@
           </div>
         </section>
 
+        <!-- STEP 7: NOTIFICATIONS -->
+        <section id="step-7-content" class="wizard-section hidden">
+          <div class="wizard-header-text">
+            <h1>Create Online Service</h1>
+            <p>Create a service with the possibility to connect via voice and video</p>
+          </div>
+
+          <div class="form-container">
+             <h2 class="mb-4">Create a Custom Welcome Message</h2>
+             <div class="form-group">
+                <textarea id="welcome-message" class="text-input" placeholder="Add your custom welcome message here" maxlength="1000"></textarea>
+                <div class="char-count" id="welcome-char-count">0/1000</div>
+             </div>
+
+             <h2 class="mb-4 mt-6">Booking Notification Preferences</h2>
+             <p class="text-gray-600 mb-4">Set your booking notification preferences for new bookings and status updates.</p>
+
+             <!-- Email Checkbox -->
+             <div class="notification-option mb-6">
+                <div class="form-group checkbox-row align-start">
+                  <input type="checkbox" id="email-notif-check" checked>
+                  <div class="checkbox-text">
+                      <label for="email-notif-check" class="block font-bold">Email booking notifications</label>
+                      <p class="help-text mt-1">Notifications will be sent to webnovelverse67@gmail.com</p>
+                  </div>
+                </div>
+             </div>
+
+             <!-- SMS Checkbox -->
+             <div class="notification-option">
+                <div class="form-group checkbox-row align-start">
+                  <input type="checkbox" id="sms-notif-check">
+                  <div class="checkbox-text">
+                      <label for="sms-notif-check" class="block font-bold">SMS booking notifications</label>
+                      <p class="help-text mt-1">Add your mobile number to receive instant booking confirmations and updates by text. This number will be used for all SMS notifications.</p>
+                  </div>
+                </div>
+
+                <!-- Phone Input (Hidden by default) -->
+                <div id="sms-input-container" class="hidden mt-4 ml-8">
+                    <div class="phone-input-group">
+                       <select class="country-select">
+                          <option value="+92">🇵🇰 +92</option>
+                          <option value="+1">🇺🇸 +1</option>
+                          <option value="+44">🇬🇧 +44</option>
+                          <!-- Add more as needed -->
+                       </select>
+                       <input type="tel" id="sms-phone-number" class="text-input" placeholder="Enter phone number">
+                    </div>
+                    <p class="disclaimer-text mt-2">By providing your phone number you agree to receive informational text messages from Bookme.com, Inc. Consent is not a condition of purchase. Message frequency will vary. Msg & data rates may apply. Reply HELP for help or STOP to cancel.</p>
+                </div>
+             </div>
+          </div>
+
+          <div class="wizard-footer split">
+            <button class="btn text-only" id="btn-back-to-duration">&lt; Back</button>
+            <button class="btn primary" id="btn-create-service">Create & Preview</button>
+          </div>
+        </section>
+
         <!-- CREATE ADD-ON MODAL -->
         <div id="create-addon-modal" class="modal hidden">
           <div class="modal-content large">

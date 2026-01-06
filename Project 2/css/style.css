@@ -1110,6 +1110,44 @@ textarea:focus {
   color: #111827;
 }
 
+/* --- NOTIFICATIONS STEP STYLES --- */
+.notification-option {
+    margin-bottom: 24px;
+}
+
+.checkbox-row.align-start {
+    align-items: flex-start;
+}
+
+.checkbox-text {
+    flex: 1;
+}
+
+.phone-input-group {
+    display: flex;
+    gap: 12px;
+    max-width: 400px;
+}
+
+.country-select {
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    min-width: 100px;
+}
+
+.disclaimer-text {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    line-height: 1.4;
+    max-width: 500px;
+}
+
+.ml-8 {
+    margin-left: 32px; /* Indent for phone input under checkbox */
+}
+
 /* --- DURATION STEP STYLES --- */
 .duration-card {
   border: 1px solid #e5e7eb;
