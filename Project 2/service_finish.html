@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BookMe – Service Details</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="finish-body">
+
+  <!-- HEADER -->
+  <header class="finish-header">
+    <div class="container finish-header-content">
+      <a href="services.html" class="back-link">&lt; Back to Home</a>
+
+      <div class="header-actions">
+        <span class="badge-warning">⚠ Not Listed</span>
+        <button class="btn white-outline-sm icon-btn-text">
+           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+           List on Marketplace
+        </button>
+        <span class="stats-text">📊 0 Visits</span>
+        <button class="btn white-outline-sm icon-btn-text">
+           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+           Share & Promote
+        </button>
+        <button class="btn white-outline-sm">✎ Edit</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <div class="container finish-main-layout">
+
+    <!-- LEFT COLUMN -->
+    <div class="finish-left-col">
+      <h1 id="finish-service-title" class="service-title-lg">Service Title</h1>
+
+      <div class="finish-badges">
+        <span class="badge-online-lg">🌐 Online Service</span>
+        <span id="finish-duration-badge" class="badge-time-lg">⏱ 0 hrs</span>
+      </div>
+
+      <!-- Main Image -->
+      <div class="service-main-image-container">
+         <img id="finish-service-img" src="" alt="Service Image" class="service-main-img hidden">
+         <div id="finish-service-img-placeholder" class="service-img-placeholder"></div>
+      </div>
+
+      <!-- Profile Card -->
+      <div class="profile-card-lg">
+         <div class="profile-avatar-lg">G</div> <!-- Or image if available -->
+         <div class="profile-info-lg">
+            <h3>Group Verse</h3>
+            <span class="handle">@groupverse</span>
+         </div>
+      </div>
+
+      <!-- Description -->
+      <div class="details-section">
+         <h3>📄 What You Will Get</h3>
+         <p id="finish-service-desc" class="service-desc-text">Description goes here...</p>
+      </div>
+
+      <!-- Method -->
+      <div class="details-section">
+         <h3>🌐 Online Method</h3>
+         <p>This service will be provided via:</p>
+         <div class="method-display">
+            <span class="method-icon-lg">📹</span>
+            <span id="finish-service-method">Call with Video Chat</span>
+         </div>
+      </div>
+
+      <!-- Add-ons -->
+      <div class="details-section" id="finish-addons-section">
+         <h3>⊞ Available Add-ons</h3>
+         <div id="finish-addons-list" class="addons-grid-display">
+            <!-- Dynamic Add-ons -->
+         </div>
+         <p id="no-addons-msg" class="text-gray-500 hidden">No add-ons available.</p>
+      </div>
+
+      <div class="report-service-link">
+         <a href="#">🏳 Report Service</a>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN (Sidebar) -->
+    <div class="finish-right-col">
+       <div class="simulate-booking-card">
+          <div class="simulate-info">
+             <span class="info-icon-blue">ℹ</span>
+             <div class="simulate-text">
+                <strong>Simulate booking</strong>
+                <p>View a simulation of your booking in action. Note: you cannot book yourself.</p>
+             </div>
+          </div>
+
+          <div class="booking-widget">
+             <div class="widget-header">
+                <span>Book Service</span>
+                <span id="finish-widget-price" class="widget-price">$0.00/hr</span>
+             </div>
+
+             <div class="widget-duration-box">
+                <span id="finish-widget-duration-val" class="duration-val">0 hrs</span>
+                <span id="finish-widget-duration-type" class="duration-label">Fixed duration</span>
+             </div>
+
+             <button class="btn primary full-width">Check Availability</button>
+          </div>
+       </div>
+    </div>
+
+  </div>
+
+  <!-- CONGRATS MODAL -->
+  <div id="congrats-modal" class="modal hidden">
+     <div class="modal-content congrats-content">
+        <div class="congrats-header">
+           <div class="success-icon-lg">✓</div>
+           <h2>Congrats! You're live and ready to be booked</h2>
+        </div>
+
+        <div class="congrats-body">
+           <div class="confirm-section">
+              <h3>Confirm Category & Specialty</h3>
+              <div class="confirm-row">
+                 <span class="label">Category</span>
+                 <div class="value-edit">
+                    <span class="tag-blue">Other Services</span>
+                    <button class="edit-icon-sm">✎</button>
+                 </div>
+              </div>
+              <div class="confirm-row">
+                 <span class="label">Specialty</span>
+                 <div class="value-edit">
+                    <span class="tag-blue">Miscellaneous Services</span>
+                    <button class="edit-icon-sm">✎</button>
+                 </div>
+              </div>
+           </div>
+
+           <div class="share-section">
+              <h3>Share Your Booking Link</h3>
+              <div class="copy-link-wrapper">
+                 <span class="link-icon">🔗</span>
+                 <input type="text" id="share-link-input" value="bookme.com/groupverse/123456" readonly>
+                 <button class="copy-btn">📋</button>
+              </div>
+           </div>
+        </div>
+
+        <div class="congrats-footer">
+           <button class="btn primary full-width" id="btn-finish-modal">Finish</button>
+        </div>
+     </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
