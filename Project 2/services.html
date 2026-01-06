@@ -101,9 +101,10 @@
 
     <!-- MAIN CONTENT -->
     <main class="dashboard-main">
-      <div class="dashboard-content-wrapper">
+      <div class="dashboard-content-wrapper services-layout-grid">
 
-        <div class="earnings-header-row">
+        <!-- HEADER -->
+        <div class="earnings-header-row full-width-header">
           <div class="earnings-title-group">
             <h1 class="earnings-title">Manage Services & Appointments</h1>
             <p class="earnings-subtitle">Create and manage your services and appointments here.</p>
@@ -120,72 +121,141 @@
           </div>
         </div>
 
-        <h2 class="section-heading-lg">What would you like to create?</h2>
-
-        <div class="services-creation-grid">
-
-          <div class="services-list-column">
-
-            <!-- Online Service -->
-            <div class="service-create-card">
-              <div class="service-card-header">
-                <div class="service-icon-circle green">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                </div>
-                <h3>Online Service</h3>
-              </div>
-              <p>Set your rate and availability for voice, video chat and more.</p>
-              <button class="btn full-width-outline" onclick="location.href='create_online_service.html'">Select</button>
-            </div>
-
-            <!-- In-Person Service -->
-            <div class="service-create-card">
-              <div class="service-card-header">
-                <div class="service-icon-circle orange">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                </div>
-                <h3>In-Person Service</h3>
-              </div>
-              <p>Set locations, travel options, your rate, availability and more.</p>
-              <button class="btn full-width-outline">Select</button>
-            </div>
-
-            <!-- Free Appointment -->
-            <div class="service-create-card">
-              <div class="service-card-header">
-                <div class="service-icon-circle blue">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                </div>
-                <h3>Free Appointment</h3>
-              </div>
-              <p>Make it easy for people to book a free appointment or consultation.</p>
-              <!-- Assuming Select button exists for consistency, though prompt cut off -->
-              <!-- <button class="btn full-width-outline">Select</button> -->
-              <!-- Commenting out button if not explicitly requested, but visual balance suggests it. I'll leave it out to strictly follow text if needed, but I'll add a placeholder or nothing. Let's assume no button for now as it wasn't in the provided text snippets fully. -->
-            </div>
-
-          </div>
-
-          <div class="support-column">
-             <div class="support-widget-card">
-                <div class="support-header">
-                  <!-- Using a generic avatar/icon for 'Need Help' -->
-                  <div class="support-avatar">
-                    <div style="width:64px; height:64px; background:#f3f4f6; border-radius:50%; display:flex; align-items:center; justify-content:center;">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                    </div>
+        <!-- LEFT COLUMN: Services List -->
+        <div class="services-main-column">
+           <div class="services-list-header">
+              <div class="services-header-left">
+                  <div class="header-icon-title">
+                      <span class="bell-icon">🔔</span> <!-- Icon roughly matching screenshot -->
+                      <h3>Services & Appointments</h3>
                   </div>
-                  <h3>Need Help?</h3>
-                </div>
-                <p>Get support from one of our experts.</p>
-                <button class="btn full-width-outline">Chat with an Expert</button>
-             </div>
-          </div>
+                  <div class="toggle-pill-container">
+                      <button class="toggle-pill-btn active">Public</button>
+                      <button class="toggle-pill-btn">Custom</button>
+                  </div>
+              </div>
+              <div class="services-header-right">
+                  <div class="view-toggles">
+                      <button class="view-btn active" title="Grid View">⊞</button>
+                      <button class="view-btn" title="List View">☰</button>
+                  </div>
+                  <button class="btn primary-blue-btn" id="btn-add-new-service">+ Add New</button>
+              </div>
+           </div>
 
+           <!-- Services Container -->
+           <div id="my-services-list" class="my-services-grid">
+               <!-- Dynamic Service Cards will be injected here -->
+               <!-- Empty State Placeholder if needed -->
+               <div id="empty-services-placeholder" class="empty-state-box hidden">
+                   <p>No services created yet.</p>
+               </div>
+           </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Create Options -->
+        <div class="services-sidebar-column">
+           <div class="create-sidebar-section">
+              <h2 class="section-heading-sm">What would you like to create?</h2>
+
+              <!-- Online Service -->
+              <div class="service-create-card small">
+                <div class="service-card-header">
+                  <div class="service-icon-circle green small-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                  </div>
+                  <h3>Online Service</h3>
+                </div>
+                <p>Set your rate and availability for voice, video chat and more.</p>
+                <button class="btn full-width-outline small-btn" onclick="location.href='create_online_service.html'">Select</button>
+              </div>
+
+              <!-- In-Person Service -->
+              <div class="service-create-card small">
+                <div class="service-card-header">
+                  <div class="service-icon-circle orange small-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  </div>
+                  <h3>In-Person Service</h3>
+                </div>
+                <p>Set locations, travel options, your rate, availability and more.</p>
+                <button class="btn full-width-outline small-btn">Select</button>
+              </div>
+
+              <!-- Free Appointment -->
+              <div class="service-create-card small">
+                <div class="service-card-header">
+                  <div class="service-icon-circle blue small-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  </div>
+                  <h3>Free Appointment</h3>
+                </div>
+                <p>Make it easy for people to book a free appointment or consultation.</p>
+                <button class="btn full-width-outline small-btn">Select</button>
+              </div>
+           </div>
+
+           <div class="support-widget-card small-widget">
+              <div class="support-header">
+                <div class="support-avatar small-avatar">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <h3>Need Help?</h3>
+              </div>
+              <p>Get support from one of our experts.</p>
+              <button class="btn full-width-outline small-btn">Chat with an Expert</button>
+           </div>
         </div>
 
       </div>
     </main>
+  </div>
+
+  <!-- ADD NEW SERVICE MODAL -->
+  <div id="create-new-modal" class="modal hidden">
+     <div class="modal-content create-modal-content">
+        <div class="modal-header">
+           <h2>What would you like to create?</h2>
+           <button class="btn-close-modal" id="btn-close-create-modal">×</button>
+        </div>
+        <div class="create-options-list">
+             <!-- Online Service -->
+             <div class="service-create-card modal-card">
+                <div class="service-card-header">
+                  <div class="service-icon-circle green">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                  </div>
+                  <h3>Online Service</h3>
+                </div>
+                <p>Set your rate and availability for voice, video chat and more.</p>
+                <button class="btn full-width-outline" onclick="location.href='create_online_service.html'">Select</button>
+             </div>
+
+             <!-- In-Person Service -->
+             <div class="service-create-card modal-card">
+                <div class="service-card-header">
+                  <div class="service-icon-circle orange">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  </div>
+                  <h3>In-Person Service</h3>
+                </div>
+                <p>Set locations, travel options, your rate, availability and more.</p>
+                <button class="btn full-width-outline">Select</button>
+             </div>
+
+             <!-- Free Appointment -->
+             <div class="service-create-card modal-card">
+                <div class="service-card-header">
+                  <div class="service-icon-circle blue">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  </div>
+                  <h3>Free Appointment</h3>
+                </div>
+                <p>Make it easy for people to book a free appointment or consultation.</p>
+                <button class="btn full-width-outline">Select</button>
+             </div>
+        </div>
+     </div>
   </div>
 
   <script src="js/script.js"></script>

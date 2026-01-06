@@ -1417,10 +1417,160 @@ document.addEventListener('DOMContentLoaded', function() {
           }
 
           // Simulation of Service Creation
-          alert("Service Created Successfully! Redirecting to list...");
-          window.location.href = "services.html";
+          // alert("Service Created Successfully! Redirecting to list...");
+
+          // CAPTURE WIZARD DATA
+          const serviceData = {
+              title: document.getElementById('service-title').value,
+              description: document.getElementById('service-description').value,
+              isHourly: document.getElementById('btn-hourly').classList.contains('active'),
+              price: document.querySelector('#step-2-content .rate-input').value || '0.00',
+              currency: document.querySelector('#step-2-content .currency-select').value || 'USD',
+              method: document.getElementById('card-builtin').classList.contains('selected') ? 'Call with Video Chat' : 'Custom Method',
+              image: document.getElementById('preview-image-div').style.backgroundImage, // url("...")
+              addons: []
+          };
+
+          // Duration Logic
+          if (serviceData.isHourly) {
+              const selects = document.querySelectorAll('#hourly-duration-section select');
+              // Assuming order: min-hr, min-min, max-hr, max-min
+              // Simplified: just grab max or a representative string
+              // Let's grab the first non-zero or just the max
+              // Screenshot shows "3 hrs Fixed duration" or "$11.00/hr".
+              // If hourly, user sets range. The detail page usually shows "1-3 hrs" or similar.
+              // Let's construct a string.
+              serviceData.durationLabel = "Variable duration";
+              // We can refine this if needed, but for "Finish" page "3 hrs" might come from specific inputs.
+              // For now, let's grab the Maximum.
+              if(selects.length >= 4) {
+                  const maxHr = selects[2].value; // value is "1", "2" etc.
+                  serviceData.duration = `${maxHr} hrs`; // Simplified
+              }
+          } else {
+              const selects = document.querySelectorAll('#flat-duration-section select');
+              if(selects.length >= 2) {
+                  const hr = selects[0].value;
+                  serviceData.duration = `${hr} hrs`;
+                  serviceData.durationLabel = "Fixed duration";
+              }
+          }
+
+          // Add-ons
+          const addonItems = document.querySelectorAll('#addons-list .addon-list-item');
+          addonItems.forEach(item => {
+              const title = item.querySelector('.addon-item-details h4').textContent;
+              const price = item.querySelector('.addon-item-price').textContent;
+              const desc = item.querySelector('.addon-item-details p').textContent;
+              serviceData.addons.push({ title, price, desc });
+          });
+
+          // Store in LocalStorage
+          localStorage.setItem('newServiceData', JSON.stringify(serviceData));
+
+          // Also Append to All Services List
+          let allServices = JSON.parse(localStorage.getItem('allServices') || '[]');
+          // Add a unique ID
+          serviceData.id = Date.now();
+          allServices.push(serviceData);
+          localStorage.setItem('allServices', JSON.stringify(allServices));
+
+          // Redirect to Finish Page
+          window.location.href = "service_finish.html";
       });
   }
+
+// =======================
+// FINISH PAGE LOGIC
+// =======================
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.location.pathname.includes('service_finish.html')) {
+        const dataStr = localStorage.getItem('newServiceData');
+        if (dataStr) {
+            const data = JSON.parse(dataStr);
+
+            // Populate Fields
+            document.getElementById('finish-service-title').textContent = data.title;
+            document.getElementById('finish-service-desc').textContent = data.description;
+            document.getElementById('finish-service-method').textContent = data.method;
+
+            if (data.image && data.image !== 'none') {
+                // data.image is 'url("...")'. We need to extract the url or apply as bg.
+                // The layout uses an <img> tag or a div?
+                // HTML has <img id="finish-service-img" ... class="hidden"> and div placeholder.
+                const imgTag = document.getElementById('finish-service-img');
+                const placeholder = document.getElementById('finish-service-img-placeholder');
+
+                // Extract URL from 'url("...")'
+                const match = data.image.match(/url\(['"]?(.*?)['"]?\)/);
+                if (match && match[1]) {
+                    imgTag.src = match[1];
+                    imgTag.classList.remove('hidden');
+                    placeholder.classList.add('hidden');
+                }
+            }
+
+            // Duration & Price
+            document.getElementById('finish-duration-badge').textContent = `⏱ ${data.duration}`;
+            document.getElementById('finish-widget-duration-val').textContent = data.duration;
+            if (data.durationLabel) {
+                document.getElementById('finish-widget-duration-type').textContent = data.durationLabel;
+            }
+
+            const priceStr = `$${data.price}/${data.isHourly ? 'hr' : 'session'}`;
+            document.getElementById('finish-widget-price').textContent = priceStr;
+
+            // Add-ons
+            const addonsContainer = document.getElementById('finish-addons-list');
+            const noAddonsMsg = document.getElementById('no-addons-msg');
+
+            if (data.addons.length > 0) {
+                noAddonsMsg.classList.add('hidden');
+                data.addons.forEach(addon => {
+                    const el = document.createElement('div');
+                    el.className = 'addon-list-item'; // Reuse existing class for styling or creating new structure?
+                    // The screenshot finish 2.jpg shows add-ons as cards or list items.
+                    // Reuse structure:
+                    el.innerHTML = `
+                        <div class="addon-item-left">
+                            <div class="addon-item-img"></div>
+                            <div class="addon-item-details">
+                                <h4>${addon.title}</h4>
+                                <p>${addon.desc}</p>
+                            </div>
+                        </div>
+                        <div class="addon-item-right">
+                            <span class="badge-online-lg" style="background:#111827; color:white;">${addon.price}</span>
+                        </div>
+                    `;
+                    addonsContainer.appendChild(el);
+                });
+            } else {
+                noAddonsMsg.classList.remove('hidden');
+            }
+
+            // Update Share Link in Modal
+            // Random ID or slug
+            const randomId = Math.floor(Math.random() * 1000000000);
+            const shareInput = document.getElementById('share-link-input');
+            if(shareInput) {
+                shareInput.value = `bookme.com/groupverse/${randomId}`;
+            }
+
+            // Show Congrats Modal
+            const modal = document.getElementById('congrats-modal');
+            if (modal) modal.classList.remove('hidden');
+
+            // Finish Button Logic
+            const btnFinish = document.getElementById('btn-finish-modal');
+            if (btnFinish) {
+                btnFinish.addEventListener('click', function() {
+                    modal.classList.add('hidden');
+                });
+            }
+        }
+    }
+});
 
 // Helper function for navigation (placed at end for safety)
 function goToStep(stepNum) {
@@ -1465,3 +1615,138 @@ function goToStep(stepNum) {
      }
   });
 }
+
+// =======================
+// SERVICES PAGE LOGIC
+// =======================
+document.addEventListener('DOMContentLoaded', function() {
+    // Only run on services page
+    const servicesListContainer = document.getElementById('my-services-list');
+
+    if (servicesListContainer) {
+        // 1. Render Services
+        renderServicesList();
+
+        // 2. Add New Button Logic
+        const btnAddNew = document.getElementById('btn-add-new-service');
+        const modal = document.getElementById('create-new-modal');
+        const btnCloseModal = document.getElementById('btn-close-create-modal');
+
+        if (btnAddNew && modal) {
+            btnAddNew.addEventListener('click', function() {
+                modal.classList.remove('hidden');
+            });
+        }
+
+        if (btnCloseModal && modal) {
+            btnCloseModal.addEventListener('click', function() {
+                modal.classList.add('hidden');
+            });
+        }
+
+        // Close modal if clicking outside
+        if (modal) {
+            window.addEventListener('click', function(e) {
+               if (e.target === modal) {
+                   modal.classList.add('hidden');
+               }
+            });
+        }
+    }
+});
+
+function renderServicesList() {
+    const container = document.getElementById('my-services-list');
+    const placeholder = document.getElementById('empty-services-placeholder');
+    if (!container) return;
+
+    const allServices = JSON.parse(localStorage.getItem('allServices') || '[]');
+
+    // Clear current list (except placeholder)
+    container.innerHTML = '';
+    if (placeholder) container.appendChild(placeholder);
+
+    if (allServices.length === 0) {
+        if(placeholder) placeholder.classList.remove('hidden');
+    } else {
+        if(placeholder) placeholder.classList.add('hidden');
+
+        allServices.forEach(service => {
+            const card = createServiceCard(service);
+            container.appendChild(card);
+        });
+    }
+}
+
+function createServiceCard(service) {
+    const card = document.createElement('div');
+    card.className = 'service-card-item'; // New class for styling
+
+    // Image Logic
+    let bgStyle = 'background-color: #f3f4f6;'; // default grey
+    if (service.image && service.image !== 'none') {
+        bgStyle = `background-image: ${service.image}; background-size: cover; background-position: center;`;
+    }
+
+    // Price Logic
+    const priceDisplay = `$${service.price}/${service.isHourly ? 'hr' : 'session'}`;
+
+    card.innerHTML = `
+       <div class="card-image-area" style="${bgStyle}">
+          <span class="card-price-badge">${priceDisplay}</span>
+          <button class="card-menu-btn">...</button>
+
+          <div class="card-menu-dropdown hidden">
+             <ul>
+                <li onclick="alert('Edit functionality coming soon')"><span class="icon">✎</span> Edit</li>
+                <li onclick="window.location.href='service_finish.html'"><span class="icon">👁</span> Preview</li>
+                <li><span class="icon">🔗</span> Share</li>
+                <li><span class="icon">📋</span> Duplicate</li>
+                <li><span class="icon">⏸</span> Switch to Inactive</li>
+                <li class="delete-opt"><span class="icon">🗑</span> Delete</li>
+             </ul>
+          </div>
+       </div>
+       <div class="card-info-area">
+          <h4>${service.title}</h4>
+          <p>${service.duration || 'Flexible'}</p>
+       </div>
+    `;
+
+    // Wire up menu
+    const menuBtn = card.querySelector('.card-menu-btn');
+    const dropdown = card.querySelector('.card-menu-dropdown');
+
+    menuBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        // Close others
+        document.querySelectorAll('.card-menu-dropdown').forEach(d => {
+            if (d !== dropdown) d.classList.add('hidden');
+        });
+        dropdown.classList.toggle('hidden');
+    });
+
+    // Wire up Delete
+    const deleteBtn = card.querySelector('.delete-opt');
+    deleteBtn.addEventListener('click', function() {
+        if (confirm('Are you sure you want to delete this service?')) {
+            deleteService(service.id);
+        }
+    });
+
+    return card;
+}
+
+function deleteService(id) {
+    let allServices = JSON.parse(localStorage.getItem('allServices') || '[]');
+    allServices = allServices.filter(s => s.id !== id);
+    localStorage.setItem('allServices', JSON.stringify(allServices));
+    renderServicesList();
+}
+
+// Global click to close dropdowns
+document.addEventListener('click', function(e) {
+   if (!e.target.matches('.card-menu-btn')) {
+       document.querySelectorAll('.card-menu-dropdown').forEach(d => d.classList.add('hidden'));
+   }
+});
